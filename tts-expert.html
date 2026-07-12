@@ -1,89 +1,389 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TTS Expert Privacy Policy | Neuron TS Labs</title>
-<style>
-:root{--primary:#7F00FF;--bg:#f6f7fb;--card:#fff}
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:#222;line-height:1.7}
-header{background:linear-gradient(135deg,#7F00FF,#9d4dff);color:#fff;text-align:center;padding:60px 20px}
-header a{display:inline-block;margin-top:18px;padding:12px 20px;background:#fff;color:#7F00FF;text-decoration:none;border-radius:999px;font-weight:bold}
-main{max-width:900px;margin:30px auto;padding:0 20px}
-.card{background:#fff;padding:26px;border-radius:18px;box-shadow:0 8px 24px rgba(0,0,0,.08);margin-bottom:24px}
-h2{color:#7F00FF}
-table{width:100%;border-collapse:collapse}
-th,td{border:1px solid #ddd;padding:10px}
-th{background:#f8f5ff}
-.notice{background:#f3ecff;border-left:5px solid #7F00FF;padding:15px;border-radius:10px}
-footer{text-align:center;padding:30px;color:#666}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTS Expert Privacy Policy | Neuron TS Labs</title>
+    <meta name="description" content="Official data privacy policy and local sandbox documentation for TTS Expert text-to-speech system.">
+    <style>
+        :root {
+            --bg-main: #0b0f19;
+            --bg-surface: #111827;
+            --bg-surface-elevated: #1f2937;
+            --accent-purple: #9d4dff;
+            --accent-cyan: #00f2fe;
+            --text-primary: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.06);
+            --neon-glow: rgba(157, 77, 255, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: 60px;
+        }
+
+        .nav-bar {
+            border-bottom: 1px solid var(--border-color);
+            background-color: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 16px 20px;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .doc-header {
+            max-width: 1000px;
+            margin: 60px auto 40px auto;
+            padding: 0 20px;
+        }
+
+        .doc-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 4px 10px;
+            background: rgba(157, 77, 255, 0.1);
+            color: var(--accent-purple);
+            border-radius: 6px;
+            border: 1px solid rgba(157, 77, 255, 0.2);
+            margin-bottom: 12px;
+        }
+
+        .doc-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #ffffff 40%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .doc-meta {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .policy-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .policy-content {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 40px;
+        }
+
+        .policy-content section {
+            margin-bottom: 36px;
+        }
+
+        .policy-content section:last-child {
+            margin-bottom: 0;
+        }
+
+        .policy-content h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            border-left: 3px solid var(--accent-purple);
+            padding-left: 12px;
+        }
+
+        .policy-content p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .policy-content ul {
+            list-style: none;
+            margin-left: 4px;
+            margin-bottom: 16px;
+        }
+
+        .policy-content ul li {
+            position: relative;
+            padding-left: 20px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .policy-content ul li::before {
+            content: "▪";
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+        }
+
+        .exclusion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+            margin: 20px 0;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+        }
+
+        .exclusion-item {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .matrix-table th {
+            background-color: rgba(255, 255, 255, 0.03);
+            color: #ffffff;
+            font-weight: 600;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .matrix-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-muted);
+            vertical-align: top;
+        }
+
+        .matrix-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .code-inline {
+            font-family: monospace;
+            background-color: var(--bg-surface-elevated);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #f3f4f6;
+            font-size: 0.85rem;
+        }
+
+        .highlight-box {
+            background: radial-gradient(circle at top left, rgba(0, 242, 254, 0.03), transparent), var(--bg-surface-elevated);
+            border: 1px solid rgba(0, 242, 254, 0.15);
+            border-radius: 14px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            color: #e5e7eb;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 600px) {
+            .policy-content {
+                padding: 24px;
+            }
+            .doc-header h1 {
+                font-size: 2rem;
+            }
+            .matrix-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
 </head>
 <body>
-<header>
-<h1>🎤 TTS Expert</h1>
-<p>Official Privacy Policy</p>
-<a href="index.html">← Back to Home</a>
-</header>
 
-<main>
-<div class="card">
-<h2>Last Updated</h2>
-<p>July 12, 2026</p>
-<p>TTS Expert is developed by <strong>Neuron TS Labs</strong>. We are committed to protecting your privacy while providing high-quality text-to-speech features.</p>
-</div>
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a class="nav-logo" href="index.html">🎤 Neuron TS Labs</a>
+            <a class="btn-back" href="index.html">← Back to Terminal</a>
+        </div>
+    </nav>
 
-<div class="card">
-<h2>Permissions</h2>
-<table>
-<tr><th>Permission</th><th>Purpose</th></tr>
-<tr><td>Media / Audio</td><td>Save generated speech files to your device when you choose to export.</td></tr>
-<tr><td>Notifications (Optional)</td><td>Display export progress or completion notifications.</td></tr>
-</table>
-</div>
+    <header class="doc-header">
+        <span class="doc-badge">Privacy Architecture Confirmed</span>
+        <h1>Privacy Policy for TTS Expert</h1>
+        <div class="doc-meta">
+            <span>Application Package: </span><span class="code-inline">com.neurontslabs.ttsexpert</span> • <span>Effective Date: 12 July 2026</span>
+        </div>
+    </header>
 
-<div class="card">
-<h2>How TTS Expert Works</h2>
-<div class="notice">
-Text entered by you is processed on your device whenever offline voices are used. Exported audio files are saved only to the location you choose.
-</div>
-</div>
+    <main class="policy-container">
+        <div class="policy-content">
+            
+            <section id="welcome">
+                <h2>1. Privacy-First Philosophy Statement</h2>
+                <p>Welcome to TTS Expert. At Neuron TS Labs, we engineer our software solutions using strict privacy-by-design protocols. TTS Expert is structurally built to execute high-fidelity audio synthesis directly inside your device sandbox environment. By removing dependencies on permanent remote servers for data processing, we ensure that your written files and generated compositions remain strictly within your autonomous control.</p>
+            </section>
 
-<div class="card">
-<h2>Data Collection</h2>
-<ul>
-<li>No account registration is required.</li>
-<li>We do not collect or store the text you convert to speech on Neuron TS Labs servers.</li>
-<li>Your exported audio remains under your control on your device.</li>
-<li>Application settings are stored locally.</li>
-</ul>
-</div>
+            <section id="exclusions">
+                <h2>2. Complete Data Non-Collection Manifest</h2>
+                <p>TTS Expert operates transparently without account registries, token registration protocols, or user logins. We do not intentionally harvest, inspect, or retain any personal identifiers or device variables. The following arrays are completely isolated from our software scope:</p>
+                
+                <div class="exclusion-grid">
+                    <div class="exclusion-item">👤 Zero Identity Names</div>
+                    <div class="exclusion-item">📧 Zero Email Indices</div>
+                    <div class="exclusion-item">📞 Zero Telephony Numbers</div>
+                    <div class="exclusion-item">📍 Zero Precise GPS Coordinates</div>
+                    <div class="exclusion-item">👥 Zero Contact Books</div>
+                    <div class="exclusion-item">💬 Zero Outbound SMS Metadata</div>
+                    <div class="exclusion-item">📷 Zero Local Media Access</div>
+                    <div class="exclusion-item">🎤 Zero Microphone Channels</div>
+                    <div class="exclusion-item">💳 Zero Financial Records</div>
+                    <div class="exclusion-item">🪪 Zero Regulatory IDs</div>
+                </div>
+            </section>
 
-<div class="card">
-<h2>Third-Party Services</h2>
-<p>If the application includes advertising, analytics, or cloud-based voice providers, those services may process information according to their own privacy policies. Review those providers' policies where applicable.</p>
-</div>
+            <section id="processing-boundaries">
+                <h2>3. Localized Synthesis Pipeline & Audio Ownership</h2>
+                <p>Text structures typed, pasted, or loaded into the TTS Expert UI engine follow strict handling rules:</p>
+                <ul>
+                    <li><strong>Processing Domain:</strong> Text strings are consumed strictly inside local processing components to compute real-time speech synthesis. No text data parsed by this utility is ever transmitted to, cached by, or sold by Neuron TS Labs.</li>
+                    <li><strong>Audio Export Nomenclature:</strong> Synthesized outputs transformed into persistent file formats (such as <span class="code-inline">.wav</span>) are stored directly on your physical hardware container using immutable, timestamp-delimited filenames to prevent unintended data loss:
+                        <br><span class="code-inline" style="display:inline-block; margin-top:6px;">TTS_20260712_103025.wav</span>
+                        <br><span class="code-inline" style="display:inline-block; margin-top:4px;">TTS_20260712_154512.wav</span>
+                    </li>
+                    <li><strong>Asset Sovereignty:</strong> You retain exclusive, unencumbered ownership of all generated audio files, speech assets, and wave outputs. We exercise no software rights over your audio exports.</li>
+                </ul>
+            </section>
 
-<div class="card">
-<h2>Your Choices</h2>
-<ul>
-<li>Delete generated audio files whenever you choose.</li>
-<li>Clear app data through Android Settings.</li>
-<li>Manage permissions from Android Settings.</li>
-<li>Uninstall the app to remove local app data.</li>
-</ul>
-</div>
+            <section id="engine-governance">
+                <h2>4. Text-to-Speech Subsystem Framework Architecture</h2>
+                <p>To process synthesis calls effectively while maintaining strict platform boundaries, TTS Expert routes events across established system containers:</p>
+                
+                <table class="matrix-table">
+                    <thead>
+                        <tr>
+                            <th>Subsystem Layer</th>
+                            <th>Operational Scope</th>
+                            <th>Privacy Governance Boundary</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="code-inline">Android Text-to-Speech Framework</span></td>
+                            <td>Coordinates low-level platform APIs to map string buffers into audible waveforms.</td>
+                            <td>Governed natively by the core Android system configuration parameters. Data operations occur strictly inside local memory structures.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-inline">Google Text-to-Speech Engine</span></td>
+                            <td>Optional native high-fidelity module used to compute complex natural voice variations.</td>
+                            <td>Operates under Google's independent privacy guidelines. If an external online voice configuration is chosen, data handling shifts entirely to that provider.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-inline">Custom User Modules</span></td>
+                            <td>Third-party synthesis plug-ins or system voice packs manually installed by the user.</td>
+                            <td>Subject exclusively to the localized configuration profiles and terms of those specific module creators.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
 
-<div class="card">
-<h2>Contact</h2>
-<p><strong>Neuron TS Labs</strong></p>
-<p>Email: <a href="mailto:shaikhtahir3162@gmail.com">shaikhtahir3162@gmail.com</a></p>
-<p>GitHub: <a href="https://github.com/shaikhtahir3162-bit">shaikhtahir3162-bit</a></p>
-</div>
+            <section id="permission-isolation">
+                <h2>5. Structural Permission Isolation</h2>
+                <p>TTS Expert operates cleanly without requesting dangerous permissions. The application package explicitly runs without hooks into high-risk system subsystems, including the Device Camera, Microphone, GPS Location sensors, and Contact aggregators. The app calls upon local filesystem operations exclusively to import baseline files or write out high-fidelity audio assets into your designated target directory.</p>
+            </section>
 
-</main>
+            <section id="advertising-monetization">
+                <h2>6. Monetization & Analytic Framework Disclosures</h2>
+                <p>To support independent utility development, TTS Expert integrates standard mobile monetization components via the Google AdMob SDK framework. These tools manage ad frequencies and verify interaction integrity independently from our core audio codebase. Data variables captured directly by the advertising layer include:</p>
+                <ul>
+                    <li>Device model descriptors, active configurations, and hardware parameters.</li>
+                    <li>Standard Mobile Advertising IDs (<span class="code-inline">AAID</span>) for frequency monitoring.</li>
+                    <li>Basic app interaction analytics and crash diagnostics metrics.</li>
+                    <li>Coarse, network-level approximate location strings based on active IP groups.</li>
+                </ul>
+            </section>
 
-<footer>© 2026 Neuron TS Labs. All rights reserved.</footer>
+            <section id="data-sovereignty">
+                <h2>7. Data Sovereignty, Control, and Erasure Rights</h2>
+                <p>Because your synthesis strings and audio assets are never recorded on external servers, Neuron TS Labs cannot execute remote deletion commands. You retain complete, autonomous authority over your data lifecycles. Wiping application data, managing files, clearing storage caches, or performing a package uninstallation completely deletes all localized system parameters instantly.</p>
+            </section>
+
+            <section id="contact">
+                <h2>8. Developer Contact & Governance Records</h2>
+                <p>For deep technical inquiries regarding local synthesis architectures, permission isolation, or validation models, communicate directly with the official administrative studio portal:</p>
+                <ul>
+                    <li><strong>Developer Studio:</strong> Neuron TS Labs</li>
+                    <li><strong>Principal Engineer:</strong> Mohd Tahir Shaikh</li>
+                    <li><strong>Administrative Email:</strong> <a href="mailto:shaikhtahir3162@gmail.com" style="color: var(--accent-cyan); text-decoration: none;">shaikhtahir3162@gmail.com</a></li>
+                    <li><strong>Studio Infrastructure:</strong> <a href="https://github.com/shaikhtahir3162-bit" target="_blank" style="color: var(--accent-cyan); text-decoration: none;">shaikhtahir3162-bit</a></li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+
 </body>
 </html>
