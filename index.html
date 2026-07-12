@@ -1,42 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Neuron TS Labs — Enterprise Privacy-First Android Apps</title>
-    <meta name="description" content="Neuron TS Labs builds privacy-first, offline-capable Android apps. Explore FallGuard, Photo Compressor, SCI-CAL, and TTS Expert." />
-    
-    <!-- Google Fonts + Font Awesome -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuron TS Labs | Production-Grade Android Utilities</title>
+    <meta name="description" content="High-performance, privacy-first Android applications engineering. Explore our portfolio and security documentation.">
     <style>
-        /* ========== RESET & VARIABLES ========== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --bg-main: #0b0f19;
+            --bg-surface: #111827;
+            --bg-surface-elevated: #1f2937;
+            --accent-purple: #9d4dff;
+            --accent-cyan: #00f2fe;
+            --text-primary: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.06);
+            --neon-glow: rgba(157, 77, 255, 0.15);
         }
 
-        :root {
-            --bg-primary: #08080f;
-            --bg-secondary: #0e0e1a;
-            --bg-card: rgba(255, 255, 255, 0.04);
-            --border-glass: rgba(255, 255, 255, 0.08);
-            --text-primary: #f1f5f9;
-            --text-secondary: #94a3b8;
-            --text-muted: #64748b;
-            --accent-purple: #7C3AED;
-            --accent-cyan: #06B6D4;
-            --accent-gradient: linear-gradient(135deg, #7C3AED, #06B6D4);
-            --shadow-glow: 0 8px 40px rgba(124, 58, 237, 0.15);
-            --radius-lg: 24px;
-            --radius-md: 16px;
-            --radius-sm: 10px;
-            --font: 'Inter', system-ui, -apple-system, sans-serif;
-            --transition: 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         html {
@@ -44,933 +29,514 @@
         }
 
         body {
-            font-family: var(--font);
-            background: var(--bg-primary);
+            background-color: var(--bg-main);
             color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* ========== GLASS UTILITY ========== */
-        .glass {
-            background: var(--bg-card);
-            backdrop-filter: blur(16px) saturate(180%);
-            -webkit-backdrop-filter: blur(16px) saturate(180%);
-            border: 1px solid var(--border-glass);
-            border-radius: var(--radius-md);
-        }
-
-        /* ========== ANIMATED BACKGROUND ORB ========== */
-        .orb {
-            position: fixed;
-            top: -30%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle at 30% 40%, rgba(124, 58, 237, 0.25), transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 0;
-            animation: orbFloat 18s ease-in-out infinite alternate;
-        }
-
-        .orb-2 {
-            left: -15%;
-            top: 50%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle at 70% 60%, rgba(6, 182, 212, 0.15), transparent 70%);
-            animation-delay: -6s;
-        }
-
-        @keyframes orbFloat {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(40px, -30px) scale(1.1); }
-        }
-
-        /* ========== STICKY NAV ========== */
-        nav {
-            position: sticky;
-            top: 16px;
-            z-index: 1000;
-            margin: 0 24px;
-            padding: 0 28px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 68px;
-            background: rgba(8, 8, 15, 0.7);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 60px;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
-            transition: var(--transition);
-        }
-
-        .nav-logo {
-            font-weight: 700;
-            font-size: 1.25rem;
-            letter-spacing: -0.5px;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .nav-logo i {
-            -webkit-text-fill-color: initial;
-            color: var(--accent-cyan);
-            margin-right: 6px;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 32px;
-            list-style: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-        .nav-links a {
-            color: var(--text-secondary);
-            transition: var(--transition);
+        /* Hero Section */
+        header {
             position: relative;
+            background: radial-gradient(circle at top right, rgba(157, 77, 255, 0.12), transparent 50%),
+                        radial-gradient(circle at bottom left, rgba(0, 242, 254, 0.05), transparent 50%),
+                        var(--bg-main);
+            border-bottom: 1px solid var(--border-color);
+            padding: 100px 20px 80px 20px;
+            text-align: center;
+            overflow: hidden;
         }
-        .nav-links a::after {
+
+        header::before {
             content: '';
             position: absolute;
-            left: 0;
-            bottom: -4px;
-            width: 0%;
-            height: 2px;
-            background: var(--accent-gradient);
-            transition: var(--transition);
-        }
-        .nav-links a:hover {
-            color: #fff;
-        }
-        .nav-links a:hover::after {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 100%;
+            max-width: 1200px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-purple), var(--accent-cyan), transparent);
         }
 
-        .nav-cta {
-            background: var(--accent-gradient);
-            padding: 8px 22px;
-            border-radius: 60px;
-            font-weight: 600;
-            color: #fff !important;
-            transition: var(--transition);
-            -webkit-text-fill-color: #fff !important;
-            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.3);
-        }
-        .nav-cta:hover {
-            transform: scale(1.04);
-            box-shadow: 0 6px 30px rgba(124, 58, 237, 0.5);
+        .header-container {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        /* Mobile nav toggle */
-        .nav-toggle {
-            display: none;
-            font-size: 1.5rem;
-            background: none;
-            border: none;
-            color: #fff;
-            cursor: pointer;
-        }
-
-        /* ========== HERO ========== */
-        .hero {
-            position: relative;
-            z-index: 1;
-            padding: 100px 0 80px;
-            text-align: center;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: rgba(124, 58, 237, 0.15);
-            border: 1px solid rgba(124, 58, 237, 0.3);
-            padding: 6px 20px;
-            border-radius: 60px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--accent-cyan);
-            letter-spacing: 0.3px;
-            margin-bottom: 28px;
-            backdrop-filter: blur(4px);
-        }
-
-        .hero h1 {
-            font-size: 4.2rem;
+        header h1 {
+            font-size: 3.5rem;
             font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -2px;
-            background: var(--accent-gradient);
+            letter-spacing: -0.05em;
+            background: linear-gradient(135deg, #ffffff 30%, #a78bfa 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-            max-width: 860px;
-            margin: 0 auto 20px;
+            margin-bottom: 16px;
         }
 
-        .hero p {
+        header p {
             font-size: 1.2rem;
-            color: var(--text-secondary);
-            max-width: 640px;
-            margin: 0 auto 36px;
-            line-height: 1.8;
-        }
-
-        .hero-actions {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            flex-wrap: wrap;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto 32px auto;
+            line-height: 1.7;
         }
 
         .btn-primary {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 14px 36px;
-            background: var(--accent-gradient);
-            border-radius: 60px;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, var(--accent-purple), #7c3aed);
+            color: #ffffff;
+            text-decoration: none;
             font-weight: 600;
-            color: #fff;
-            transition: var(--transition);
-            box-shadow: 0 6px 30px rgba(124, 58, 237, 0.3);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px var(--neon-glow);
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
+
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 45px rgba(124, 58, 237, 0.45);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(157, 77, 255, 0.3);
         }
 
-        .btn-ghost {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 14px 36px;
-            border: 1px solid var(--border-glass);
-            border-radius: 60px;
-            font-weight: 500;
-            color: var(--text-secondary);
-            transition: var(--transition);
-            background: rgba(255, 255, 255, 0.02);
-        }
-        .btn-ghost:hover {
-            border-color: var(--accent-purple);
-            color: #fff;
-            background: rgba(124, 58, 237, 0.08);
+        /* Core Section Layout */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
         }
 
-        /* ========== STATS BAR ========== */
-        .stats-bar {
-            position: relative;
-            z-index: 1;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1px;
-            background: var(--border-glass);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            margin: 20px auto 0;
-            max-width: 800px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border-glass);
-        }
-        .stat-item {
-            padding: 24px 16px;
-            text-align: center;
-            background: transparent;
-            transition: var(--transition);
-        }
-        .stat-item:hover {
-            background: rgba(124, 58, 237, 0.06);
-        }
-        .stat-number {
-            font-size: 2rem;
+        .section-title {
+            font-size: 2.25rem;
             font-weight: 700;
-            background: var(--accent-gradient);
+            letter-spacing: -0.03em;
+            text-align: center;
+            margin-bottom: 48px;
+            background: linear-gradient(135deg, #ffffff, #9ca3af);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .stat-label {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            font-weight: 500;
-            letter-spacing: 0.3px;
         }
 
-        /* ========== SECTION HEADERS ========== */
-        .section {
-            position: relative;
-            z-index: 1;
-            padding: 80px 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        .section-header h2 {
-            font-size: 2.6rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
-        .section-header h2 span {
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .section-header p {
-            color: var(--text-secondary);
-            max-width: 540px;
-            margin: 12px auto 0;
-        }
-
-        /* ========== APP GRID ========== */
+        /* App Grid Architecture */
         .app-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 28px;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 32px;
         }
 
         .app-card {
-            background: var(--bg-card);
-            backdrop-filter: blur(12px) saturate(160%);
-            -webkit-backdrop-filter: blur(12px) saturate(160%);
-            border: 1px solid var(--border-glass);
-            border-radius: var(--radius-lg);
-            padding: 32px 26px 28px;
-            transition: var(--transition);
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
         }
+
         .app-card::before {
             content: '';
             position: absolute;
-            top: -1px;
-            left: -1px;
-            right: -1px;
-            height: 2px;
-            background: var(--accent-gradient);
-            opacity: 0;
-            transition: var(--transition);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(800px circle at var(--x, 0px) var(--y, 0px), rgba(255,255,255,0.015), transparent 40%);
+            z-index: 1;
+            pointer-events: none;
         }
+
         .app-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(124, 58, 237, 0.25);
-            box-shadow: var(--shadow-glow);
+            transform: translateY(-6px);
+            border-color: rgba(157, 77, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px var(--neon-glow);
         }
-        .app-card:hover::before {
-            opacity: 1;
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
         }
 
         .app-icon {
-            font-size: 2.6rem;
-            margin-bottom: 16px;
-            display: inline-block;
-        }
-        .app-card h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .app-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 18px;
-        }
-
-        .app-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 22px;
-        }
-        .app-tag {
-            background: rgba(124, 58, 237, 0.12);
-            color: var(--accent-cyan);
-            font-size: 0.7rem;
-            font-weight: 600;
-            padding: 4px 14px;
-            border-radius: 60px;
-            letter-spacing: 0.3px;
-            border: 1px solid rgba(124, 58, 237, 0.15);
-        }
-
-        .app-actions {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-        .app-actions a {
-            padding: 8px 18px;
-            border-radius: 60px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            transition: var(--transition);
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--border-glass);
-            color: var(--text-secondary);
-        }
-        .app-actions a:first-child {
-            background: var(--accent-gradient);
-            border: none;
-            color: #fff;
-            box-shadow: 0 4px 16px rgba(124, 58, 237, 0.25);
-        }
-        .app-actions a:first-child:hover {
-            transform: scale(1.04);
-        }
-        .app-actions a:last-child:hover {
-            border-color: var(--accent-purple);
-            color: #fff;
-        }
-
-        /* ========== WHY US ========== */
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 28px;
-        }
-        .value-card {
-            text-align: center;
-            padding: 32px 20px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-glass);
-            border-radius: var(--radius-md);
-            transition: var(--transition);
-        }
-        .value-card:hover {
-            border-color: rgba(124, 58, 237, 0.3);
-            transform: translateY(-4px);
-        }
-        .value-card i {
-            font-size: 2.2rem;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 12px;
-        }
-        .value-card h4 {
-            font-size: 1.1rem;
-            margin-bottom: 6px;
-        }
-        .value-card p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* ========== CONTACT / ABOUT ========== */
-        .contact-wrap {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-glass);
-            border-radius: var(--radius-lg);
-            padding: 48px;
-            backdrop-filter: blur(12px);
-        }
-        .contact-wrap h3 {
-            font-size: 1.5rem;
-            margin-bottom: 12px;
-        }
-        .contact-wrap p {
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-        }
-        .contact-detail {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--border-glass);
-        }
-        .contact-detail i {
-            width: 28px;
-            color: var(--accent-cyan);
-        }
-        .contact-detail a {
-            color: var(--text-secondary);
-            transition: var(--transition);
-        }
-        .contact-detail a:hover {
-            color: #fff;
-        }
-        .social-links {
-            display: flex;
-            gap: 16px;
-            margin-top: 12px;
-        }
-        .social-links a {
+            font-size: 2.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            width: 64px;
+            height: 64px;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 44px;
-            height: 44px;
-            border-radius: 60px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--border-glass);
-            transition: var(--transition);
-            color: var(--text-secondary);
-        }
-        .social-links a:hover {
-            border-color: var(--accent-purple);
-            color: #fff;
-            background: rgba(124, 58, 237, 0.12);
-            transform: translateY(-3px);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
         }
 
-        /* ========== FOOTER ========== */
-        footer {
-            position: relative;
-            z-index: 1;
-            border-top: 1px solid var(--border-glass);
-            padding: 40px 0 28px;
-            margin-top: 40px;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(8px);
+        .tech-pill {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 6px 12px;
+            background: rgba(0, 242, 254, 0.08);
+            color: var(--accent-cyan);
+            border-radius: 99px;
+            border: 1px solid rgba(0, 242, 254, 0.15);
         }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 32px;
-        }
-        .footer-brand p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            max-width: 280px;
-        }
-        .footer-col h5 {
+
+        .app-card h3 {
+            font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .app-card p {
+            color: var(--text-muted);
             font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            flex-grow: 1;
         }
-        .footer-col a {
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 28px;
+        }
+
+        .feature-list li {
+            font-size: 0.87rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            color: var(--accent-purple);
+            margin-right: 8px;
+            font-weight: bold;
+        }
+
+        .card-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: auto;
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 16px;
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-action-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 16px;
+            background: var(--bg-surface-elevated);
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+            border-radius: 10px;
+            border: 1px solid rgba(157, 77, 255, 0.2);
+            transition: all 0.2s ease;
+        }
+
+        .btn-action-primary:hover {
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 12px var(--neon-glow);
+        }
+
+        /* Corporate Studio / About Block */
+        .studio-profile {
+            background: linear-gradient(135deg, var(--bg-surface), #111c30);
+            border: 1px solid var(--border-color);
+            border-radius: 28px;
+            padding: 48px;
+            margin-top: 40px;
+        }
+
+        .profile-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 48px;
+        }
+
+        .profile-content h3 {
+            font-size: 1.75rem;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .profile-content p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .commitments-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .commitment-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #ffffff;
+        }
+
+        .commitment-item p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .contact-sidebar {
+            border-left: 1px solid var(--border-color);
+            padding-left: 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-method {
+            margin-bottom: 24px;
+        }
+
+        .contact-method span {
             display: block;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            padding: 4px 0;
-            transition: var(--transition);
-        }
-        .footer-col a:hover {
-            color: #fff;
-        }
-        .footer-bottom {
-            border-top: 1px solid var(--border-glass);
-            padding-top: 20px;
-            text-align: center;
             font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .contact-method a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .contact-method a:hover {
+            color: #ffffff;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            background-color: #070a10;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.9rem;
             color: var(--text-muted);
         }
 
-        /* ========== SCROLL ANIMATIONS ========== */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ========== RESPONSIVE ========== */
+        /* Responsive Architecture */
         @media (max-width: 900px) {
-            .contact-wrap {
+            .profile-layout {
                 grid-template-columns: 1fr;
-                padding: 32px;
+                gap: 32px;
             }
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
+            .contact-sidebar {
+                border-left: none;
+                padding-left: 0;
+                border-top: 1px solid var(--border-color);
+                padding-top: 32px;
             }
         }
 
-        @media (max-width: 700px) {
-            .hero h1 {
-                font-size: 2.6rem;
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2.5rem;
             }
-            .stats-bar {
-                grid-template-columns: 1fr 1fr;
-                border-radius: var(--radius-sm);
-            }
-            .stat-item {
-                padding: 16px;
-            }
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 74px;
-                left: 16px;
-                right: 16px;
-                background: rgba(8, 8, 15, 0.95);
-                backdrop-filter: blur(20px);
-                border: 1px solid var(--border-glass);
-                border-radius: var(--radius-md);
-                padding: 24px;
-                gap: 16px;
-            }
-            .nav-links.open {
-                display: flex;
-            }
-            .nav-toggle {
-                display: block;
-            }
-            nav {
-                margin: 0 12px;
-                padding: 0 20px;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-        }
-
-        @media (max-width: 500px) {
-            .hero {
-                padding: 60px 0 40px;
-            }
-            .hero h1 {
-                font-size: 2rem;
+            header p {
+                font-size: 1rem;
             }
             .app-grid {
                 grid-template-columns: 1fr;
             }
-            .section {
-                padding: 50px 0;
+            .commitments-grid {
+                grid-template-columns: 1fr;
             }
-            .contact-wrap {
-                padding: 20px;
+            .studio-profile {
+                padding: 24px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== BACKGROUND ORBS ===== -->
-    <div class="orb"></div>
-    <div class="orb orb-2"></div>
-
-    <!-- ===== NAV ===== -->
-    <nav>
-        <div class="nav-logo">
-            <i class="fas fa-brain"></i> Neuron TS
+    <header>
+        <div class="header-container">
+            <h1>Neuron TS Labs</h1>
+            <p>Engineering robust, hardware-optimized, and privacy-first Android systems. Our core software run fully offline with transparent, zero-cloud data models.</p>
+            <a class="btn-primary" href="#portfolio">Explore Architecture</a>
         </div>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#apps">Apps</a></li>
-            <li><a href="#values">Values</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="https://github.com/shaikhtahir3162-bit" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
-            <li><a href="#apps" class="nav-cta">View Apps</a></li>
-        </ul>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-        </button>
-    </nav>
+    </header>
 
-    <!-- ===== HERO ===== -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-badge">
-                <i class="fas fa-shield-alt" style="margin-right:6px;"></i> Privacy-first · Offline-first
-            </div>
-            <h1>Enterprise-grade Android<br />Apps Built for Trust</h1>
-            <p>
-                Neuron TS Labs delivers fast, lightweight, and completely transparent applications.
-                Your data stays on your device — always.
-            </p>
-            <div class="hero-actions">
-                <a href="#apps" class="btn-primary">
-                    <i class="fas fa-rocket"></i> Explore Apps
-                </a>
-                <a href="https://play.google.com/store/apps/developer?id=NEURON+TS+LABS" target="_blank" class="btn-ghost">
-                    <i class="fab fa-google-play"></i> Play Store
-                </a>
-            </div>
-
-            <!-- Stats -->
-            <div class="stats-bar">
-                <div class="stat-item">
-                    <div class="stat-number">4</div>
-                    <div class="stat-label">Live Apps</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Offline Capable</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">0</div>
-                    <div class="stat-label">Cloud Uploads</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">4.6★</div>
-                    <div class="stat-label">User Rating</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== APPS ===== -->
-    <section class="section" id="apps">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2>Our <span>Applications</span></h2>
-                <p>Each app is engineered with privacy, performance, and a clean user experience at its core.</p>
-            </div>
-
+    <main>
+        <section id="portfolio">
+            <h2 class="section-title">Production Software Portfolio</h2>
+            
             <div class="app-grid">
-                <!-- FallGuard -->
-                <div class="app-card reveal">
-                    <div class="app-icon">🛡️</div>
+                <!-- App 1: FallGuard -->
+                <div class="app-card">
+                    <div class="card-meta">
+                        <div class="app-icon">🛡️</div>
+                        <span class="tech-pill">Sensor Fusion</span>
+                    </div>
                     <h3>FallGuard</h3>
-                    <p>Automatic fall detection with SOS alerts, real-time GPS sharing, and offline safety monitoring — designed for seniors and solo adventurers.</p>
-                    <div class="app-tags">
-                        <span class="app-tag">Safety</span>
-                        <span class="app-tag">SOS</span>
-                        <span class="app-tag">Offline</span>
-                    </div>
-                    <div class="app-actions">
-                        <a href="fallguard.html">Privacy Policy</a>
-                        <a href="https://play.google.com/store/apps/details?id=com.tahir.fallguard" target="_blank">View on Play</a>
+                    <p>Automated real-time safety system utilizing high-precision accelerometer tracking loops to identify accidents without human dependency.</p>
+                    <ul class="feature-list">
+                        <li>Persistent Foreground Safety Service</li>
+                        <li>5-Minute Loop Emergency SMS Automation</li>
+                        <li>Fail-Safe GPS Coordinate Broadcasts</li>
+                    </ul>
+                    <div class="card-actions">
+                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.tahir.fallguard" target="_blank">Google Play</a>
+                        <a class="btn-action-primary" href="fallguard.html">Privacy Policy</a>
                     </div>
                 </div>
 
-                <!-- Lite Photo Compressor -->
-                <div class="app-card reveal">
-                    <div class="app-icon">📷</div>
+                <!-- App 2: Lite Photo Compressor -->
+                <div class="app-card">
+                    <div class="card-meta">
+                        <div class="app-icon">📸</div>
+                        <span class="tech-pill">Media Pipeline</span>
+                    </div>
                     <h3>Lite Photo Compressor</h3>
-                    <p>Compress images to exact KB/MB sizes with batch processing, NEON compression lab, and zero data upload — all processed locally.</p>
-                    <div class="app-tags">
-                        <span class="app-tag">Utility</span>
-                        <span class="app-tag">Batch</span>
-                        <span class="app-tag">Offline</span>
-                    </div>
-                    <div class="app-actions">
-                        <a href="lite-photo-compressor.html">Privacy Policy</a>
-                        <a href="https://play.google.com/store/apps/details?id=com.neurontslabs.litecompressor" target="_blank">View on Play</a>
-                    </div>
-                </div>
-
-                <!-- SCI-CAL -->
-                <div class="app-card reveal">
-                    <div class="app-icon">🧮</div>
-                    <h3>SCI-CAL</h3>
-                    <p>Scientific calculator with 35+ unit converters, financial tools (EMI, GST, currency), and a sleek AMOLED dark mode for professionals.</p>
-                    <div class="app-tags">
-                        <span class="app-tag">Calculator</span>
-                        <span class="app-tag">Finance</span>
-                        <span class="app-tag">Converter</span>
-                    </div>
-                    <div class="app-actions">
-                        <a href="sci-cal.html">Privacy Policy</a>
-                        <a href="https://play.google.com/store/apps/details?id=com.tahir.scical" target="_blank">View on Play</a>
+                    <p>Precise KB-targeted image quantization tool designed to instantly reduce large device images down to target requirements for web forms.</p>
+                    <ul class="feature-list">
+                        <li>Exact 20KB/50KB/100KB Size Matching</li>
+                        <li>0.01f Neon Hardware Brightness Management</li>
+                        <li>Local Scoped Batch Processing Pipeline</li>
+                    </ul>
+                    <div class="card-actions">
+                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.litecompressor" target="_blank">Google Play</a>
+                        <a class="btn-action-primary" href="lite-photo-compressor.html">Privacy Policy</a>
                     </div>
                 </div>
 
-                <!-- TTS Expert -->
-                <div class="app-card reveal">
-                    <div class="app-icon">🎤</div>
+                <!-- App 3: SCI-CAL -->
+                <div class="app-card">
+                    <div class="card-meta">
+                        <div class="app-icon">🧮</div>
+                        <span class="tech-pill">Material 3 UI</span>
+                    </div>
+                    <h3>SCI-CAL Calculator</h3>
+                    <p>Comprehensive multi-calculator engine and 35+ structural unit converter featuring custom adaptive stacking logic.</p>
+                    <ul class="feature-list">
+                        <li>60sp to 100sp Dynamic Font Scaling Engine</li>
+                        <li>Room DB Isolated Expression Logging</li>
+                        <li>Compact Ergonomic System Layout</li>
+                    </ul>
+                    <div class="card-actions">
+                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.tahir.scical" target="_blank">Google Play</a>
+                        <a class="btn-action-primary" href="sci-cal.html">Privacy Policy</a>
+                    </div>
+                </div>
+
+                <!-- App 4: TTS Expert -->
+                <div class="app-card">
+                    <div class="card-meta">
+                        <div class="app-icon">🎤</div>
+                        <span class="tech-pill">Audio Engine</span>
+                    </div>
                     <h3>TTS Expert</h3>
-                    <p>Professional text-to-speech engine with offline voice generation, audio export, and multiple language support — built for accessibility.</p>
-                    <div class="app-tags">
-                        <span class="app-tag">Accessibility</span>
-                        <span class="app-tag">Offline</span>
-                        <span class="app-tag">Audio</span>
+                    <p>Professional high-fidelity text-to-speech application providing rapid, local synthesis without server latency constraints.</p>
+                    <ul class="feature-list">
+                        <li>Offline Voice Generation Pipelines</li>
+                        <li>Native High-Fidelity Audio File Export</li>
+                        <li>Isolated Device Processing Subsystems</li>
+                    </ul>
+                    <div class="card-actions">
+                        <a class="btn-secondary" href="#" target="_blank">Internal Build</a>
+                        <a class="btn-action-primary" href="tts-expert.html">Privacy Policy</a>
                     </div>
-                    <div class="app-actions">
-                        <a href="tts-expert.html">Privacy Policy</a>
-                        <a href="https://play.google.com/store/apps/details?id=com.tahir.tts" target="_blank">View on Play</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="studio-profile">
+                <div class="profile-layout">
+                    <div class="profile-content">
+                        <h3>Core Engineering Manifesto</h3>
+                        <p>Neuron TS Labs targets complex Android framework challenges to build lightweight, fast utilities. We reject standard telemetry practices, designing architectural models where complex computing occurs strictly locally on your physical device.</p>
+                        
+                        <div class="commitments-grid">
+                            <div class="commitment-item">
+                                <h4>Offline Data Architecture</h4>
+                                <p>Application files are parsed and transformed in isolated device memories. No external server components are used.</p>
+                            </div>
+                            <div class="commitment-item">
+                                <h4>Permission Minimization</h4>
+                                <p>Hardware APIs are invoked transparently only when strictly necessary to carry out local features.</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== VALUES / WHY US ===== -->
-    <section class="section" id="values" style="background: rgba(255,255,255,0.01);">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2>Why <span>Neuron</span></h2>
-                <p>Our core principles guide every app we build — from design to deployment.</p>
-            </div>
-
-            <div class="values-grid">
-                <div class="value-card reveal">
-                    <i class="fas fa-user-secret"></i>
-                    <h4>Privacy-first</h4>
-                    <p>No unnecessary data collection. No cloud uploads. Your data is yours alone.</p>
-                </div>
-                <div class="value-card reveal">
-                    <i class="fas fa-bolt"></i>
-                    <h4>Lightning Performance</h4>
-                    <p>Optimized for speed and battery efficiency, even on low-end devices.</p>
-                </div>
-                <div class="value-card reveal">
-                    <i class="fas fa-wifi-slash"></i>
-                    <h4>Offline Capable</h4>
-                    <p>Most features work without an internet connection — reliability first.</p>
-                </div>
-                <div class="value-card reveal">
-                    <i class="fas fa-code"></i>
-                    <h4>Transparent Code</h4>
-                    <p>Clean, maintainable architecture with clear permission usage and no hidden trackers.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== CONTACT / ABOUT ===== -->
-    <section class="section" id="contact">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2>Get in <span>Touch</span></h2>
-                <p>Have questions, feedback, or partnership ideas? Reach out directly.</p>
-            </div>
-
-            <div class="contact-wrap reveal">
-                <div>
-                    <h3><i class="fas fa-robot" style="color:var(--accent-cyan);margin-right:10px;"></i> About Neuron TS Labs</h3>
-                    <p>
-                        Founded by <strong>Mohd Tahir Shaikh</strong>, Neuron TS Labs is a Mumbai-based
-                        indie studio dedicated to building Android apps that respect user privacy
-                        and deliver genuine utility. We believe that software should empower, not exploit.
-                    </p>
-                    <div style="margin-top:20px;">
-                        <div class="contact-detail">
-                            <i class="fas fa-envelope"></i>
+                    
+                    <div class="contact-sidebar">
+                        <div class="contact-method">
+                            <span>Secure Engineering Support</span>
                             <a href="mailto:shaikhtahir3162@gmail.com">shaikhtahir3162@gmail.com</a>
                         </div>
-                        <div class="contact-detail">
-                            <i class="fas fa-phone-alt"></i>
-                            <a href="tel:+918097005355">+91 80970 05355</a>
+                        <div class="contact-method">
+                            <span>Source Code Repositories</span>
+                            <a href="https://github.com/shaikhtahir3162-bit" target="_blank">github.com/shaikhtahir3162-bit</a>
                         </div>
-                        <div class="contact-detail">
-                            <i class="fas fa-map-pin"></i>
-                            <span>Sahar Road Chakala, Mumbai, Maharashtra 400099, India</span>
-                        </div>
-                        <div class="social-links">
-                            <a href="https://github.com/shaikhtahir3162-bit" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="https://linkedin.com/in/shaikhtahir3162" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="https://twitter.com/shaikhtahir3162" target="_blank" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
-                            <a href="mailto:shaikhtahir3162@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="background:rgba(255,255,255,0.02);border-radius:var(--radius-md);padding:24px;border:1px solid var(--border-glass);">
-                    <h4 style="margin-bottom:12px;"><i class="fas fa-shield-alt" style="color:var(--accent-cyan);margin-right:8px;"></i> Privacy Commitment</h4>
-                    <ul style="list-style:none;color:var(--text-secondary);line-height:2.2;">
-                        <li><i class="fas fa-check-circle" style="color:var(--accent-cyan);margin-right:10px;"></i> Privacy-first design</li>
-                        <li><i class="fas fa-check-circle" style="color:var(--accent-cyan);margin-right:10px;"></i> Offline processing whenever possible</li>
-                        <li><i class="fas fa-check-circle" style="color:var(--accent-cyan);margin-right:10px;"></i> No unnecessary data collection</li>
-                        <li><i class="fas fa-check-circle" style="color:var(--accent-cyan);margin-right:10px;"></i> Transparent permission usage</li>
-                        <li><i class="fas fa-check-circle" style="color:var(--accent-cyan);margin-right:10px;"></i> Data encrypted in transit</li>
-                    </ul>
-                    <div style="margin-top:20px;padding:14px;background:rgba(124,58,237,0.08);border-radius:var(--radius-sm);border-left:3px solid var(--accent-purple);">
-                        <p style="font-size:0.9rem;color:var(--text-secondary);margin:0;">
-                            <strong style="color:#fff;">📌 Verified:</strong> All apps are listed on the 
-                            <a href="https://play.google.com/store/apps/developer?id=NEURON+TS+LABS" target="_blank" style="color:var(--accent-cyan);">Google Play Store</a> 
-                            with independent data safety labels.
-                        </p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- ===== FOOTER ===== -->
     <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <h3 style="background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">
-                        <i class="fas fa-brain" style="-webkit-text-fill-color:initial;color:var(--accent-cyan);"></i> Neuron TS Labs
-                    </h3>
-                    <p>Building the next generation of privacy-first Android experiences.</p>
-                </div>
-                <div class="footer-col">
-                    <h5>Apps</h5>
-                    <a href="fallguard.html">FallGuard</a>
-                    <a href="lite-photo-compressor.html">Photo Compressor</a>
-                    <a href="sci-cal.html">SCI-CAL</a>
-                    <a href="tts-expert.html">TTS Expert</a>
-                </div>
-                <div class="footer-col">
-                    <h5>Connect</h5>
-                    <a href="https://github.com/shaikhtahir3162-bit" target="_blank">GitHub</a>
-                    <a href="https://play.google.com/store/apps/developer?id=NEURON+TS+LABS" target="_blank">Google Play</a>
-                    <a href="mailto:shaikhtahir3162@gmail.com">Email</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                &copy; 2026 Neuron TS Labs — Built with <i class="fas fa-heart" style="color:#ef4444;font-size:0.7rem;"></i> in Mumbai, India.
-            </div>
-        </div>
+        <p>© 2026 Neuron TS Labs. All rights reserved. Built for high-efficiency mobile environments.</p>
     </footer>
 
-    <!-- ===== SCRIPTS ===== -->
     <script>
-        // ---- Mobile nav toggle ----
-        const toggle = document.getElementById('navToggle');
-        const links = document.getElementById('navLinks');
-        toggle.addEventListener('click', () => {
-            links.classList.toggle('open');
-            const icon = toggle.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        });
-
-        // Close nav on link click (mobile)
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                links.classList.remove('open');
-                const icon = toggle.querySelector('i');
-                icon.classList.add('fa-bars');
-                icon.classList.remove('fa-times');
+        // Micro-interaction: Subtle card hover parallax lighting track
+        document.querySelectorAll('.app-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--x', `${x}px`);
+                card.style.setProperty('--y', `${y}px`);
             });
-        });
-
-        // ---- Scroll reveal (Intersection Observer) ----
-        const revealEls = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-
-        revealEls.forEach(el => observer.observe(el));
-
-        // ---- Nav background on scroll ----
-        const nav = document.querySelector('nav');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 40) {
-                nav.style.background = 'rgba(8, 8, 15, 0.85)';
-                nav.style.boxShadow = '0 12px 50px rgba(0,0,0,0.7)';
-            } else {
-                nav.style.background = 'rgba(8, 8, 15, 0.7)';
-                nav.style.boxShadow = '0 12px 40px rgba(0,0,0,0.5)';
-            }
         });
     </script>
 </body>
