@@ -1,92 +1,340 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lite Photo Compressor Privacy Policy | Neuron TS Labs</title>
-<style>
-:root{--primary:#7F00FF;--bg:#f6f7fb;--card:#fff}
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:#222;line-height:1.7}
-header{background:linear-gradient(135deg,#7F00FF,#9d4dff);color:#fff;text-align:center;padding:60px 20px}
-header a{display:inline-block;margin-top:18px;padding:12px 20px;background:#fff;color:#7F00FF;text-decoration:none;border-radius:999px;font-weight:bold}
-main{max-width:900px;margin:30px auto;padding:0 20px}
-.card{background:var(--card);padding:26px;border-radius:18px;box-shadow:0 8px 24px rgba(0,0,0,.08);margin-bottom:24px}
-h2{color:#7F00FF}
-table{width:100%;border-collapse:collapse}
-th,td{border:1px solid #ddd;padding:10px}
-th{background:#f8f5ff}
-.notice{background:#f3ecff;border-left:5px solid #7F00FF;padding:15px;border-radius:10px}
-footer{text-align:center;padding:30px;color:#666}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lite Photo Compressor Privacy Policy | Neuron TS Labs</title>
+    <meta name="description" content="Official privacy policy and local data handling guidelines for Lite Photo Compressor.">
+    <style>
+        :root {
+            --bg-main: #0b0f19;
+            --bg-surface: #111827;
+            --bg-surface-elevated: #1f2937;
+            --accent-purple: #9d4dff;
+            --accent-cyan: #00f2fe;
+            --text-primary: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.06);
+            --neon-glow: rgba(157, 77, 255, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: 60px;
+        }
+
+        .nav-bar {
+            border-bottom: 1px solid var(--border-color);
+            background-color: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 16px 20px;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .doc-header {
+            max-width: 1000px;
+            margin: 60px auto 40px auto;
+            padding: 0 20px;
+        }
+
+        .doc-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 4px 10px;
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--accent-cyan);
+            border-radius: 6px;
+            border: 1px solid rgba(0, 242, 254, 0.2);
+            margin-bottom: 12px;
+        }
+
+        .doc-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #ffffff 40%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .doc-meta {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .policy-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .policy-content {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 40px;
+        }
+
+        .policy-content section {
+            margin-bottom: 36px;
+        }
+
+        .policy-content section:last-child {
+            margin-bottom: 0;
+        }
+
+        .policy-content h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            border-left: 3px solid var(--accent-cyan);
+            padding-left: 12px;
+        }
+
+        .policy-content p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .policy-content ul {
+            list-style: none;
+            margin-left: 4px;
+            margin-bottom: 16px;
+        }
+
+        .policy-content ul li {
+            position: relative;
+            padding-left: 20px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .policy-content ul li::before {
+            content: "▪";
+            position: absolute;
+            left: 0;
+            color: var(--accent-purple);
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .matrix-table th {
+            background-color: rgba(255, 255, 255, 0.03);
+            color: #ffffff;
+            font-weight: 600;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .matrix-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-muted);
+            vertical-align: top;
+        }
+
+        .matrix-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .code-inline {
+            font-family: monospace;
+            background-color: var(--bg-surface-elevated);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #f3f4f6;
+            font-size: 0.85rem;
+        }
+
+        .highlight-box {
+            background: radial-gradient(circle at top left, rgba(157, 77, 255, 0.03), transparent), var(--bg-surface-elevated);
+            border: 1px solid rgba(157, 77, 255, 0.15);
+            border-radius: 14px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            color: #e5e7eb;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 600px) {
+            .policy-content {
+                padding: 24px;
+            }
+            .doc-header h1 {
+                font-size: 2rem;
+            }
+            .matrix-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
 </head>
 <body>
-<header>
-<h1>📷 Lite Photo Compressor</h1>
-<p>Official Privacy Policy</p>
-<a href="index.html">← Back to Home</a>
-</header>
 
-<main>
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a class="nav-logo" href="index.html">📸 Neuron TS Labs</a>
+            <a class="btn-back" href="index.html">← Back to Terminal</a>
+        </div>
+    </nav>
 
-<div class="card">
-<h2>Last Updated</h2>
-<p>July 12, 2026</p>
-<p>Lite Photo Compressor is developed by <strong>Neuron TS Labs</strong>. The app is designed to compress your images while keeping your privacy a priority.</p>
-</div>
+    <header class="doc-header">
+        <span class="doc-badge">Data Safety Verified</span>
+        <h1>Privacy Policy for Lite Photo Compressor</h1>
+        <div class="doc-meta">
+            <span>Application Identifier: </span><span class="code-inline">com.neurontslabs.litecompressor</span> • <span>Effective Date: July 12, 2026</span>
+        </div>
+    </header>
 
-<div class="card">
-<h2>Permissions</h2>
-<table>
-<tr><th>Permission</th><th>Purpose</th></tr>
-<tr><td>Photos / Media</td><td>Select images that you choose to compress.</td></tr>
-<tr><td>Storage (where applicable)</td><td>Save compressed images on your device.</td></tr>
-<tr><td>Notifications (optional)</td><td>Show compression progress or completion notifications.</td></tr>
-</table>
-</div>
+    <main class="policy-container">
+        <div class="policy-content">
+            
+            <section id="local-processing">
+                <h2>1. Media Isolation & Processing Boundaries</h2>
+                <p>Lite Photo Compressor is engineered from the ground up to operate as a completely localized, high-performance image quantization pipeline. Your images, photographs, and documents represent deeply sensitive personal data; therefore, our architecture enforces strict offline containment. Pixel parsing, dimension shifting, and file size optimizations occur entirely within your device's isolated application memory sandbox.</p>
+                <div class="highlight-box">
+                    <p><strong>Absolute Isolation Policy:</strong> Lite Photo Compressor features zero remote network hooks for handling media. No images selected by you or processed by our engine are ever transferred to, cached by, or visible to Neuron TS Labs or any third-party server infrastructure.</p>
+                </div>
+            </section>
 
-<div class="card">
-<h2>How Your Data Is Used</h2>
-<div class="notice">
-Images selected for compression are processed locally on your device. We do not upload your photos to Neuron TS Labs servers for compression.
-</div>
-</div>
+            <section id="storage-permissions">
+                <h2>2. Storage Infrastructure & Media Access Disclosures</h2>
+                <p>To safely scan, read, and write compressed media bundles across various Android API levels, the application interfaces with specific platform storage frameworks. Here is how your data behaves:</p>
+                
+                <table class="matrix-table">
+                    <thead>
+                        <tr>
+                            <th>Android Framework / Permission</th>
+                            <th>Operational Scope</th>
+                            <th>Data Security Boundary</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="code-inline">MediaStore API / Scoped Storage</span></td>
+                            <td>Enables the single compression utility and the Pro Whole Gallery Deep Scanner to map spatial media files (JPG, PNG, WEBP) directly inside device boundaries.</td>
+                            <td>Read access is limited strictly to files you select or explicitly target for scanning. The application never modifies or destroys your original master image files.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-inline">System Share Sheet Integration</span></td>
+                            <td>Allows users to instantly forward images from native Android galleries straight into the compressor pipeline without initializing the core app window first.</td>
+                            <td>The inbound URI stream is consumed ephemerally in RAM, processed directly to your exact target file size, and saved locally to the system downloads index.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
 
-<div class="card">
-<h2>Data Collection</h2>
-<ul>
-<li>No account registration is required.</li>
-<li>We do not collect your personal photos for our own servers.</li>
-<li>Your selected files remain under your control.</li>
-<li>Compressed images are stored only where you choose to save them.</li>
-</ul>
-</div>
+            <section id="hardware-management">
+                <h2>3. Foreground Processing & Ambient Hardware Subsystems</h2>
+                <p>During heavy batch executions or full device gallery passes, Lite Photo Compressor utilizes a high-priority <strong>Android Foreground Service</strong> to ensure execution stability. In compliance with Google Play Developer Policies, the service operates under these strict architectural rules:</p>
+                <ul>
+                    <li><strong>Neon Hardware Brightness Controller:</strong> During lengthy background tasks, the app can drop system window brightness parameters down to an absolute minimum of <span class="code-inline">0.01f</span> to reduce thermal output and minimize battery drain. This is managed locally in memory and restores instantly upon completion.</li>
+                    <li><strong>Thermal Guard Protection:</strong> Monitors device thermal registers in real-time. If the device temperature crosses high safe boundaries, processing algorithms automatically throttle execution speed to ensure hardware safety.</li>
+                    <li><strong>Screen Awake Control:</strong> Temporarily bypasses standard display timeout flags during active compression runs to block Android's battery-saving system from interrupting deep file calculations.</li>
+                </ul>
+            </section>
 
-<div class="card">
-<h2>Third-Party Services</h2>
-<p>If the application includes third-party services such as advertising or analytics, those services may process data according to their own privacy policies.</p>
-</div>
+            <section id="monetization-billing">
+                <h2>4. Monetization Frameworks, Purchases, and Diagnostics</h2>
+                <p>To support ongoing independent software updates, Lite Photo Compressor integrates standard secure billing components and advertising SDKs. These systems are sandboxed from your actual media operations:</p>
+                <h3>A. Google Play Billing System</h3>
+                <p>When upgrading to the Pro tier (activating the Whole Gallery Compressor), transaction cycles are processed entirely by Google Play's native secure checkout engine. Neuron TS Labs retains anonymous purchase tokens and validation statuses locally to toggle application states, but we never capture or store credit cards, bank parameters, or identity details.</p>
+                <h3>B. Diagnostic & Ad Identifiers</h3>
+                <p>Standard advertising services (like Google AdMob) may collect device analytics, advertising IDs, and coarse region coordinates to manage ad frequency capping and combat fraudulent interactions. These networks are restricted by native container policies and cannot inspect your internal file libraries or look at processed document outputs.</p>
+            </section>
 
-<div class="card">
-<h2>Your Choices</h2>
-<ul>
-<li>Select only the images you want to compress.</li>
-<li>Delete original or compressed files whenever you choose.</li>
-<li>Revoke permissions through Android Settings.</li>
-<li>Uninstall the app to remove its local data.</li>
-</ul>
-</div>
+            <section id="retention-control">
+                <h2>5. User Data Rights & Subsystem Wipes</h2>
+                <p>Because your image data is never uploaded to an external server, there is no remote cloud asset ledger for you to request deletion from. All persistent user configurations, premium status validation tokens, and localized session parameters reside exclusively within your physical storage container.</p>
+                <p>You have full data control. A total clean-slate wipe can be executed instantly at any time by wiping the app's cache and local files via your device settings or by completing a standard app uninstallation.</p>
+            </section>
 
-<div class="card">
-<h2>Contact</h2>
-<p><strong>Neuron TS Labs</strong></p>
-<p>Email: <a href="mailto:shaikhtahir3162@gmail.com">shaikhtahir3162@gmail.com</a></p>
-<p>GitHub: <a href="https://github.com/shaikhtahir3162-bit">shaikhtahir3162-bit</a></p>
-</div>
+            <section id="administrative-contact">
+                <h2>6. Developer Governance & Contact Channels</h2>
+                <p>For detailed inquiries regarding our local multi-threaded file handling, regulatory sandbox compliance, or technical architecture documentation, communicate directly with our engineering point of contact:</p>
+                <ul>
+                    <li><strong>Developer Studio:</strong> Neuron TS Labs</li>
+                    <li><strong>Lead Developer:</strong> Mohd Tahir Shaikh</li>
+                    <li><strong>Direct Support Email:</strong> <a href="mailto:shaikhtahir3162@gmail.com" style="color: var(--accent-cyan); text-decoration: none;">shaikhtahir3162@gmail.com</a></li>
+                </ul>
+            </section>
 
-</main>
-
-<footer>© 2026 Neuron TS Labs. All rights reserved.</footer>
+        </div>
+    </main>
 
 </body>
 </html>
