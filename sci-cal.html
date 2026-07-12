@@ -1,88 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SCI-CAL Privacy Policy | Neuron TS Labs</title>
-<style>
-:root{--primary:#7F00FF;--bg:#f6f7fb;--card:#fff}
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:#222;line-height:1.7}
-header{background:linear-gradient(135deg,#7F00FF,#9d4dff);color:#fff;text-align:center;padding:60px 20px}
-header a{display:inline-block;margin-top:18px;padding:12px 20px;background:#fff;color:#7F00FF;text-decoration:none;border-radius:999px;font-weight:bold}
-main{max-width:900px;margin:30px auto;padding:0 20px}
-.card{background:#fff;padding:26px;border-radius:18px;box-shadow:0 8px 24px rgba(0,0,0,.08);margin-bottom:24px}
-h2{color:#7F00FF}
-table{width:100%;border-collapse:collapse}
-th,td{border:1px solid #ddd;padding:10px}
-th{background:#f8f5ff}
-.notice{background:#f3ecff;border-left:5px solid #7F00FF;padding:15px;border-radius:10px}
-footer{text-align:center;padding:30px;color:#666}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCI-CAL Privacy Policy | Neuron TS Labs</title>
+    <meta name="description" content="Official data privacy policy and local sandbox documentation for the SCI-CAL Multi-Calculator application.">
+    <style>
+        :root {
+            --bg-main: #0b0f19;
+            --bg-surface: #111827;
+            --bg-surface-elevated: #1f2937;
+            --accent-purple: #9d4dff;
+            --accent-cyan: #00f2fe;
+            --text-primary: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.06);
+            --neon-glow: rgba(157, 77, 255, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: 60px;
+        }
+
+        .nav-bar {
+            border-bottom: 1px solid var(--border-color);
+            background-color: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 16px 20px;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .doc-header {
+            max-width: 1000px;
+            margin: 60px auto 40px auto;
+            padding: 0 20px;
+        }
+
+        .doc-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 4px 10px;
+            background: rgba(157, 77, 255, 0.1);
+            color: var(--accent-purple);
+            border-radius: 6px;
+            border: 1px solid rgba(157, 77, 255, 0.2);
+            margin-bottom: 12px;
+        }
+
+        .doc-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #ffffff 40%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .doc-meta {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .policy-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .policy-content {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 40px;
+        }
+
+        .policy-content section {
+            margin-bottom: 36px;
+        }
+
+        .policy-content section:last-child {
+            margin-bottom: 0;
+        }
+
+        .policy-content h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            border-left: 3px solid var(--accent-purple);
+            padding-left: 12px;
+        }
+
+        .policy-content p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .policy-content ul {
+            list-style: none;
+            margin-left: 4px;
+            margin-bottom: 16px;
+        }
+
+        .policy-content ul li {
+            position: relative;
+            padding-left: 20px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .policy-content ul li::before {
+            content: "▪";
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .matrix-table th {
+            background-color: rgba(255, 255, 255, 0.03);
+            color: #ffffff;
+            font-weight: 600;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .matrix-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-muted);
+            vertical-align: top;
+        }
+
+        .code-inline {
+            font-family: monospace;
+            background-color: var(--bg-surface-elevated);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #f3f4f6;
+            font-size: 0.85rem;
+        }
+
+        .highlight-box {
+            background: radial-gradient(circle at top left, rgba(0, 242, 254, 0.03), transparent), var(--bg-surface-elevated);
+            border: 1px solid rgba(0, 242, 254, 0.15);
+            border-radius: 14px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            color: #e5e7eb;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 600px) {
+            .policy-content {
+                padding: 24px;
+            }
+            .doc-header h1 {
+                font-size: 2rem;
+            }
+            .matrix-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
 </head>
 <body>
-<header>
-<h1>🧮 SCI-CAL Calculator</h1>
-<p>Official Privacy Policy</p>
-<a href="index.html">← Back to Home</a>
-</header>
 
-<main>
-<div class="card">
-<h2>Last Updated</h2>
-<p>July 12, 2026</p>
-<p>SCI-CAL Calculator is developed by <strong>Neuron TS Labs</strong>. We aim to provide a fast, offline calculator while respecting your privacy.</p>
-</div>
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a class="nav-logo" href="index.html">🧮 Neuron TS Labs</a>
+            <a class="btn-back" href="index.html">← Back to Terminal</a>
+        </div>
+    </nav>
 
-<div class="card">
-<h2>Permissions</h2>
-<table>
-<tr><th>Permission</th><th>Purpose</th></tr>
-<tr><td>None (Core Features)</td><td>Most calculator, converter and finance tools work without special permissions.</td></tr>
-<tr><td>Notifications (Optional)</td><td>May be used for optional reminders or feature notifications if implemented.</td></tr>
-</table>
-</div>
+    <header class="doc-header">
+        <span class="doc-badge">Privacy Standard Verified</span>
+        <h1>Privacy Policy for SCI-CAL Calculator</h1>
+        <div class="doc-meta">
+            <span>Application Identifier: </span><span class="code-inline">com.tahir.scical</span> • <span>Effective Date: July 12, 2026</span>
+        </div>
+    </header>
 
-<div class="card">
-<h2>Privacy Commitment</h2>
-<div class="notice">
-Calculations are performed entirely on your device. Your mathematical inputs, conversions and results are not uploaded to Neuron TS Labs servers.
-</div>
-</div>
+    <main class="policy-container">
+        <div class="policy-content">
+            
+            <section id="processing-model">
+                <h2>1. Algorithmic Isolation & Local Arithmetic Runtime</h2>
+                <p>SCI-CAL (com.tahir.scical) is engineered under a zero-telemetry architectural paradigm. We firmly maintain that your mathematical formulas, currency conversions, engineering inputs, financial assets data, and productivity metrics belong entirely to you. The application operates 100% locally. Complex computations—ranging from basic algebra to advanced scientific calculus formulas—are processed strictly inside the sandboxed CPU registers of your physical mobile handset.</p>
+                <div class="highlight-box">
+                    <p><strong>Offline Execution Assurance:</strong> SCI-CAL does not possess remote client-server hooks to capture or analyze input expressions. No algorithms, parameters, or calculated sums are ever transmitted to Neuron TS Labs or external storage clusters.</p>
+                </div>
+            </section>
 
-<div class="card">
-<h2>Data Collection</h2>
-<ul>
-<li>No account registration is required.</li>
-<li>No personal calculations are stored on our servers.</li>
-<li>App preferences are stored locally on your device.</li>
-<li>We do not collect unnecessary personal information.</li>
-</ul>
-</div>
+            <section id="data-subsystems">
+                <h2>2. Internal Data Subsystems & Boundary Rules</h2>
+                <p>To deliver modern productivity tools like calculation history caches and immediate text transfers, the app runs specific local memory utilities. Below is the technical disclosure of these pipelines:</p>
+                
+                <table class="matrix-table">
+                    <thead>
+                        <tr>
+                            <th>Subsystem Engine</th>
+                            <th>Operational Mechanism</th>
+                            <th>Data Security Constraint</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="code-inline">Room DB Isolated Log</span></td>
+                            <td>Maintains a historical record of your typed expressions and solutions inside an encrypted SQLite database stored locally on device disk space.</td>
+                            <td>This database is sandboxed natively. It has no external cloud syncing functionality, features automated size capping filters, and cannot be accessed by other installed apps.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-inline">Clipboard & Share Engine</span></td>
+                            <td>Allows users to copy output results into Android system buffers or utilize native system intents to export complete financial breakdowns to messaging channels.</td>
+                            <td>Data handles are ephemeral. The app reads system clipboards strictly when you choose the paste command, and outbound share sheets pass control entirely to native OS protocols.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
 
-<div class="card">
-<h2>Third-Party Services</h2>
-<p>If the application includes advertising or other third-party SDKs, those services may process information according to their own privacy policies.</p>
-</div>
+            <section id="layout-rendering">
+                <h2>3. UI Core Layer & Typography Mechanics</h2>
+                <p>SCI-CAL features an advanced, adaptive layout engine constructed with Jetpack Compose. To protect visual display integrity across highly varied accessibility systems, the app includes an autonomous typography controller that automatically dynamically scales output values between <span class="code-inline">60sp</span> and <span class="code-inline">100sp</span>. This formatting occurs strictly inside memory layers and uses zero analytics instrumentation to map layout dimensions or user accessibility choices.</p>
+            </section>
 
-<div class="card">
-<h2>Your Choices</h2>
-<ul>
-<li>Clear calculator history at any time (if enabled).</li>
-<li>Reset application preferences.</li>
-<li>Manage permissions through Android Settings.</li>
-<li>Uninstall the app to remove local app data.</li>
-</ul>
-</div>
+            <section id="advertising-monetization">
+                <h2>4. Advertising Networks & Pro Licensing State</h2>
+                <p>To sustain independent utility development, the free tier of SCI-CAL incorporates standard mobile ad platform integrations (such as Google AdMob). These networks operate under independent container definitions:</p>
+                <ul>
+                    <li><strong>Metric Collection Boundaries:</strong> Advertising SDKs may monitor coarse regional IP locations, device identifiers, and basic ad-click telemetry to handle frequency limits and prevent click fraud. They have absolutely no visibility into the Room database, local history stacks, or expression engines.</li>
+                    <li><strong>Premium Token Verification:</strong> If you purchase the permanent Pro Experience tier, transaction data passes entirely through the secure Google Play Billing API. SCI-CAL checks the validation token locally on-device to remove ads, change navigation labels, and open exclusive tools. No banking information is visible to the developer.</li>
+                </ul>
+            </section>
 
-<div class="card">
-<h2>Contact</h2>
-<p><strong>Neuron TS Labs</strong></p>
-<p>Email: <a href="mailto:shaikhtahir3162@gmail.com">shaikhtahir3162@gmail.com</a></p>
-<p>GitHub: <a href="https://github.com/shaikhtahir3162-bit">shaikhtahir3162-bit</a></p>
-</div>
-</main>
+            <section id="sovereignty">
+                <h2>5. Autonomous Data Control & Erasure Protocols</h2>
+                <p>Since your calculation records, financial variables, and conversion trackers are not synchronized with any central database, Neuron TS Labs cannot perform remote data removal actions. You have absolute sovereignty over your records.</p>
+                <p>To completely clear your calculation traces from the device, choose one of these instant methods:</p>
+                <ol style="margin-left: 24px; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 16px;">
+                    <li style="margin-bottom: 6px;">Use the manual "Clear History" button inside the calculation log layout to reset your Room DB tables immediately.</li>
+                    <li style="margin-bottom: 6px;">Navigate to <em>Android Settings → Apps → SCI-CAL → Storage → Clear Storage</em> to return the app to a clean-slate state.</li>
+                    <li>Perform a standard uninstallation of the software package, which forces the Android OS to securely delete the entire sandboxed storage volume.</li>
+                </ol>
+            </section>
 
-<footer>© 2026 Neuron TS Labs. All rights reserved.</footer>
+            <section id="governance-contact">
+                <h2>6. Governance Compliance & Communications</h2>
+                <p>SCI-CAL is built as a generic utility and does not deliberately target or capture data from minors under the age of 13. By eliminating cloud pipelines, our architecture naturally satisfies global digital privacy laws, including the digital asset protection principles of the Republic of India.</p>
+                <p>For administrative inquiries regarding local calculation models, data control loops, or technical parameters, message the official channel directly:</p>
+                <ul>
+                    <li><strong>Studio Portal:</strong> Neuron TS Labs</li>
+                    <li><strong>Principal Engineer:</strong> Mohd Tahir Shaikh</li>
+                    <li><strong>Administrative Support:</strong> <a href="mailto:shaikhtahir3162@gmail.com" style="color: var(--accent-cyan); text-decoration: none;">shaikhtahir3162@gmail.com</a></li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+
 </body>
 </html>
