@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VX Player Privacy Policy | NEURON TS LABS</title>
+    <meta name="description" content="Official privacy policy and local data handling guidelines for VX Player offline media player.">
+    <style>
+        :root {
+            --bg-main: #0b0f19;
+            --bg-surface: #111827;
+            --bg-surface-elevated: #1f2937;
+            --accent-purple: #9d4dff;
+            --accent-cyan: #00f2fe;
+            --text-primary: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.06);
+            --neon-glow: rgba(157, 77, 255, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: 60px;
+        }
+
+        .nav-bar {
+            border-bottom: 1px solid var(--border-color);
+            background-color: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 16px 20px;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .doc-header {
+            max-width: 1000px;
+            margin: 60px auto 40px auto;
+            padding: 0 20px;
+        }
+
+        .doc-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 4px 10px;
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--accent-cyan);
+            border-radius: 6px;
+            border: 1px solid rgba(0, 242, 254, 0.2);
+            margin-bottom: 12px;
+        }
+
+        .doc-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #ffffff 40%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .doc-meta {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .policy-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .policy-content {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 40px;
+        }
+
+        .policy-content section {
+            margin-bottom: 36px;
+        }
+
+        .policy-content section:last-child {
+            margin-bottom: 0;
+        }
+
+        .policy-content h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            border-left: 3px solid var(--accent-cyan);
+            padding-left: 12px;
+        }
+
+        .policy-content h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+            color: #e5e7eb;
+        }
+
+        .policy-content p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .policy-content ul, .policy-content ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+            color: var(--text-muted);
+        }
+
+        .policy-content ul li, .policy-content ol li {
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .matrix-table th {
+            background-color: rgba(255, 255, 255, 0.03);
+            color: #ffffff;
+            font-weight: 600;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .matrix-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-muted);
+            vertical-align: top;
+        }
+
+        .matrix-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .code-inline {
+            font-family: monospace;
+            background-color: var(--bg-surface-elevated);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #f3f4f6;
+            font-size: 0.85rem;
+        }
+
+        .highlight-box {
+            background: radial-gradient(circle at top left, rgba(157, 77, 255, 0.03), transparent), var(--bg-surface-elevated);
+            border: 1px solid rgba(157, 77, 255, 0.15);
+            border-radius: 14px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            color: #e5e7eb;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 600px) {
+            .policy-content {
+                padding: 24px;
+            }
+            .doc-header h1 {
+                font-size: 2rem;
+            }
+            .matrix-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a class="nav-logo" href="index.html">🎬 NEURON TS LABS</a>
+            <a class="btn-back" href="index.html">← Back to Terminal</a>
+        </div>
+    </nav>
+
+    <header class="doc-header">
+        <span class="doc-badge">Offline-First Verified</span>
+        <h1>Privacy Policy for VX Player</h1>
+        <div class="doc-meta">
+            <span>Package Name: </span><span class="code-inline">com.neurontslabs.vxplayer</span> • <span>Effective Date: 5 August 2026</span>
+        </div>
+    </header>
+
+    <main class="policy-container">
+        <div class="policy-content">
+            
+            <section id="introduction">
+                <h2>1. Introduction</h2>
+                <p>This Privacy Policy explains how <strong>VX Player</strong> (“the App”, “we”, “us”, or “our”), developed by <strong>NEURON TS LABS</strong>, handles information when you use the App on Android devices.</p>
+                <p>VX Player is designed as an <strong>offline-first, local media player</strong>. Its core purpose is to play video and audio files that already exist on your device, and optionally to protect selected files in a <strong>Private Vault</strong> on that same device.</p>
+
+                <div class="highlight-box">
+                    <p><strong>Core Privacy Directives:</strong></p>
+                    <ul style="margin-top: 8px; margin-bottom: 0;">
+                        <li>The App does <strong>not</strong> declare or use the Android <span class="code-inline">INTERNET</span> permission.</li>
+                        <li>The App does <strong>not</strong> stream media from the internet as part of its core product design.</li>
+                        <li>The App does <strong>not</strong> operate user accounts, cloud libraries, or remote sign-in.</li>
+                        <li>Media files, playback history, settings, vault contents, and vault security credentials are stored <strong>on your device only</strong>.</li>
+                        <li>We do <strong>not</strong> sell personal data or utilize advertising/analytics SDKs in the core App shipped for Google Play.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="identity">
+                <h2>2. Product & Developer Metadata</h2>
+                <table class="matrix-table">
+                    <thead>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Specification</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Product Name</td><td><strong>VX Player</strong></td></tr>
+                        <tr><td>Package Identifier</td><td><span class="code-inline">com.neurontslabs.vxplayer</span></td></tr>
+                        <tr><td>Developer Entity</td><td><strong>NEURON TS LABS</strong></td></tr>
+                        <tr><td>Target Platform</td><td>Android (Google Play Distribution)</td></tr>
+                        <tr><td>Support & Privacy Contact</td><td><a href="mailto:shaikhtahir3162@gmail.com" style="color: var(--accent-cyan); text-decoration: none;">shaikhtahir3162@gmail.com</a></td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="scope">
+                <h2>3. Scope & Privacy Principles</h2>
+                <p>This policy covers the VX Player application, library indexing, local playback features, Private Vault, biometric gates, and local cache layers. We adhere strictly to 6 key principles:</p>
+                <ul>
+                    <li><strong>Local by default:</strong> Core features run completely offline without network triggers.</li>
+                    <li><strong>Minimal data boundary:</strong> We process only the minimum metadata necessary to render local media and persist playback options.</li>
+                    <li><strong>No cloud media backend:</strong> Your media files are never hosted or streamed from external server hardware.</li>
+                    <li><strong>User sovereign control:</strong> Reset vault PINs, wipe playback history, or flush caches directly from the UI.</li>
+                    <li><strong>Zero advertising ID harvesting:</strong> No tracking vectors or advertising profiles are compiled.</li>
+                    <li><strong>Private Vault security:</strong> Isolated sandbox structures protect sensitive media locally from casual device inspection.</li>
+                </ul>
+            </section>
+
+            <section id="information-processing">
+                <h2>4. Information Processed On-Device</h2>
+                <p>Because VX Player operates entirely offline, all processing takes place locally inside your Android device runtime:</p>
+
+                <h3>A. Local Media Library Metadata</h3>
+                <p>When media permissions are granted, the app indexes local paths, display names, folder structures, duration, file sizes, container metadata, MediaStore IDs, and locally generated thumbnail previews into a local <strong>Room Database</strong>. This database is never transmitted off-device.</p>
+
+                <h3>B. Playback State & Incognito Mode</h3>
+                <p>Unless <strong>Incognito playback</strong> is enabled, last-watched positions, playback speeds, preferred audio tracks, and subtitle style choices are written locally to maintain session state. When Incognito mode is active, the app blocks history and resume logging entirely.</p>
+
+                <h3>C. Private Vault Architecture & Biometrics</h3>
+                <p>Items moved into the Private Vault are copied into app-private storage guarded by anti-indexing markers (<span class="code-inline">.nomedia</span>). Security credentials (like your Vault PIN) are stored strictly as <strong>salted, local cryptographic hashes</strong>. Biometric unlock routines delegate matching directly to the Android OS secure hardware (<span class="code-inline">BiometricPrompt</span>)—VX Player never reads or stores raw biometric templates.</p>
+
+                <h3>D. Caches and Performance Diagnostics</h3>
+                <p>Temporary thumbnails (Coil disk cache) and seek-bar scrub frames are kept in disposable local cache layers with size-capping safeguards. Diagnostics shown in the <em>About & Diagnostics</em> view remain strictly on-screen for support troubleshooting and are never broadcast externally.</p>
+            </section>
+
+            <section id="permissions-matrix">
+                <h2>5. Android System Permissions</h2>
+                <p>VX Player requests permissions solely to interface with local files and hardware decoding pipelines:</p>
+
+                <table class="matrix-table">
+                    <thead>
+                        <tr>
+                            <th>Manifest Permission</th>
+                            <th>Operational Scope</th>
+                            <th>Network Access</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="code-inline">READ_MEDIA_VIDEO</span> / <span class="code-inline">READ_EXTERNAL_STORAGE</span></td>
+                            <td>Discovers and indexes local device video files for playback and thumbnail generation.</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-inline">READ_MEDIA_AUDIO</span></td>
+                            <td>Reads local audio files and external audio tracks for multi-track synchronization.</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-inline">FOREGROUND_SERVICE_MEDIA_PLAYBACK</span></td>
+                            <td>Sustains background audio and media session notifications while the app is minimized.</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-inline">USE_BIOMETRIC</span></td>
+                            <td>Interfaces with native OS biometric prompts to unlock the Private Vault.</td>
+                            <td>No</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box">
+                    <p><strong>Explicitly Banned Permissions:</strong> VX Player intentionally omits <span class="code-inline">INTERNET</span>, <span class="code-inline">ACCESS_FINE_LOCATION</span>, <span class="code-inline">READ_CONTACTS</span>, <span class="code-inline">READ_SMS</span>, and <span class="code-inline">CAMERA</span>.</p>
+                </div>
+            </section>
+
+            <section id="retention-erasure">
+                <h2>6. Data Retention & Erasure Controls</h2>
+                <p>Since all application variables reside locally, uninstalling VX Player immediately wipes all app-private storage, including local database indexes, preference settings, and vaulted private media copies. Original unvaulted media files located in shared public directories remain under your control in system storage.</p>
+                <p>You can clear history, flush thumbnail caches, or reset vault indexes at any point by navigating to <em>Settings → Clear Storage / Data</em> inside Android system settings or utilizing in-app maintenance tools.</p>
+            </section>
+
+            <section id="governance-contact">
+                <h2>7. Contact & Governance</h2>
+                <p>For technical inquiries regarding offline storage architecture, Play Console Data Safety audits, or local vault security implementations, contact the lead developer directly:</p>
+                <ul>
+                    <li><strong>Developer Entity:</strong> NEURON TS LABS</li>
+                    <li><strong>Lead Developer:</strong> Mohd Tahir Shaikh</li>
+                    <li><strong>Support & Privacy Email:</strong> <a href="mailto:shaikhtahir3162@gmail.com" style="color: var(--accent-cyan); text-decoration: none;">shaikhtahir3162@gmail.com</a></li>
+                    <li><strong>Developer Portal:</strong> <a href="https://github.com/shaikhtahir3162-bit" target="_blank" style="color: var(--accent-cyan); text-decoration: none;">shaikhtahir3162-bit</a></li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+
+</body>
+</html>
