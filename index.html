@@ -363,7 +363,6 @@
             color: var(--text-muted);
         }
 
-        /* Responsive Architecture */
         @media (max-width: 900px) {
             .profile-layout {
                 grid-template-columns: 1fr;
@@ -411,7 +410,26 @@
             <h2 class="section-title">Production Software Portfolio</h2>
             
             <div class="app-grid">
-                <!-- App 1: FallGuard -->
+                <!-- App 1: VX Player -->
+                <div class="app-card">
+                    <div class="card-meta">
+                        <div class="app-icon">🎬</div>
+                        <span class="tech-pill">Offline Media</span>
+                    </div>
+                    <h3>VX Player</h3>
+                    <p>Offline-first local media engine featuring an isolated Private Vault with hardware biometrics and zero internet permission declarations.</p>
+                    <ul class="feature-list">
+                        <li>Zero INTERNET Permission Architecture</li>
+                        <li>Hardware Biometric & Salted PIN Vault</li>
+                        <li>Room Database Media Index & Incognito Mode</li>
+                    </ul>
+                    <div class="card-actions">
+                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.vxplayer" target="_blank">Google Play</a>
+                        <a class="btn-action-primary" href="vx-player.html">Privacy Policy</a>
+                    </div>
+                </div>
+
+                <!-- App 2: FallGuard -->
                 <div class="app-card">
                     <div class="card-meta">
                         <div class="app-icon">🛡️</div>
@@ -430,7 +448,7 @@
                     </div>
                 </div>
 
-                <!-- App 2: Lite Photo Compressor -->
+                <!-- App 3: Lite Photo Compressor -->
                 <div class="app-card">
                     <div class="card-meta">
                         <div class="app-icon">📸</div>
@@ -449,7 +467,7 @@
                     </div>
                 </div>
 
-                <!-- App 3: SCI-CAL -->
+                <!-- App 4: SCI-CAL -->
                 <div class="app-card">
                     <div class="card-meta">
                         <div class="app-icon">🧮</div>
@@ -468,7 +486,7 @@
                     </div>
                 </div>
 
-                <!-- App 4: TTS Expert -->
+                <!-- App 5: TTS Expert -->
                 <div class="app-card">
                     <div class="card-meta">
                         <div class="app-icon">🎤</div>
@@ -528,7 +546,6 @@
     </footer>
 
     <script>
-        // Micro-interaction: Subtle card hover parallax lighting track
         document.querySelectorAll('.app-card').forEach(card => {
             card.addEventListener('mousemove', e => {
                 const rect = card.getBoundingClientRect();
