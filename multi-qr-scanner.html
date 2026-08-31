@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi QR Scanner & Generator Privacy Policy | NEURON TS LABS</title>
+    <meta name="description" content="Official privacy policy and on-device data governance documentation for Multi QR Scanner & Generator.">
+    <style>
+        :root {
+            --bg-main: #0b0f19;
+            --bg-surface: #111827;
+            --bg-surface-elevated: #1f2937;
+            --accent-purple: #9d4dff;
+            --accent-cyan: #00f2fe;
+            --text-primary: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.06);
+            --neon-glow: rgba(157, 77, 255, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: 60px;
+        }
+
+        .nav-bar {
+            border-bottom: 1px solid var(--border-color);
+            background-color: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 16px 20px;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .doc-header {
+            max-width: 1000px;
+            margin: 60px auto 40px auto;
+            padding: 0 20px;
+        }
+
+        .doc-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 4px 10px;
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--accent-cyan);
+            border-radius: 6px;
+            border: 1px solid rgba(0, 242, 254, 0.2);
+            margin-bottom: 12px;
+        }
+
+        .doc-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #ffffff 40%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .doc-meta {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .policy-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .policy-content {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 40px;
+        }
+
+        .policy-content section {
+            margin-bottom: 36px;
+        }
+
+        .policy-content section:last-child {
+            margin-bottom: 0;
+        }
+
+        .policy-content h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            border-left: 3px solid var(--accent-cyan);
+            padding-left: 12px;
+        }
+
+        .policy-content h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+            color: #e5e7eb;
+        }
+
+        .policy-content p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .policy-content ul, .policy-content ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+            color: var(--text-muted);
+        }
+
+        .policy-content ul li, .policy-content ol li {
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .matrix-table th {
+            background-color: rgba(255, 255, 255, 0.03);
+            color: #ffffff;
+            font-weight: 600;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .matrix-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-muted);
+            vertical-align: top;
+        }
+
+        .matrix-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .code-inline {
+            font-family: monospace;
+            background-color: var(--bg-surface-elevated);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #f3f4f6;
+            font-size: 0.85rem;
+        }
+
+        .highlight-box {
+            background: radial-gradient(circle at top left, rgba(157, 77, 255, 0.03), transparent), var(--bg-surface-elevated);
+            border: 1px solid rgba(157, 77, 255, 0.15);
+            border-radius: 14px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            color: #e5e7eb;
+            font-size: 0.95rem;
+        }
+
+        .exclusion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+            margin: 20px 0;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+        }
+
+        .exclusion-item {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        @media (max-width: 600px) {
+            .policy-content {
+                padding: 24px;
+            }
+            .doc-header h1 {
+                font-size: 2rem;
+            }
+            .matrix-table {
+                display: block;
+                overflow-x: auto;
+            }
+            .exclusion-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a class="nav-logo" href="index.html">🔲 NEURON TS LABS</a>
+            <a class="btn-back" href="index.html">← Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <header class="doc-header">
+        <span class="doc-badge">100% Offline Architecture</span>
+        <h1>Privacy Policy for Multi QR Scanner & Generator</h1>
+        <div class="doc-meta">
+            <span>Application: </span><strong>Multi QR Scanner & Generator</strong> • <span>Developer: </span><strong>NEURON TS LABS</strong> • <span>Last Updated: August 31, 2026</span>
+        </div>
+    </header>
+
+    <main class="policy-container">
+        <div class="policy-content">
+            
+            <section id="summary">
+                <h2>1. Privacy Architecture & Executive Summary</h2>
+                <p>Welcome to <strong>Multi QR Scanner & Generator</strong>, developed by <strong>NEURON TS LABS</strong>. This application is engineered with an uncompromising <strong>offline-first, privacy-by-design</strong> architecture. Privacy is not a secondary setting; it is structurally embedded into every scanning, creation, batch processing, and export workflow.</p>
+
+                <div class="highlight-box">
+                    <p><strong>Fundamental Privacy Directives:</strong></p>
+                    <ul style="margin-top: 8px; margin-bottom: 0;">
+                        <li><strong>100% Offline:</strong> The core scanning and code generation engines require zero internet access.</li>
+                        <li><strong>No Network Permissions:</strong> The application does not declare the Android <span class="code-inline">INTERNET</span> permission for its core engine.</li>
+                        <li><strong>No Account Infrastructure:</strong> No sign-ups, accounts, logins, or remote user tracking.</li>
+                        <li><strong>Zero Remote Storage:</strong> Your scanned barcodes, generated designs, and scan histories reside solely on your physical device.</li>
+                        <li><strong>Zero Third-Party Tracking:</strong> No analytics beacons, tracking identifiers, or ad profiling SDKs.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="collection">
+                <h2>2. Information Processed On-Device</h2>
+                <p>Because Multi QR Scanner & Generator functions exclusively offline, all data processing takes place strictly inside your physical device's local memory environment:</p>
+
+                <h3>A. Camera Live Viewfinder Data</h3>
+                <p>When the camera scanner is active, the application accesses the camera feed ephemerally to detect 1D and 2D barcode patterns in real time. <strong>Zero frames, photographs, or video feeds are ever recorded, cached, or transmitted.</strong> The stream is processed in-memory and immediately released.</p>
+
+                <h3>B. On-Device Content & History Generation</h3>
+                <p>Any QR codes or barcodes you generate, customize, scan, favorite, or export are saved strictly inside an on-device local <strong>Room Database</strong> and encrypted application preferences via <strong>Android DataStore</strong>. This index is sandboxed and never synchronized with remote servers.</p>
+
+                <h3>C. Local Gallery Image Decoding</h3>
+                <p>If you choose to scan a barcode from an existing device photo or screenshot, the image URI is consumed locally using on-device machine learning detection models. The source image is never duplicated, modified, or uploaded off-device.</p>
+            </section>
+
+            <section id="non-collection">
+                <h2>3. Explicit Data Non-Collection Manifest</h2>
+                <p>NEURON TS LABS does not collect, harvest, monitor, or monetize any of the following data categories:</p>
+
+                <div class="exclusion-grid">
+                    <div class="exclusion-item">👤 No Names or Identifiers</div>
+                    <div class="exclusion-item">📧 No Email Addresses</div>
+                    <div class="exclusion-item">📞 No Phone Numbers</div>
+                    <div class="exclusion-item">📍 No GPS / Location Data</div>
+                    <div class="exclusion-item">👥 No Contacts Access</div>
+                    <div class="exclusion-item">💬 No SMS / Message Logs</div>
+                    <div class="exclusion-item">🆔 No Advertising IDs (AAID)</div>
+                    <div class="exclusion-item">📊 No Analytics or Telemetry</div>
+                    <div class="exclusion-item">🌐 No Browsing Activity</div>
+                    <div class="exclusion-item">🎙️ No Microphone Recording</div>
+                </div>
+            </section>
+
+            <section id="permissions">
+                <h2>4. Android Manifest Permissions Transparency</h2>
+                <p>Multi QR Scanner & Generator operates with absolute permission minimization, requesting access only when technically required to fulfill a user-triggered feature:</p>
+
+                <table class="matrix-table">
+                    <thead>
+                        <tr>
+                            <th>Permission</th>
+                            <th>Operational Purpose</th>
+                            <th>Mandatory?</th>
+                            <th>Network Access</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="code-inline">android.permission.CAMERA</span></td>
+                            <td>Powers real-time optical barcode detection through the camera viewfinder.</td>
+                            <td>Yes (for camera scanning)</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-inline">WRITE_EXTERNAL_STORAGE</span> (Legacy &le; Android 8)</td>
+                            <td>Allows saving exported PNG, JPG, SVG, and PDF files to user-chosen public storage paths on legacy OS builds.</td>
+                            <td>Optional</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-inline">android.permission.VIBRATE</span></td>
+                            <td>Provides brief haptic feedback upon successful barcode detection.</td>
+                            <td>Optional</td>
+                            <td>No</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="storage-security">
+                <h2>5. Storage Architecture & Security Isolation</h2>
+                <p>Data stored by Multi QR Scanner & Generator is protected through multiple platform-level safeguards:</p>
+                <ul>
+                    <li><strong>Sandboxed Database:</strong> QR scan logs and favorites are stored in private internal application storage that cannot be queried by other installed third-party apps.</li>
+                    <li><strong>Backup Exclusion:</strong> Local databases are excluded from automatic cloud extraction rules to ensure private codes are not uploaded during generic Android backups.</li>
+                    <li><strong>Zero Network Attack Surface:</strong> Because the application does not utilize network execution threads, remote data exfiltration vectors are eliminated.</li>
+                </ul>
+            </section>
+
+            <section id="retention-control">
+                <h2>6. User Data Rights & Erasure Controls</h2>
+                <p>You maintain complete and autonomous sovereignty over your data lifecycle:</p>
+                <ul>
+                    <li><strong>Individual Record Deletion:</strong> Select and wipe specific scans or created items directly from the History screen.</li>
+                    <li><strong>Global Cache Flush:</strong> Clear your entire history, favorite tags, and custom design presets in a single tap via in-app settings.</li>
+                    <li><strong>Complete OS Erasure:</strong> Performing an uninstallation or selecting <em>Clear Storage / Data</em> in Android Settings permanently wipes all databases and preferences from the physical flash memory.</li>
+                </ul>
+            </section>
+
+            <section id="children-compliance">
+                <h2>7. Children's Privacy & Regulatory Compliance</h2>
+                <p>Multi QR Scanner & Generator is a general-purpose utility and is not directed at children under the age of 13. Given our total absence of data harvesting, tracking cookies, user profiling, and cloud databases, the application inherently satisfies global privacy frameworks, including COPPA, GDPR, and Indian digital data protection standards.</p>
+            </section>
+
+            <section id="contact">
+                <h2>8. Developer & Administrative Contact</h2>
+                <p>For technical inquiries, source architecture questions, or data governance clarifications, contact the developer directly:</p>
+                <ul>
+                    <li><strong>Developer Studio:</strong> NEURON TS LABS</li>
+                    <li><strong>Lead Developer:</strong> Mohd Tahir Shaikh</li>
+                    <li><strong>Direct Support Email:</strong> <a href="mailto:shaikhtahir3162@gmail.com" style="color: var(--accent-cyan); text-decoration: none;">shaikhtahir3162@gmail.com</a></li>
+                    <li><strong>Engineering Portal:</strong> <a href="https://github.com/shaikhtahir3162-bit" target="_blank" style="color: var(--accent-cyan); text-decoration: none;">github.com/shaikhtahir3162-bit</a></li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+
+</body>
+</html>
