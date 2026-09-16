@@ -36,7 +36,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Hero Section */
         header {
             position: relative;
             background: radial-gradient(circle at top right, rgba(157, 77, 255, 0.12), transparent 50%),
@@ -102,7 +101,6 @@
             box-shadow: 0 6px 24px rgba(157, 77, 255, 0.3);
         }
 
-        /* Core Section Layout */
         section {
             max-width: 1200px;
             margin: 0 auto;
@@ -120,7 +118,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* App Grid Architecture */
         .app-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -165,7 +162,6 @@
         }
 
         .app-icon {
-            font-size: 2.5rem;
             background: rgba(255, 255, 255, 0.03);
             width: 64px;
             height: 64px;
@@ -174,6 +170,7 @@
             justify-content: center;
             border-radius: 16px;
             border: 1px solid var(--border-color);
+            font-size: 2rem;
         }
 
         .tech-pill {
@@ -270,7 +267,6 @@
             box-shadow: 0 0 12px var(--neon-glow);
         }
 
-        /* Corporate Studio / About Block */
         .studio-profile {
             background: linear-gradient(135deg, var(--bg-surface), #111c30);
             border: 1px solid var(--border-color);
@@ -350,7 +346,6 @@
             color: #ffffff;
         }
 
-        /* Footer */
         footer {
             border-top: 1px solid var(--border-color);
             background-color: #070a10;
@@ -410,40 +405,66 @@
             <h2 class="section-title">Production Software Portfolio</h2>
             
             <div class="app-grid">
-               <!-- App 1: Multi QR Scanner & Generator -->
-<div class="app-card">
-    <div class="card-meta">
-        <div class="app-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="6" height="6" rx="1.5"></rect>
-                <rect x="15" y="3" width="6" height="6" rx="1.5"></rect>
-                <rect x="3" y="15" width="6" height="6" rx="1.5"></rect>
-                <path d="M15 15h2v2h-2z"></path>
-                <path d="M19 15h2v6h-2z"></path>
-                <path d="M15 19h2v2h-2z"></path>
-                <path d="M10 3v4"></path>
-                <path d="M3 10h4"></path>
-                <path d="M10 10h4v4h-4z"></path>
-                <path d="M14 7h3"></path>
-                <path d="M7 14v3"></path>
-            </svg>
-        </div>
-        <span class="tech-pill">Scanner & Tool</span>
-    </div>
-    <h3>Multi QR Scanner & Generator</h3>
-    <p>High-speed offline scanning engine and custom QR/barcode generator supporting batch operations, Wi-Fi decoding, and local history export.</p>
-    <ul class="feature-list">
-        <li>Instant Camera & Gallery Decoding</li>
-        <li>Custom QR Code & Multi-Format Barcode Engine</li>
-        <li>Isolated Local Scan History & CSV Export</li>
-    </ul>
-    <div class="card-actions">
-        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.multiqrscanner" target="_blank">Google Play</a>
-        <a class="btn-action-primary" href="multi-qr-scanner.html">Privacy Policy</a>
-    </div>
-</div>
+                <!-- App 1: WeatherGlow -->
+                <div class="app-card">
+                    <div class="card-meta">
+                        <div class="app-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
+                                <circle cx="12" cy="7" r="1.5" stroke="#9d4dff" fill="#9d4dff"></circle>
+                                <path d="m15.5 5.5 1.5-1.5" stroke="#9d4dff"></path>
+                                <path d="M12 2v2" stroke="#9d4dff"></path>
+                            </svg>
+                        </div>
+                        <span class="tech-pill">Live Weather & AQI</span>
+                    </div>
+                    <h3>WeatherGlow</h3>
+                    <p>Minimalist atmospheric tracker featuring transparent glass widgets, dynamic neon accents, real-time AQI, and zero continuous background location polling.</p>
+                    <ul class="feature-list">
+                        <li>Transparent Glass & Neon Clock Widgets</li>
+                        <li>OpenWeather Localized Forecast Engine</li>
+                        <li>On-Demand GPS & Zero Background Tracking</li>
+                    </ul>
+                    <div class="card-actions">
+                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.weatherglow" target="_blank">Google Play</a>
+                        <a class="btn-action-primary" href="weatherglow.html">Privacy Policy</a>
+                    </div>
+                </div>
 
-                <!-- App 2: VX Player -->
+                <!-- App 2: Multi QR Scanner & Generator -->
+                <div class="app-card">
+                    <div class="card-meta">
+                        <div class="app-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="6" height="6" rx="1.5"></rect>
+                                <rect x="15" y="3" width="6" height="6" rx="1.5"></rect>
+                                <rect x="3" y="15" width="6" height="6" rx="1.5"></rect>
+                                <path d="M15 15h2v2h-2z"></path>
+                                <path d="M19 15h2v6h-2z"></path>
+                                <path d="M15 19h2v2h-2z"></path>
+                                <path d="M10 3v4"></path>
+                                <path d="M3 10h4"></path>
+                                <path d="M10 10h4v4h-4z"></path>
+                                <path d="M14 7h3"></path>
+                                <path d="M7 14v3"></path>
+                            </svg>
+                        </div>
+                        <span class="tech-pill">Scanner & Tool</span>
+                    </div>
+                    <h3>Multi QR Scanner & Generator</h3>
+                    <p>High-speed offline scanning engine and custom QR/barcode generator supporting batch operations, Wi-Fi decoding, and local history export.</p>
+                    <ul class="feature-list">
+                        <li>Instant Camera & Gallery Decoding</li>
+                        <li>Custom QR Code & Multi-Format Barcode Engine</li>
+                        <li>Isolated Local Scan History & CSV Export</li>
+                    </ul>
+                    <div class="card-actions">
+                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.multiqrscanner" target="_blank">Google Play</a>
+                        <a class="btn-action-primary" href="multi-qr-scanner.html">Privacy Policy</a>
+                    </div>
+                </div>
+
+                <!-- App 3: VX Player -->
                 <div class="app-card">
                     <div class="card-meta">
                         <div class="app-icon">🎬</div>
@@ -462,7 +483,7 @@
                     </div>
                 </div>
 
-                <!-- App 3: FallGuard -->
+                <!-- App 4: FallGuard -->
                 <div class="app-card">
                     <div class="card-meta">
                         <div class="app-icon">🛡️</div>
@@ -481,7 +502,7 @@
                     </div>
                 </div>
 
-                <!-- App 4: Lite Photo Compressor -->
+                <!-- App 5: Lite Photo Compressor -->
                 <div class="app-card">
                     <div class="card-meta">
                         <div class="app-icon">📸</div>
@@ -500,7 +521,7 @@
                     </div>
                 </div>
 
-                <!-- App 5: SCI-CAL -->
+                <!-- App 6: SCI-CAL -->
                 <div class="app-card">
                     <div class="card-meta">
                         <div class="app-icon">🧮</div>
@@ -519,7 +540,7 @@
                     </div>
                 </div>
 
-                <!-- App 6: TTS Expert -->
+                <!-- App 7: TTS Expert -->
                 <div class="app-card">
                     <div class="card-meta">
                         <div class="app-icon">🎤</div>
