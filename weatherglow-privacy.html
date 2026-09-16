@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherGlow Privacy Policy | NEURON TS LABS</title>
+    <meta name="description" content="Detailed official privacy policy and data governance documentation for WeatherGlow Android application.">
+    <style>
+        :root {
+            --bg-main: #0b0f19;
+            --bg-surface: #111827;
+            --bg-surface-elevated: #1f2937;
+            --accent-purple: #9d4dff;
+            --accent-cyan: #00f2fe;
+            --text-primary: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.06);
+            --neon-glow: rgba(157, 77, 255, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: 60px;
+        }
+
+        .nav-bar {
+            border-bottom: 1px solid var(--border-color);
+            background-color: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 16px 20px;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .doc-header {
+            max-width: 1000px;
+            margin: 60px auto 40px auto;
+            padding: 0 20px;
+        }
+
+        .doc-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 4px 10px;
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--accent-cyan);
+            border-radius: 6px;
+            border: 1px solid rgba(0, 242, 254, 0.2);
+            margin-bottom: 12px;
+        }
+
+        .doc-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #ffffff 40%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .doc-meta {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .policy-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .policy-content {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 40px;
+        }
+
+        .policy-content section {
+            margin-bottom: 40px;
+        }
+
+        .policy-content section:last-child {
+            margin-bottom: 0;
+        }
+
+        .policy-content h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            border-left: 3px solid var(--accent-cyan);
+            padding-left: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .policy-content h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 24px 0 10px 0;
+            color: #e5e7eb;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .policy-content p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .policy-content ul, .policy-content ol {
+            margin-left: 20px;
+            margin-bottom: 16px;
+            color: var(--text-muted);
+        }
+
+        .policy-content ul li, .policy-content ol li {
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .matrix-table th {
+            background-color: rgba(255, 255, 255, 0.03);
+            color: #ffffff;
+            font-weight: 600;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .matrix-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-muted);
+            vertical-align: top;
+        }
+
+        .matrix-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .code-inline {
+            font-family: monospace;
+            background-color: var(--bg-surface-elevated);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #f3f4f6;
+            font-size: 0.85rem;
+        }
+
+        .highlight-box {
+            background: radial-gradient(circle at top left, rgba(0, 242, 254, 0.04), transparent), var(--bg-surface-elevated);
+            border: 1px solid rgba(0, 242, 254, 0.18);
+            border-radius: 14px;
+            padding: 22px;
+            margin: 24px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 8px;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .highlight-box ul {
+            margin-bottom: 0;
+            margin-left: 20px;
+        }
+
+        .highlight-box ul li {
+            color: #d1d5db;
+            margin-bottom: 6px;
+            font-size: 0.92rem;
+        }
+
+        .highlight-box ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        .exclusion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 12px;
+            margin: 20px 0;
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+        }
+
+        .exclusion-item {
+            font-size: 0.88rem;
+            color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        @media (max-width: 600px) {
+            .policy-content {
+                padding: 24px;
+            }
+            .doc-header h1 {
+                font-size: 2rem;
+            }
+            .matrix-table {
+                display: block;
+                overflow-x: auto;
+            }
+            .exclusion-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a class="nav-logo" href="index.html">🌤️ NEURON TS LABS</a>
+            <a class="btn-back" href="index.html">← Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <header class="doc-header">
+        <span class="doc-badge">Play Console Data Safety Compliant</span>
+        <h1>Privacy Policy for WeatherGlow 🔒</h1>
+        <div class="doc-meta">
+            <span>Application: </span><strong>WeatherGlow</strong> • <span>Package: </span><span class="code-inline">com.neurontslabs.weatherglow</span> • <span>Last Updated: September 1, 2026</span>
+        </div>
+    </header>
+
+    <main class="policy-container">
+        <div class="policy-content">
+            
+            <section id="summary">
+                <h2>✨ Executive Summary (TL;DR)</h2>
+                <div class="highlight-box">
+                    <p>Core Privacy Highlights at a Glance:</p>
+                    <ul>
+                        <li>🚫 <strong>Zero Account Requirements:</strong> No sign-ups, registrations, or logins needed.</li>
+                        <li>📍 <strong>On-Demand GPS Only:</strong> Location is polled only when requested to display forecasts.</li>
+                        <li>🛑 <strong>No Continuous Background Tracking:</strong> We never log your travel routes or background trajectories.</li>
+                        <li>🗄️ <strong>Local Storage by Default:</strong> Saved cities and preferences stay sandboxed on your phone.</li>
+                        <li>☁️ <strong>Zero Remote User Databases:</strong> We do not operate cloud servers tracking personal identities.</li>
+                        <li>🛡️ <strong>Encrypted Network Transmission:</strong> All weather queries and ad calls enforce HTTPS/TLS protocols.</li>
+                        <li>🗑️ <strong>Total User Sovereignty:</strong> Clear local caches, reset IDs, or revoke permissions instantly.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="introduction">
+                <h2>1️⃣ Introduction & Architecture Philosophy</h2>
+                <p>Welcome to <strong>WeatherGlow</strong> 👋, engineered by <strong>NEURON TS LABS</strong>. WeatherGlow delivers real-time meteorological conditions, air quality index (AQI) metrics, and customizable transparent home screen clock widgets.</p>
+                <p>The application is built around an on-demand, privacy-first processing architecture. We fundamentally reject background surveillance and location profiling paradigms. Personal identification details are never collected, and weather calculations run without maintaining server-side user tracking ledgers.</p>
+            </section>
+
+            <section id="data-processed">
+                <h2>2️⃣ Information We Collect & Process</h2>
+
+                <h3>📍 A. Location Data</h3>
+                <ul>
+                    <li><strong>Permissions Requested:</strong> Precise Location (<span class="code-inline">ACCESS_FINE_LOCATION</span>) and Coarse Location (<span class="code-inline">ACCESS_COARSE_LOCATION</span>).</li>
+                    <li><strong>When It Is Accessed:</strong> Exclusively when you tap the <strong>"Current GPS"</strong> action or enable automatic local area detection during onboarding or settings configuration.</li>
+                    <li><strong>Operational Purpose:</strong> Coordinates (latitude and longitude) are resolved via Android Geocoder into recognizable area names (e.g., locality, district, city) to fetch accurate real-time forecasts, hourly/5-day trends, UV levels, and sunrise/sunset times.</li>
+                    <li><strong>Storage & Retention:</strong> Coordinates are processed ephemerally in volatile memory (RAM) and stored only within your device's local database (<span class="code-inline">weather-glow.db</span>). Movement history trails are never recorded or uploaded to remote servers.</li>
+                </ul>
+
+                <h3>⚙️ B. User Preferences & Local Offline Caches</h3>
+                <ul>
+                    <li><strong>Stored Datasets:</strong> Saved cities, default location targets, temperature units (°C / °F), wind speed and barometric pressure units, UI themes (Light, Dark, AMOLED Glass), and recent forecast response bodies.</li>
+                    <li><strong>Storage Architecture:</strong> Stored locally using <strong>Android DataStore Preferences</strong> and an encrypted local <strong>Room SQLite Database</strong>. This data stays on your physical device.</li>
+                </ul>
+
+                <h3>📱 C. Technical Identifiers & Diagnostics</h3>
+                <ul>
+                    <li><strong>Parameters Handled:</strong> Device hardware model, operating system version, display resolution, system language, IP address, and Google Advertising ID (GAID).</li>
+                    <li><strong>Operational Scope:</strong> Enables correct widget scaling, maintains network handshakes with weather API endpoints, monitors application stability, and serves non-intrusive banner advertising.</li>
+                </ul>
+            </section>
+
+            <section id="non-collection">
+                <h2>3️⃣ Explicit Data Non-Collection Manifest</h2>
+                <p>NEURON TS LABS maintains strict boundaries against harvesting non-essential personal information:</p>
+
+                <div class="exclusion-grid">
+                    <div class="exclusion-item">👤 No Names or Personal Profiles</div>
+                    <div class="exclusion-item">📧 No Email Addresses or Registries</div>
+                    <div class="exclusion-item">📞 No Phone Numbers or SMS Logs</div>
+                    <div class="exclusion-item">👥 No Contacts Book Access</div>
+                    <div class="exclusion-item">📷 No Camera or Gallery Media Access</div>
+                    <div class="exclusion-item">🎙️ No Microphone or Audio Recordings</div>
+                    <div class="exclusion-item">💳 No Financial or Card Records</div>
+                    <div class="exclusion-item">🛰️ No Continuous Background Tracking</div>
+                </div>
+            </section>
+
+            <section id="permissions-matrix">
+                <h2>4️⃣ Android System Permissions Transparency</h2>
+                <p>WeatherGlow declares and uses only the minimum permissions necessary to deliver forecasts and support desktop widgets:</p>
+
+                <table class="matrix-table">
+                    <thead>
+                        <tr>
+                            <th>Permission</th>
+                            <th>Category</th>
+                            <th>Operational Scope</th>
+                            <th>Mandatory?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="code-inline">ACCESS_FINE_LOCATION</span> 🛰️</td>
+                            <td>Location</td>
+                            <td>Resolves high-accuracy GPS coordinates when tapping "Current GPS" for local weather.</td>
+                            <td>Optional</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-inline">ACCESS_COARSE_LOCATION</span> 📡</td>
+                            <td>Location</td>
+                            <td>Determines approximate location via cellular/Wi-Fi networks for regional forecasts.</td>
+                            <td>Optional</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-inline">INTERNET</span> 🌐</td>
+                            <td>Network</td>
+                            <td>Retrieves live weather data from OpenWeather and loads banner ad placements.</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-inline">ACCESS_NETWORK_STATE</span> 📶</td>
+                            <td>Network</td>
+                            <td>Verifies active internet connectivity prior to firing forecast update requests.</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-inline">RECEIVE_BOOT_COMPLETED</span> 🔄</td>
+                            <td>System</td>
+                            <td>Restores and updates home screen clock and weather widgets following device reboots.</td>
+                            <td>Optional</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box">
+                    <p>🛑 Background Location Policy:</p>
+                    <ul>
+                        <li>WeatherGlow <strong>does not</strong> request or declare <span class="code-inline">ACCESS_BACKGROUND_LOCATION</span>.</li>
+                        <li>Location coordinates are resolved exclusively while the application is active in the foreground or during explicit user-triggered widget updates.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="third-party">
+                <h2>5️⃣ Third-Party Services & SDK Integrations</h2>
+                <p>WeatherGlow connects with trusted third-party providers to deliver global meteorological data and maintain free software distribution:</p>
+
+                <h3>⛅ A. OpenWeather API (Weather Service Provider)</h3>
+                <ul>
+                    <li><strong>Role:</strong> Weather vendor providing live temperatures, atmospheric pressure, AQI metrics, and 5-day forecasts.</li>
+                    <li><strong>Data Shared:</strong> Ephemeral latitude/longitude coordinates and city search strings.</li>
+                    <li><strong>Privacy Details:</strong> Handled under the <a href="https://openweathermap.org/privacy-policy" target="_blank" style="color: var(--accent-cyan); text-decoration: none;">OpenWeather Privacy Policy</a>.</li>
+                </ul>
+
+                <h3>📍 B. Google Play Services (Fused Location Provider)</h3>
+                <ul>
+                    <li><strong>Role:</strong> Battery-efficient location detection and native Android reverse geocoding routines.</li>
+                    <li><strong>Data Handled:</strong> GPS signals, Wi-Fi networks, and device location states.</li>
+                    <li><strong>Privacy Details:</strong> Handled under the <a href="https://policies.google.com/privacy" target="_blank" style="color: var(--accent-cyan); text-decoration: none;">Google Privacy Policy</a>.</li>
+                </ul>
+
+                <h3>📢 C. Google Mobile Ads (AdMob)</h3>
+                <ul>
+                    <li><strong>Role:</strong> Delivers contextual and personalized banner advertisements.</li>
+                    <li><strong>Data Collected:</strong> Advertising IDs (GAID), device specifications, coarse IP location, and interaction logs.</li>
+                    <li><strong>Privacy & Opt-Out:</strong> Manage ad targeting via <a href="https://adssettings.google.com/" target="_blank" style="color: var(--accent-cyan); text-decoration: none;">Google Ads Settings</a> or review the <a href="https://policies.google.com/privacy" target="_blank" style="color: var(--accent-cyan); text-decoration: none;">AdMob Privacy Policy</a>.</li>
+                </ul>
+            </section>
+
+            <section id="security-retention">
+                <h2>6️⃣ Local Storage & Security Architecture</h2>
+                <ul>
+                    <li>🗄️ <strong>Local Sandboxing:</strong> Saved cities, default locations, and cached weather records reside strictly in the app-private SQLite database (<span class="code-inline">weather-glow.db</span>), shielded from other installed apps.</li>
+                    <li>🔐 <strong>Encrypted Network Calls:</strong> All external API requests and ad calls use encrypted HTTPS/TLS transport encryption.</li>
+                    <li>🛡️ <strong>Zero Remote Tracking Infrastructure:</strong> NEURON TS LABS does not operate remote servers to aggregate user locations, movement logs, or behavioral profiles.</li>
+                    <li>💾 <strong>Data Retention:</strong> On-device records remain stored until you remove cities in-app, clear application storage, or uninstall the software.</li>
+                </ul>
+            </section>
+
+            <section id="user-controls">
+                <h2>7️⃣ User Rights & Data Control Options</h2>
+                <p>You have full authority over your data within WeatherGlow:</p>
+                <ul>
+                    <li>📍 <strong>Revoke Location Access:</strong> Disable location permissions anytime via <em>Android Settings &gt; Apps &gt; WeatherGlow &gt; Permissions</em>. You can still manually search and save any city worldwide.</li>
+                    <li>🗑️ <strong>Manage Saved Locations:</strong> Delete individual cities or clear your entire saved locations list in the <strong>Locations</strong> tab.</li>
+                    <li>🧹 <strong>Flush Local App Data:</strong> Clear all cached weather responses and settings via <em>Android Settings &gt; Apps &gt; WeatherGlow &gt; Storage &gt; Clear Data</em>.</li>
+                    <li>🆔 <strong>Reset Ad Identifiers:</strong> Reset or delete your Google Advertising ID via <em>Android Settings &gt; Google &gt; Ads</em>.</li>
+                    <li>❌ <strong>Complete Package Erasure:</strong> Uninstalling WeatherGlow immediately removes all local databases, DataStore preferences, and widget cache files from your device.</li>
+                </ul>
+            </section>
+
+            <section id="children-compliance">
+                <h2>8️⃣ Children’s Privacy & Regulatory Governance</h2>
+                <p>WeatherGlow is a general utility and is <strong>not directed at children under the age of 13</strong> (or 16 in specific regional jurisdictions). The application does not knowingly harvest personal information from children.</p>
+                
+                <h3>🌐 Regional Compliance Alignments:</h3>
+                <ul>
+                    <li>🇪🇺 <strong>GDPR (European Economic Area):</strong> Processing relies on legitimate interests (delivering localized forecasts). Ad consent adheres to Google's EU User Consent Policy.</li>
+                    <li>🇺🇸 <strong>CCPA / CPRA (California):</strong> We do not sell or share personal consumer information for cross-context behavioral advertising.</li>
+                    <li>🇮🇳 <strong>Digital Personal Data Protection Act (India):</strong> Processing strictly complies with digital purpose-limitation guidelines.</li>
+                </ul>
+            </section>
+
+            <section id="changes">
+                <h2>9️⃣ Policy Updates & Document Control</h2>
+                <p>We may update this Privacy Policy periodically to reflect new features, operational upgrades, or regulatory guidelines. Revisions become effective upon publication with an updated "Last Updated" date. Continued use of WeatherGlow following changes constitutes acceptance of the revised terms.</p>
+            </section>
+
+            <section id="contact">
+                <h2>🔟 Developer & Administrative Contact</h2>
+                <p>For technical inquiries, permission audits, or data governance questions, contact the developer directly:</p>
+                <ul>
+                    <li>👨‍💻 <strong>Developer Entity:</strong> NEURON TS LABS</li>
+                    <li>🛠️ <strong>Lead Engineer:</strong> Mohd Tahir Shaikh</li>
+                    <li>📧 <strong>Direct Support Email:</strong> <a href="mailto:shaikhtahir3162@gmail.com" style="color: var(--accent-cyan); text-decoration: none;">shaikhtahir3162@gmail.com</a></li>
+                    <li>🌐 <strong>Source Code Portal:</strong> <a href="https://github.com/shaikhtahir3162-bit" target="_blank" style="color: var(--accent-cyan); text-decoration: none;">github.com/shaikhtahir3162-bit</a></li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+
+</body>
+</html>
