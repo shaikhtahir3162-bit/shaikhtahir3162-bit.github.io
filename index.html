@@ -12,6 +12,7 @@
             --bg-surface-elevated: #1f2937;
             --accent-purple: #9d4dff;
             --accent-cyan: #00f2fe;
+            --accent-green: #4ade80;
             --text-primary: #f3f4f6;
             --text-muted: #9ca3af;
             --border-color: rgba(255, 255, 255, 0.06);
@@ -36,6 +37,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* Hero Header */
         header {
             position: relative;
             background: radial-gradient(circle at top right, rgba(157, 77, 255, 0.12), transparent 50%),
@@ -101,6 +103,7 @@
             box-shadow: 0 6px 24px rgba(157, 77, 255, 0.3);
         }
 
+        /* Layout Section */
         section {
             max-width: 1200px;
             margin: 0 auto;
@@ -118,6 +121,7 @@
             -webkit-text-fill-color: transparent;
         }
 
+        /* App Grid */
         .app-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -185,6 +189,12 @@
             border: 1px solid rgba(0, 242, 254, 0.15);
         }
 
+        .tech-pill.green-pill {
+            color: var(--accent-green);
+            background: rgba(74, 222, 128, 0.09);
+            border-color: rgba(74, 222, 128, 0.25);
+        }
+
         .app-card h3 {
             font-size: 1.5rem;
             font-weight: 600;
@@ -218,6 +228,10 @@
             color: var(--accent-purple);
             margin-right: 8px;
             font-weight: bold;
+        }
+
+        .app-card:hover .feature-list li::before {
+            color: var(--accent-cyan);
         }
 
         .card-actions {
@@ -267,6 +281,7 @@
             box-shadow: 0 0 12px var(--neon-glow);
         }
 
+        /* Studio Manifesto Section */
         .studio-profile {
             background: linear-gradient(135deg, var(--bg-surface), #111c30);
             border: 1px solid var(--border-color);
@@ -405,15 +420,39 @@
             <h2 class="section-title">Production Software Portfolio</h2>
             
             <div class="app-grid">
-                <!-- App 1: WeatherGlow -->
+
+                <!-- App 1: Lite Video Compress & Upscale (NEW) -->
+                <div class="app-card">
+                    <div class="card-meta">
+                        <div class="app-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="4" width="20" height="16" rx="4"></rect>
+                                <path d="m10 9 5 3-5 3V9z" fill="rgba(74, 222, 128, 0.25)"></path>
+                                <path d="M4 2v4M20 2v4M4 18v4M20 18v4"></path>
+                            </svg>
+                        </div>
+                        <span class="tech-pill green-pill">Hardware AI Engine</span>
+                    </div>
+                    <h3>Lite Video Compress & Upscale</h3>
+                    <p>On-device neural super-resolution upscaler and hardware video compression utility with zero cloud uploads and direct target-size quantization.</p>
+                    <ul class="feature-list">
+                        <li>100% Local CPU, GPU & NPU Neural Acceleration</li>
+                        <li>Zero Server Uploads & No Cloud Video Storage</li>
+                        <li>Isolated Scoped Storage & One-Tap Cache Wipe</li>
+                    </ul>
+                    <div class="card-actions">
+                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.litevideocompressandupscale" target="_blank">Google Play</a>
+                        <a class="btn-action-primary" href="lite-video-compress-and-upscale-privacy.html">Privacy Policy</a>
+                    </div>
+                </div>
+
+                <!-- App 2: WeatherGlow -->
                 <div class="app-card">
                     <div class="card-meta">
                         <div class="app-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none">
-                                <!-- Glowing Sun Radiance -->
                                 <path d="M16 3.5V1.5M20.5 5.5L22 4M22.5 10H20.5M11.5 5.5L10 4" stroke="#9d4dff" stroke-width="2" stroke-linecap="round"/>
                                 <circle cx="16" cy="10" r="3.8" stroke="#9d4dff" stroke-width="2" fill="rgba(157, 77, 255, 0.25)"/>
-                                <!-- Crisp Vector Glass Cloud -->
                                 <path d="M6.5 19H17a4 4 0 0 0 1.3-7.8 5 5 0 0 0-9.6-1.7A4.2 4.2 0 0 0 4 13.5 4 4 0 0 0 6.5 19Z" fill="rgba(0, 242, 254, 0.15)" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
@@ -432,7 +471,7 @@
                     </div>
                 </div>
 
-                <!-- App 2: Multi QR Scanner & Generator -->
+                <!-- App 3: Multi QR Scanner & Generator -->
                 <div class="app-card">
                     <div class="card-meta">
                         <div class="app-icon">
@@ -465,7 +504,7 @@
                     </div>
                 </div>
 
-                <!-- App 3: VX Player -->
+                <!-- App 4: VX Player -->
                 <div class="app-card">
                     <div class="card-meta">
                         <div class="app-icon">🎬</div>
@@ -484,26 +523,26 @@
                     </div>
                 </div>
 
-                <!-- App 4: FallGuard -->
+                <!-- App 5: TTS Expert (NOW IN PRODUCTION!) -->
                 <div class="app-card">
                     <div class="card-meta">
-                        <div class="app-icon">🛡️</div>
-                        <span class="tech-pill">Sensor Fusion</span>
+                        <div class="app-icon">🎤</div>
+                        <span class="tech-pill">Audio Engine</span>
                     </div>
-                    <h3>FallGuard</h3>
-                    <p>Automated real-time safety system utilizing high-precision accelerometer tracking loops to identify accidents without human dependency.</p>
+                    <h3>TTS Expert</h3>
+                    <p>Production text-to-speech audio synthesis utility supporting rapid offline voice rendering, file extraction, and zero external telemetry.</p>
                     <ul class="feature-list">
-                        <li>Persistent Foreground Safety Service</li>
-                        <li>5-Minute Loop Emergency SMS Automation</li>
-                        <li>Fail-Safe GPS Coordinate Broadcasts</li>
+                        <li>Offline Neural Voice Generation Pipelines</li>
+                        <li>Native High-Fidelity Audio WAV File Export</li>
+                        <li>Isolated Device Processing Subsystems</li>
                     </ul>
                     <div class="card-actions">
-                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.tahir.fallguard" target="_blank">Google Play</a>
-                        <a class="btn-action-primary" href="fallguard.html">Privacy Policy</a>
+                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.ttsexpert" target="_blank">Google Play</a>
+                        <a class="btn-action-primary" href="tts-expert.html">Privacy Policy</a>
                     </div>
                 </div>
 
-                <!-- App 5: Lite Photo Compressor -->
+                <!-- App 6: Lite Photo Compressor -->
                 <div class="app-card">
                     <div class="card-meta">
                         <div class="app-icon">📸</div>
@@ -522,7 +561,26 @@
                     </div>
                 </div>
 
-                <!-- App 6: SCI-CAL -->
+                <!-- App 7: FallGuard -->
+                <div class="app-card">
+                    <div class="card-meta">
+                        <div class="app-icon">🛡️</div>
+                        <span class="tech-pill">Sensor Fusion</span>
+                    </div>
+                    <h3>FallGuard</h3>
+                    <p>Automated real-time safety system utilizing high-precision accelerometer tracking loops to identify accidents without human dependency.</p>
+                    <ul class="feature-list">
+                        <li>Persistent Foreground Safety Service</li>
+                        <li>5-Minute Loop Emergency SMS Automation</li>
+                        <li>Fail-Safe GPS Coordinate Broadcasts</li>
+                    </ul>
+                    <div class="card-actions">
+                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.tahir.fallguard" target="_blank">Google Play</a>
+                        <a class="btn-action-primary" href="fallguard.html">Privacy Policy</a>
+                    </div>
+                </div>
+
+                <!-- App 8: SCI-CAL -->
                 <div class="app-card">
                     <div class="card-meta">
                         <div class="app-icon">🧮</div>
@@ -541,27 +599,10 @@
                     </div>
                 </div>
 
-                <!-- App 7: TTS Expert -->
-                <div class="app-card">
-                    <div class="card-meta">
-                        <div class="app-icon">🎤</div>
-                        <span class="tech-pill">Audio Engine</span>
-                    </div>
-                    <h3>TTS Expert</h3>
-                    <p>Professional high-fidelity text-to-speech application providing rapid, local synthesis without server latency constraints.</p>
-                    <ul class="feature-list">
-                        <li>Offline Voice Generation Pipelines</li>
-                        <li>Native High-Fidelity Audio File Export</li>
-                        <li>Isolated Device Processing Subsystems</li>
-                    </ul>
-                    <div class="card-actions">
-                        <a class="btn-secondary" href="#" target="_blank">Internal Build</a>
-                        <a class="btn-action-primary" href="tts-expert.html">Privacy Policy</a>
-                    </div>
-                </div>
             </div>
         </section>
 
+        <!-- Studio Profile & Manifesto -->
         <section id="about">
             <div class="studio-profile">
                 <div class="profile-layout">
@@ -601,6 +642,7 @@
     </footer>
 
     <script>
+        // Interactive spotlight glow effect on cards
         document.querySelectorAll('.app-card').forEach(card => {
             card.addEventListener('mousemove', e => {
                 const rect = card.getBoundingClientRect();
