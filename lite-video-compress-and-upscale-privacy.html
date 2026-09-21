@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lite Video Compress & Upscale Privacy Policy | NEURON TS LABS</title>
+    <meta name="description" content="Official enterprise privacy policy and on-device hardware media processing governance for Lite Video Compress and Upscale Android application.">
+    <style>
+        :root {
+            --bg-main: #0b0f19;
+            --bg-surface: #111827;
+            --bg-surface-elevated: #1f2937;
+            --accent-purple: #9d4dff;
+            --accent-cyan: #00f2fe;
+            --accent-green: #4ade80;
+            --text-primary: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --neon-glow: rgba(74, 222, 128, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: 80px;
+        }
+
+        .nav-bar {
+            border-bottom: 1px solid var(--border-color);
+            background-color: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(14px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 16px 20px;
+        }
+
+        .nav-container {
+            max-width: 1050px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 18px;
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.09);
+            border-color: rgba(255, 255, 255, 0.25);
+            color: #ffffff;
+        }
+
+        .doc-header {
+            max-width: 1050px;
+            margin: 60px auto 40px auto;
+            padding: 0 20px;
+        }
+
+        .badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .doc-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 5px 12px;
+            border-radius: 8px;
+            border: 1px solid;
+        }
+
+        .badge-green {
+            background: rgba(74, 222, 128, 0.12);
+            color: var(--accent-green);
+            border-color: rgba(74, 222, 128, 0.3);
+        }
+
+        .badge-cyan {
+            background: rgba(0, 242, 254, 0.12);
+            color: var(--accent-cyan);
+            border-color: rgba(0, 242, 254, 0.3);
+        }
+
+        .doc-header h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #ffffff 40%, #86efac 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .doc-meta {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .policy-container {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .policy-content {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 28px;
+            padding: 48px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .policy-content section {
+            margin-bottom: 46px;
+        }
+
+        .policy-content section:last-child {
+            margin-bottom: 0;
+        }
+
+        .policy-content h2 {
+            font-size: 1.45rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            border-left: 3.5px solid var(--accent-green);
+            padding-left: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .policy-content h3 {
+            font-size: 1.12rem;
+            font-weight: 600;
+            margin: 24px 0 12px 0;
+            color: #e5e7eb;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .policy-content p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+
+        .policy-content ul, .policy-content ol {
+            margin-left: 22px;
+            margin-bottom: 18px;
+            color: var(--text-muted);
+        }
+
+        .policy-content ul li, .policy-content ol li {
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            line-height: 1.65;
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 0.9rem;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.015);
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .matrix-table th {
+            background-color: rgba(255, 255, 255, 0.04);
+            color: #ffffff;
+            font-weight: 600;
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--border-color);
+            text-transform: uppercase;
+            font-size: 0.78rem;
+            letter-spacing: 0.05em;
+        }
+
+        .matrix-table td {
+            padding: 16px 18px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-muted);
+            vertical-align: top;
+        }
+
+        .matrix-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .code-inline {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            background-color: var(--bg-surface-elevated);
+            padding: 2px 7px;
+            border-radius: 5px;
+            color: #e2e8f0;
+            font-size: 0.84rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .highlight-box {
+            background: radial-gradient(circle at top left, rgba(74, 222, 128, 0.06), transparent 70%), var(--bg-surface-elevated);
+            border: 1px solid rgba(74, 222, 128, 0.22);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 26px 0;
+        }
+
+        .highlight-box.cyan-box {
+            background: radial-gradient(circle at top left, rgba(0, 242, 254, 0.05), transparent 70%), var(--bg-surface-elevated);
+            border: 1px solid rgba(0, 242, 254, 0.22);
+        }
+
+        .highlight-box h4 {
+            margin-bottom: 10px;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .highlight-box ul {
+            margin-bottom: 0;
+            margin-left: 20px;
+        }
+
+        .highlight-box ul li {
+            color: #d1d5db;
+            margin-bottom: 6px;
+            font-size: 0.94rem;
+        }
+
+        .exclusion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 12px;
+            margin: 22px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+        }
+
+        .exclusion-item {
+            font-size: 0.88rem;
+            color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .policy-content {
+                padding: 26px 20px;
+                border-radius: 20px;
+            }
+            .doc-header h1 {
+                font-size: 2.1rem;
+            }
+            .matrix-table {
+                display: block;
+                overflow-x: auto;
+            }
+            .exclusion-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a class="nav-logo" href="index.html">🛡️ NEURON TS LABS</a>
+            <a class="btn-back" href="index.html">← Studio Terminal</a>
+        </div>
+    </nav>
+
+    <header class="doc-header">
+        <div class="badge-row">
+            <span class="doc-badge badge-green">⚡ 100% On-Device Neural Engine</span>
+            <span class="doc-badge badge-cyan">🔒 Zero Cloud Media Transfers</span>
+            <span class="doc-badge badge-green">📋 Google Play Certified</span>
+        </div>
+        <h1>Privacy Policy for Lite Video Compress & Upscale</h1>
+        <div class="doc-meta">
+            <span><strong>Application:</strong> Lite Video Compress and Upscale</span>
+            <span><strong>Package:</strong> <span class="code-inline">com.neurontslabs.litevideocompressandupscale</span></span>
+            <span><strong>Developer:</strong> NEURON TS LABS</span>
+            <span><strong>Effective Date:</strong> September 21, 2026</span>
+        </div>
+    </header>
+
+    <main class="policy-container">
+        <div class="policy-content">
+
+            <!-- TL;DR EXECUTIVE SUMMARY -->
+            <section id="summary">
+                <h2>✨ The Short Version (TL;DR)</h2>
+                <div class="highlight-box">
+                    <h4>🛡️ 100% On-Device • Zero Cloud Storage • Absolute Security</h4>
+                    <ul>
+                        <li>📱 <strong>100% Local Processing:</strong> Every video compression, audio encoding, bit-depth transformation, and AI super-resolution upscale runs entirely on your device’s native hardware (CPU, GPU, and NPU).</li>
+                        <li>🚫 <strong>Zero Server Uploads:</strong> We operate no external processing servers. Your raw videos, rendered frames, and audio streams never leave your physical device.</li>
+                        <li>🔒 <strong>Zero Personal Data Tracking:</strong> No user accounts, no login requirements, no device fingerprinting, and no behavioral profiling.</li>
+                        <li>📁 <strong>Transparent Media Storage:</strong> Videos are read only when you explicitly select them, and exports are saved strictly to your device's standard <span class="code-inline">Movies/Lite Video Compress and Upscale</span> directory.</li>
+                        <li>📺 <strong>Ad Privacy Isolation:</strong> Non-intrusive Google AdMob ads support our free model without ever accessing, scanning, or inspecting your media files.</li>
+                        <li>🗑️ <strong>User Sovereignty:</strong> Clear compression history and transient cache files with a single tap in Settings.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 1. IDENTITY & GOVERNANCE -->
+            <section id="identity">
+                <h2>1. Developer Identity & Regulatory Scope</h2>
+                <p>This Privacy Policy governs the processing operations of <strong>Lite Video Compress and Upscale</strong> (“the Application”, “the Software”, “we”, “our”, or “us”), engineered and published by <strong>NEURON TS LABS</strong>, led by independent software architect <strong>Mohd Tahir Shaikh</strong>, based in Mumbai, India.</p>
+                <p>This policy details how the application interacts with device hardware, storage directories, and third-party advertising SDKs, ensuring full compliance with Google Play Console Developer Program Policies, the EU General Data Protection Regulation (GDPR), the California Consumer Privacy Act (CCPA/CPRA), and the Indian Digital Personal Data Protection Act (DPDP Act).</p>
+                
+                <table class="matrix-table">
+                    <thead>
+                        <tr>
+                            <th>Administrative Field</th>
+                            <th>Operational Definition</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Official App Name</td><td><strong>Lite Video Compress and Upscale</strong></td></tr>
+                        <tr><td>Android Package Identifier</td><td><span class="code-inline">com.neurontslabs.litevideocompressandupscale</span></td></tr>
+                        <tr><td>Data Controller</td><td><strong>NEURON TS LABS</strong></td></tr>
+                        <tr><td>Lead Engineer</td><td><strong>Mohd Tahir Shaikh</strong></td></tr>
+                        <tr><td>Direct Privacy Contact</td><td><a href="mailto:shaikhtahir3162@gmail.com" style="color: var(--accent-green); text-decoration: none;">shaikhtahir3162@gmail.com</a></td></tr>
+                        <tr><td>Hosting Platform</td><td><a href="https://shaikhtahir3162-bit.github.io" target="_blank" style="color: var(--accent-cyan); text-decoration: none;">shaikhtahir3162-bit.github.io</a></td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 2. CORE ARCHITECTURE -->
+            <section id="architecture">
+                <h2>2. Core Architectural Manifesto: Local-First Computing</h2>
+                <p>Lite Video Compress and Upscale was conceived with a strict hardware-isolated architectural philosophy. In contrast to cloud-based video converters that demand gigabytes of bandwidth and expose personal recordings to third-party servers, our application executes all multimedia computation locally:</p>
+                <ul>
+                    <li><strong>Hardware Acceleration (MediaCodec & NPU):</strong> We invoke native Android C++ / NDK hardware acceleration pipelines directly via MediaCodec, Android Media3 Transformer, and on-device neural acceleration runtimes.</li>
+                    <li><strong>No Middleman Proxy:</strong> The application does not maintain an intermediate web API, backend processing gateway, or media queue in the cloud.</li>
+                    <li><strong>Ephemeral Frame Buffering:</strong> Individual frames unpacked during compression and super-resolution upscaling reside temporarily in volatile random-access memory (RAM) and are discarded immediately upon encoding.</li>
+                </ul>
+            </section>
+
+            <!-- 3. DATA WE PROCESS -->
+            <section id="processing">
+                <h2>3. Information We Process (On-Device Operations)</h2>
+                <p>All multimedia computation takes place within your device's isolated application sandbox:</p>
+
+                <h3>🎬 A. User-Selected Video & Audio Files</h3>
+                <ul>
+                    <li><strong>Input Handling:</strong> When you tap to compress or upscale a video, the application reads the file via Android's native system file picker or Scoped Storage content URI.</li>
+                    <li><strong>Processing Operations:</strong> The engine parses container metadata (resolution, frame rate, duration, container format, video codec like H.264/AVC, H.265/HEVC, AV1, audio tracks, sample rate) to compute mathematical compression ratios and upscale scaling matrices.</li>
+                    <li><strong>Zero Remote Transmission:</strong> Media streams are decoded, transformed, and re-encoded locally. <strong>No raw videos, extracted frames, or audio streams are ever uploaded, transmitted, or cloned to any cloud server.</strong></li>
+                </ul>
+
+                <h3>📁 B. Processed Media Output & Storage Directory</h3>
+                <p>Exported media files are written directly into standard public scoped storage using Android MediaStore APIs under the designated studio directory:</p>
+                <p><span class="code-inline">/storage/emulated/0/Movies/Lite Video Compress and Upscale/</span></p>
+                <p>Once written, these files are completely under your ownership and can be shared, moved, backed up, or deleted using any system file manager.</p>
+
+                <h3>🗄️ C. Local Compression History & Statistics</h3>
+                <p>To enable you to compare file size savings (e.g., original vs. compressed size, bitrate reduction percentages, and completion timestamps), the application logs these metrics in an on-device local <strong>Room SQLite Database</strong>. This database is sandboxed in private internal memory and is never synchronized with remote servers.</p>
+
+                <h3>⚙️ D. User Configuration & Performance Preferences</h3>
+                <p>Your preferred compression presets, target file sizes (KB/MB), CRF values, audio bitrates, upscaling factors (2x, 4x), hardware encoder preferences, and theme selections are stored on-device using Android DataStore Preferences.</p>
+            </section>
+
+            <!-- 4. NON-COLLECTION MANIFEST -->
+            <section id="non-collection">
+                <h2>4. Explicit Data Non-Collection Manifest</h2>
+                <p>NEURON TS LABS enforces an unambiguous boundary against harvesting personal user data. We do <strong>NOT</strong> collect, profile, monetize, or harvest any of the following:</p>
+
+                <div class="exclusion-grid">
+                    <div class="exclusion-item">👤 No Names or Identifiers</div>
+                    <div class="exclusion-item">📧 No Email Addresses</div>
+                    <div class="exclusion-item">📞 No Phone Numbers</div>
+                    <div class="exclusion-item">📍 No GPS or Location Data</div>
+                    <div class="exclusion-item">👥 No Contacts Access</div>
+                    <div class="exclusion-item">💬 No SMS or Message Logs</div>
+                    <div class="exclusion-item">🎙️ No Microphone Recording</div>
+                    <div class="exclusion-item">📷 No Camera Sensor Access</div>
+                    <div class="exclusion-item">🆔 No Device Fingerprinting</div>
+                    <div class="exclusion-item">☁️ No Remote Video Uploads</div>
+                </div>
+            </section>
+
+            <!-- 5. PERMISSIONS TRANSPARENCY -->
+            <section id="permissions">
+                <h2>5. Android System Permissions Transparency</h2>
+                <p>In adherence to the principle of least privilege, the Software requests only runtime permissions required to access local videos and execute long-running encoding jobs without OS interruption:</p>
+
+                <table class="matrix-table">
+                    <thead>
+                        <tr>
+                            <th>Android Manifest Permission</th>
+                            <th>Classification</th>
+                            <th>Functional Operational Purpose</th>
+                            <th>Network Access</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="code-inline">READ_MEDIA_VIDEO</span><br>(Android 13+ / API 33+)</td>
+                            <td>Runtime Permission</td>
+                            <td>Enables the user to browse and select local device videos for compression and upscaling.</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-inline">READ_EXTERNAL_STORAGE</span><br>(Legacy &le; Android 12)</td>
+                            <td>Storage Access</td>
+                            <td>Provides read access to video media files stored on older Android versions.</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-inline">WRITE_EXTERNAL_STORAGE</span><br>(Legacy &le; Android 9)</td>
+                            <td>Storage Access</td>
+                            <td>Allows saving exported compressed videos to external media folders on legacy OS builds.</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-inline">FOREGROUND_SERVICE</span> &amp; <br><span class="code-inline">FOREGROUND_SERVICE_DATA_SYNC</span></td>
+                            <td>System Service</td>
+                            <td>Maintains active hardware encoding and AI upscaling pipelines in the background so tasks aren't killed when minimized.</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-inline">POST_NOTIFICATIONS</span><br>(Android 13+)</td>
+                            <td>Notification</td>
+                            <td>Displays real-time encoding progress percentages and completion alerts in the notification shade.</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-inline">INTERNET</span></td>
+                            <td>Network Permission</td>
+                            <td>Required solely for Google AdMob SDK to load non-intrusive banner and interstitial advertisements.</td>
+                            <td>Yes (Ads Only)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="code-inline">ACCESS_NETWORK_STATE</span></td>
+                            <td>Network State</td>
+                            <td>Allows the AdMob client to verify active Wi-Fi or cellular connectivity before requesting an ad.</td>
+                            <td>No</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box cyan-box">
+                    <h4>🔒 Media Isolation Guarantee</h4>
+                    <p>Although the application declares <span class="code-inline">INTERNET</span> to power the Google AdMob advertising framework, <strong>our media processing codebase and native video transformation pipelines are structurally decoupled from all network sockets</strong>. The app contains zero network upload logic for video or audio content.</p>
+                </div>
+            </section>
+
+            <!-- 6. THIRD-PARTY SDKS & ADVERTISING -->
+            <section id="third-party">
+                <h2>6. Third-Party Services & Advertising Disclosures</h2>
+                <p>To keep Lite Video Compress and Upscale 100% free and unlimited without requiring subscriptions, paywalls, or watermarks, we incorporate trusted third-party advertising:</p>
+
+                <h3>📢 Google Mobile Ads (AdMob)</h3>
+                <ul>
+                    <li><strong>Operational Scope:</strong> AdMob delivers non-intrusive banner, interstitial, and rewarded ad placements within non-critical UI screens.</li>
+                    <li><strong>Data Collected by AdMob:</strong> Google's SDK may automatically process ephemeral technical metrics such as device advertising ID (GAID), IP address (for coarse geographic ad delivery), device model, OS build, and ad interaction logs.</li>
+                    <li><strong>Zero Media Access:</strong> Google AdMob has <strong>zero access</strong> to your device's video files, gallery contents, or local conversion history.</li>
+                    <li><strong>Privacy Opt-Out & Policies:</strong> Review <a href="https://policies.google.com/privacy" target="_blank" style="color: var(--accent-green); text-decoration: none;">Google's Privacy Policy</a> or manage ad personalization via <a href="https://adssettings.google.com/" target="_blank" style="color: var(--accent-cyan); text-decoration: none;">Google Ads Settings</a>.</li>
+                </ul>
+            </section>
+
+            <!-- 7. SECURITY & RETENTION -->
+            <section id="security">
+                <h2>7. Data Security, Retention & Erasure</h2>
+                <ul>
+                    <li><strong>Zero Cloud Footprint:</strong> Since we do not transmit video files or user logs to remote servers, there is no centralized database vulnerable to data breaches.</li>
+                    <li><strong>Volatile Memory Hygiene:</strong> Decompressed video frames used by the AI upscaler and compression algorithms are allocated in volatile RAM and immediately garbage-collected upon pipeline completion.</li>
+                    <li><strong>One-Tap Local Erasure:</strong> You can purge your entire compression history log and clear temporary cache files at any moment directly within the in-app Settings menu.</li>
+                    <li><strong>Full OS Uninstallation:</strong> Uninstalling the application automatically deletes all internal app sandbox data, Room database files, and DataStore preferences from physical flash memory.</li>
+                </ul>
+            </section>
+
+            <!-- 8. USER RIGHTS & SOVEREIGNTY -->
+            <section id="rights">
+                <h2>8. User Rights & Data Sovereignty</h2>
+                <p>Global privacy regulations (GDPR, CCPA, DPDP) grant users distinct rights over their personal data. We facilitate these rights directly within the software:</p>
+                <ul>
+                    <li><strong>Right to Access:</strong> Your entire media processing history and saved parameters are visible to you on-screen at all times.</li>
+                    <li><strong>Right to Erasure (Right to be Forgotten):</strong> You can wipe all history records with one tap in Settings, or clear app data via <em>Android Settings &gt; Apps &gt; Lite Video Compress and Upscale &gt; Storage &gt; Clear Data</em>.</li>
+                    <li><strong>Right to Restrict Processing:</strong> Revoke storage or notification permissions anytime in Android System Settings.</li>
+                    <li><strong>Right to Reset Ad Identifiers:</strong> Reset or delete your Google Advertising ID via <em>Android Settings &gt; Google &gt; Ads</em>.</li>
+                </ul>
+            </section>
+
+            <!-- 9. CHILDREN'S PRIVACY -->
+            <section id="children">
+                <h2>9. Children’s Privacy Protection</h2>
+                <p>Lite Video Compress and Upscale is a general utility and is <strong>not directed to children under 13 years of age</strong> (or the minimum legal age in your territory). We do not knowingly collect personal identifiable information from children.</p>
+                <p>All advertising SDK configurations adhere strictly to Google Play Family and Child protection standards. Parents or guardians with concerns may reach out directly via our developer contact email.</p>
+            </section>
+
+            <!-- 10. GOOGLE PLAY DATA SAFETY ALIGNMENT -->
+            <section id="datasafety">
+                <h2>10. Google Play Data Safety Console Alignment</h2>
+                <p>This reference matrix reflects the exact disclosures provided to the Google Play Store Data Safety section:</p>
+
+                <table class="matrix-table">
+                    <thead>
+                        <tr>
+                            <th>Data Category</th>
+                            <th>Collected to Server?</th>
+                            <th>Shared with 3rd Parties?</th>
+                            <th>Operational Justification</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Videos &amp; Photos</td>
+                            <td><strong>No</strong> (Processed locally on-device)</td>
+                            <td><strong>No</strong></td>
+                            <td>Core App Functionality (Compression &amp; Upscaling)</td>
+                        </tr>
+                        <tr>
+                            <td>Audio Files</td>
+                            <td><strong>No</strong> (Processed locally on-device)</td>
+                            <td><strong>No</strong></td>
+                            <td>Core App Functionality (Audio Re-encoding)</td>
+                        </tr>
+                        <tr>
+                            <td>Device Identifiers (GAID)</td>
+                            <td><strong>No</strong> (Handled by AdMob)</td>
+                            <td>Shared with Google AdMob</td>
+                            <td>Advertising &amp; Analytics</td>
+                        </tr>
+                        <tr>
+                            <td>Location Data</td>
+                            <td><strong>No</strong></td>
+                            <td><strong>No</strong></td>
+                            <td>Not Used</td>
+                        </tr>
+                        <tr>
+                            <td>Personal Information</td>
+                            <td><strong>No</strong></td>
+                            <td><strong>No</strong></td>
+                            <td>Not Used</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 11. POLICY UPDATES -->
+            <section id="updates">
+                <h2>11. Policy Modifications & Document Governance</h2>
+                <p>We reserve the right to revise this Privacy Policy periodically to reflect new software capabilities, algorithm upgrades, or regulatory mandates. When modifications occur, the revised version will be published at this stable URL with an updated “Effective Date”. We encourage users to check this page periodically.</p>
+            </section>
+
+            <!-- 12. CONTACT -->
+            <section id="contact">
+                <h2>12. Developer & Legal Governance Contact</h2>
+                <p>For any questions, concerns, feedback, or legal inquiries regarding this Privacy Policy or our local data isolation architecture, contact the lead developer directly:</p>
+                <ul>
+                    <li>👨‍💻 <strong>Developer Entity:</strong> NEURON TS LABS</li>
+                    <li>🛠️ <strong>Lead Software Architect:</strong> Mohd Tahir Shaikh</li>
+                    <li>📧 <strong>Official Support Email:</strong> <a href="mailto:shaikhtahir3162@gmail.com" style="color: var(--accent-green); text-decoration: none;">shaikhtahir3162@gmail.com</a></li>
+                    <li>🌐 <strong>Engineering Portfolio:</strong> <a href="https://github.com/shaikhtahir3162-bit" target="_blank" style="color: var(--accent-cyan); text-decoration: none;">github.com/shaikhtahir3162-bit</a></li>
+                    <li>📍 <strong>Location:</strong> Mumbai, Maharashtra, India</li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+
+</body>
+</html>
