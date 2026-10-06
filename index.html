@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neuron TS Labs | Production-Grade Android Utilities</title>
-    <meta name="description" content="High-performance, privacy-first Android applications engineering. Explore our portfolio and security documentation.">
+    <title>Neuron TS Labs | Production-Grade Android Utilities & Games</title>
+    <meta name="description" content="High-performance, privacy-first Android applications and puzzle games engineering. Explore our portfolio and security documentation.">
     <style>
         :root {
             --bg-main: #0b0f19;
@@ -13,6 +13,7 @@
             --accent-purple: #9d4dff;
             --accent-cyan: #00f2fe;
             --accent-green: #4ade80;
+            --accent-wood: #f59e0b;
             --text-primary: #f3f4f6;
             --text-muted: #9ca3af;
             --border-color: rgba(255, 255, 255, 0.06);
@@ -175,6 +176,16 @@
             border-radius: 16px;
             border: 1px solid var(--border-color);
             font-size: 2rem;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            display: block;
         }
 
         .tech-pill {
@@ -193,6 +204,12 @@
             color: var(--accent-green);
             background: rgba(74, 222, 128, 0.09);
             border-color: rgba(74, 222, 128, 0.25);
+        }
+
+        .tech-pill.wood-pill {
+            color: var(--accent-wood);
+            background: rgba(245, 158, 11, 0.10);
+            border-color: rgba(245, 158, 11, 0.30);
         }
 
         .app-card h3 {
@@ -228,10 +245,6 @@
             color: var(--accent-purple);
             margin-right: 8px;
             font-weight: bold;
-        }
-
-        .app-card:hover .feature-list li::before {
-            color: var(--accent-cyan);
         }
 
         .card-actions {
@@ -281,7 +294,7 @@
             box-shadow: 0 0 12px var(--neon-glow);
         }
 
-        /* Studio Manifesto Section */
+        /* Studio Profile Section */
         .studio-profile {
             background: linear-gradient(135deg, var(--bg-surface), #111c30);
             border: 1px solid var(--border-color);
@@ -410,18 +423,56 @@
     <header>
         <div class="header-container">
             <h1>Neuron TS Labs</h1>
-            <p>Engineering robust, hardware-optimized, and privacy-first Android systems. Our core software run fully offline with transparent, zero-cloud data models.</p>
+            <p>Engineering robust, hardware-optimized, and privacy-first Android systems and puzzle experiences. All core software operate with transparent, zero-cloud data models.</p>
             <a class="btn-primary" href="#portfolio">Explore Architecture</a>
         </div>
     </header>
 
     <main>
         <section id="portfolio">
-            <h2 class="section-title">Production Software Portfolio</h2>
+            <h2 class="section-title">Production Software & Games</h2>
             
             <div class="app-grid">
 
-                <!-- App 1: Lite Video Compress & Upscale (NEW) -->
+                <!-- App 1: Hearthwood Blocks (NEW GAME) -->
+                <div class="app-card">
+                    <div class="card-meta">
+                        <div class="app-icon" style="border-color: rgba(245, 158, 11, 0.4); background: #1c1109;">
+                            <!-- Displays hearthwood-blocks-icon.png with embedded SVG fallback matching the 3D wooden blocks grid -->
+                            <img src="hearthwood-blocks-icon.png" alt="Hearthwood Blocks Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <svg style="display:none; width: 100%; height: 100%;" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="100" height="100" rx="22" fill="#2d170c"/>
+                                <rect x="8" y="8" width="84" height="84" rx="14" fill="#1b0e07"/>
+                                <!-- Grid Lines -->
+                                <path d="M29 10v80M50 10v80M71 10v80M10 29h80M10 50h80M10 71h80" stroke="#120904" stroke-width="2.5"/>
+                                <!-- Wooden Blocks -->
+                                <rect x="31" y="11" width="17" height="17" rx="3.5" fill="#f59e0b" stroke="#fbbf24" stroke-width="1.5"/>
+                                <rect x="31" y="31" width="17" height="17" rx="3.5" fill="#f59e0b" stroke="#fbbf24" stroke-width="1.5"/>
+                                <rect x="31" y="52" width="17" height="17" rx="3.5" fill="#d97706" stroke="#fbbf24" stroke-width="1.5"/>
+                                <rect x="52" y="52" width="17" height="17" rx="3.5" fill="#f59e0b" stroke="#fbbf24" stroke-width="1.5"/>
+                                <rect x="73" y="73" width="16" height="16" rx="3.5" fill="#d97706" stroke="#fbbf24" stroke-width="1.5"/>
+                                <rect x="52" y="73" width="17" height="16" rx="3.5" fill="#f59e0b" stroke="#fbbf24" stroke-width="1.5"/>
+                                <rect x="31" y="73" width="17" height="16" rx="3.5" fill="#b45309" stroke="#f59e0b" stroke-width="1.5"/>
+                                <rect x="11" y="52" width="17" height="17" rx="3.5" fill="#d97706" stroke="#fbbf24" stroke-width="1.5"/>
+                                <rect x="11" y="73" width="17" height="16" rx="3.5" fill="#b45309" stroke="#f59e0b" stroke-width="1.5"/>
+                            </svg>
+                        </div>
+                        <span class="tech-pill wood-pill">Wooden Puzzle Game</span>
+                    </div>
+                    <h3>Hearthwood Blocks</h3>
+                    <p>Tranquil offline wooden block puzzle featuring spatial grid logic, tactile haptics, multiple game modes, and complete on-device progress privacy.</p>
+                    <ul class="feature-list">
+                        <li>100% Offline-First Classic, Tactic & Bomb Modes</li>
+                        <li>Zero Accounts, Registration or Cross-App Tracking</li>
+                        <li>Instant One-Tap On-Device Data Reset Option</li>
+                    </ul>
+                    <div class="card-actions">
+                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.hearthwoodblocks" target="_blank">Google Play</a>
+                        <a class="btn-action-primary" href="hearthwood-blocks-privacy.html">Privacy Policy</a>
+                    </div>
+                </div>
+
+                <!-- App 2: Lite Video Compress & Upscale -->
                 <div class="app-card">
                     <div class="card-meta">
                         <div class="app-icon">
@@ -446,7 +497,7 @@
                     </div>
                 </div>
 
-                <!-- App 2: WeatherGlow -->
+                <!-- App 3: WeatherGlow -->
                 <div class="app-card">
                     <div class="card-meta">
                         <div class="app-icon">
@@ -471,7 +522,7 @@
                     </div>
                 </div>
 
-                <!-- App 3: Multi QR Scanner & Generator -->
+                <!-- App 4: Multi QR Scanner & Generator -->
                 <div class="app-card">
                     <div class="card-meta">
                         <div class="app-icon">
@@ -504,7 +555,7 @@
                     </div>
                 </div>
 
-                <!-- App 4: VX Player -->
+                <!-- App 5: VX Player -->
                 <div class="app-card">
                     <div class="card-meta">
                         <div class="app-icon">🎬</div>
@@ -523,7 +574,7 @@
                     </div>
                 </div>
 
-                <!-- App 5: TTS Expert (NOW IN PRODUCTION!) -->
+                <!-- App 6: TTS Expert (PRODUCTION) -->
                 <div class="app-card">
                     <div class="card-meta">
                         <div class="app-icon">🎤</div>
@@ -542,7 +593,7 @@
                     </div>
                 </div>
 
-                <!-- App 6: Lite Photo Compressor -->
+                <!-- App 7: Lite Photo Compressor -->
                 <div class="app-card">
                     <div class="card-meta">
                         <div class="app-icon">📸</div>
@@ -561,7 +612,7 @@
                     </div>
                 </div>
 
-                <!-- App 7: FallGuard -->
+                <!-- App 8: FallGuard -->
                 <div class="app-card">
                     <div class="card-meta">
                         <div class="app-icon">🛡️</div>
@@ -580,7 +631,7 @@
                     </div>
                 </div>
 
-                <!-- App 8: SCI-CAL -->
+                <!-- App 9: SCI-CAL -->
                 <div class="app-card">
                     <div class="card-meta">
                         <div class="app-icon">🧮</div>
@@ -608,16 +659,16 @@
                 <div class="profile-layout">
                     <div class="profile-content">
                         <h3>Core Engineering Manifesto</h3>
-                        <p>Neuron TS Labs targets complex Android framework challenges to build lightweight, fast utilities. We reject standard telemetry practices, designing architectural models where complex computing occurs strictly locally on your physical device.</p>
+                        <p>Neuron TS Labs targets complex Android framework challenges to build lightweight, fast utilities and games. We reject standard telemetry practices, designing architectural models where complex computing occurs strictly locally on your physical device.</p>
                         
                         <div class="commitments-grid">
                             <div class="commitment-item">
                                 <h4>Offline Data Architecture</h4>
-                                <p>Application files are parsed and transformed in isolated device memories. No external server components are used.</p>
+                                <p>Application databases and game boards are parsed and preserved in isolated device memories. No external server components are used.</p>
                             </div>
                             <div class="commitment-item">
                                 <h4>Permission Minimization</h4>
-                                <p>Hardware APIs are invoked transparently only when strictly necessary to carry out local features.</p>
+                                <p>Hardware APIs and sensors are invoked transparently only when strictly necessary to fulfill local operations.</p>
                             </div>
                         </div>
                     </div>
