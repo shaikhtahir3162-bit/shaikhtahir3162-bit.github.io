@@ -7,17 +7,18 @@
     <meta name="description" content="High-performance, privacy-first Android applications and puzzle games engineering. Explore our portfolio and security documentation.">
     <style>
         :root {
-            --bg-main: #0b0f19;
-            --bg-surface: #111827;
-            --bg-surface-elevated: #1f2937;
+            --bg-deep: #05070e;
+            --bg-card: rgba(15, 23, 42, 0.65);
+            --bg-card-hover: rgba(22, 32, 58, 0.75);
             --accent-purple: #9d4dff;
             --accent-cyan: #00f2fe;
             --accent-green: #4ade80;
             --accent-wood: #f59e0b;
-            --text-primary: #f3f4f6;
-            --text-muted: #9ca3af;
-            --border-color: rgba(255, 255, 255, 0.06);
-            --neon-glow: rgba(157, 77, 255, 0.15);
+            --text-primary: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-glass: rgba(255, 255, 255, 0.1);
+            --border-glow: rgba(0, 242, 254, 0.4);
+            --neon-glow: rgba(157, 77, 255, 0.25);
         }
 
         * {
@@ -28,144 +29,237 @@
 
         html {
             scroll-behavior: smooth;
+            background-color: var(--bg-deep);
         }
 
         body {
-            background-color: var(--bg-main);
+            background-color: transparent;
             color: var(--text-primary);
             font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            position: relative;
         }
 
-        /* Hero Header */
+        /* 🌌 Cosmic Warp Canvas */
+        #galaxy-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        /* Ambient Nebula Glow Overlay */
+        .nebula-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(157, 77, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 242, 254, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(5, 7, 14, 0.4) 0%, rgba(5, 7, 14, 0.85) 100%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* 🛸 Hero Header */
         header {
             position: relative;
-            background: radial-gradient(circle at top right, rgba(157, 77, 255, 0.12), transparent 50%),
-                        radial-gradient(circle at bottom left, rgba(0, 242, 254, 0.05), transparent 50%),
-                        var(--bg-main);
-            border-bottom: 1px solid var(--border-color);
-            padding: 100px 20px 80px 20px;
+            padding: 110px 20px 80px 20px;
             text-align: center;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 1200px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent-purple), var(--accent-cyan), transparent);
         }
 
         .header-container {
-            max-width: 800px;
+            max-width: 860px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 6px 16px;
+            background: rgba(0, 242, 254, 0.08);
+            color: var(--accent-cyan);
+            border-radius: 99px;
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
+            margin-bottom: 24px;
+            backdrop-filter: blur(8px);
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--accent-cyan);
+            box-shadow: 0 0 10px var(--accent-cyan);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.6; }
+            50% { transform: scale(1.3); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.6; }
         }
 
         header h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
+            font-size: 4rem;
+            font-weight: 900;
             letter-spacing: -0.05em;
-            background: linear-gradient(135deg, #ffffff 30%, #a78bfa 100%);
+            background: linear-gradient(135deg, #ffffff 20%, #c084fc 60%, #67e8f9 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+            text-shadow: 0 10px 30px rgba(157, 77, 255, 0.2);
         }
 
         header p {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: var(--text-muted);
-            max-width: 650px;
-            margin: 0 auto 32px auto;
+            max-width: 680px;
+            margin: 0 auto 36px auto;
             line-height: 1.7;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
         }
 
         .btn-primary {
             display: inline-flex;
             align-items: center;
-            padding: 14px 28px;
-            background: linear-gradient(135deg, var(--accent-purple), #7c3aed);
+            padding: 15px 34px;
+            background: linear-gradient(135deg, var(--accent-purple), #6366f1);
             color: #ffffff;
             text-decoration: none;
-            font-weight: 600;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--neon-glow);
-            transition: all 0.2s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            border-radius: 14px;
+            box-shadow: 0 0 30px var(--neon-glow), 0 10px 20px rgba(0, 0, 0, 0.4);
+            transition: all 0.25s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 24px rgba(157, 77, 255, 0.3);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 0 45px rgba(157, 77, 255, 0.5), 0 15px 30px rgba(0, 0, 0, 0.6);
+            border-color: rgba(255, 255, 255, 0.4);
         }
 
-        /* Layout Section */
+        /* 🌌 Section Container */
         section {
-            max-width: 1200px;
+            max-width: 1240px;
             margin: 0 auto;
-            padding: 80px 20px;
+            padding: 70px 24px;
+            position: relative;
+            z-index: 2;
         }
 
         .section-title {
-            font-size: 2.25rem;
-            font-weight: 700;
+            font-size: 2.5rem;
+            font-weight: 800;
             letter-spacing: -0.03em;
             text-align: center;
-            margin-bottom: 48px;
-            background: linear-gradient(135deg, #ffffff, #9ca3af);
+            margin-bottom: 56px;
+            background: linear-gradient(135deg, #ffffff, #cbd5e1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* App Grid */
+        /* 💎 3D PERSPECTIVE APP GRID */
         .app-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 32px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 36px;
+            perspective: 1200px;
+        }
+
+        /* 3D Card Outer Perspective Shell */
+        .card-3d-wrapper {
+            position: relative;
+            transform-style: preserve-3d;
+            perspective: 1000px;
         }
 
         .app-card {
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 32px;
+            background: var(--bg-card);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid var(--border-glass);
+            border-radius: 28px;
+            padding: 34px;
             display: flex;
             flex-direction: column;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.15s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            will-change: transform;
             overflow: hidden;
+            position: relative;
         }
 
         .app-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(157, 77, 255, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px var(--neon-glow);
+            border-color: var(--border-glow);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.7), 
+                0 0 35px rgba(0, 242, 254, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.25);
         }
 
+        /* Glare effect across the 3D surface */
+        .card-glare {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            border-radius: 28px;
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.12) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 10;
+        }
+
+        .card-3d-wrapper:hover .card-glare {
+            opacity: 1;
+        }
+
+        /* Floating 3D Elements */
         .card-meta {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
+            transform: translateZ(35px);
+            transition: transform 0.2s ease;
         }
 
         .app-icon {
-            background: rgba(255, 255, 255, 0.03);
-            width: 68px;
-            height: 68px;
+            background: rgba(255, 255, 255, 0.05);
+            width: 72px;
+            height: 72px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 2rem;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
             overflow: hidden;
             flex-shrink: 0;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transform: translateZ(50px);
+            transition: transform 0.2s ease;
         }
 
         .app-icon img {
@@ -175,63 +269,80 @@
             display: block;
         }
 
+        .icon-fallback {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+        }
+
         .tech-pill {
             font-size: 0.75rem;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 6px 12px;
-            background: rgba(0, 242, 254, 0.08);
+            letter-spacing: 0.06em;
+            padding: 6px 14px;
+            background: rgba(0, 242, 254, 0.1);
             color: var(--accent-cyan);
             border-radius: 99px;
-            border: 1px solid rgba(0, 242, 254, 0.15);
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.15);
+            transform: translateZ(35px);
         }
 
         .tech-pill.green-pill {
             color: var(--accent-green);
-            background: rgba(74, 222, 128, 0.09);
-            border-color: rgba(74, 222, 128, 0.25);
+            background: rgba(74, 222, 128, 0.1);
+            border-color: rgba(74, 222, 128, 0.3);
+            box-shadow: 0 0 15px rgba(74, 222, 128, 0.15);
         }
 
         .tech-pill.wood-pill {
             color: var(--accent-wood);
-            background: rgba(245, 158, 11, 0.10);
-            border-color: rgba(245, 158, 11, 0.30);
+            background: rgba(245, 158, 11, 0.12);
+            border-color: rgba(245, 158, 11, 0.35);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.15);
         }
 
         .app-card h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 1.55rem;
+            font-weight: 700;
             margin-bottom: 12px;
             letter-spacing: -0.02em;
+            color: #ffffff;
+            transform: translateZ(30px);
         }
 
         .app-card p {
             color: var(--text-muted);
             font-size: 0.95rem;
-            line-height: 1.6;
+            line-height: 1.65;
             margin-bottom: 24px;
             flex-grow: 1;
+            transform: translateZ(20px);
         }
 
         .feature-list {
             list-style: none;
             margin-bottom: 28px;
+            transform: translateZ(25px);
         }
 
         .feature-list li {
-            font-size: 0.87rem;
-            color: var(--text-muted);
-            margin-bottom: 8px;
+            font-size: 0.88rem;
+            color: #cbd5e1;
+            margin-bottom: 9px;
             display: flex;
             align-items: center;
         }
 
         .feature-list li::before {
-            content: '✓';
-            color: var(--accent-purple);
-            margin-right: 8px;
-            font-weight: bold;
+            content: '✦';
+            color: var(--accent-cyan);
+            margin-right: 10px;
+            font-size: 0.85rem;
         }
 
         .card-actions {
@@ -239,55 +350,63 @@
             grid-template-columns: 1fr 1fr;
             gap: 12px;
             margin-top: auto;
+            transform: translateZ(40px);
         }
 
         .btn-secondary {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 10px 16px;
-            background: rgba(255, 255, 255, 0.03);
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.04);
             color: var(--text-primary);
             text-decoration: none;
             font-size: 0.88rem;
             font-weight: 600;
-            border-radius: 10px;
-            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            border: 1px solid var(--border-glass);
             transition: all 0.2s ease;
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
         }
 
         .btn-action-primary {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 10px 16px;
-            background: var(--bg-surface-elevated);
+            padding: 12px 16px;
+            background: linear-gradient(135deg, rgba(157, 77, 255, 0.3), rgba(0, 242, 254, 0.2));
             color: #ffffff;
             text-decoration: none;
             font-size: 0.88rem;
             font-weight: 600;
-            border-radius: 10px;
-            border: 1px solid rgba(157, 77, 255, 0.2);
+            border-radius: 12px;
+            border: 1px solid rgba(157, 77, 255, 0.4);
             transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         .btn-action-primary:hover {
-            border-color: var(--accent-purple);
-            box-shadow: 0 0 12px var(--neon-glow);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.35);
+            transform: translateY(-2px);
         }
 
-        /* Studio Profile */
+        /* 🛸 Studio Profile Section */
         .studio-profile {
-            background: linear-gradient(135deg, var(--bg-surface), #111c30);
-            border: 1px solid var(--border-color);
-            border-radius: 28px;
-            padding: 48px;
+            background: var(--bg-card);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid var(--border-glass);
+            border-radius: 32px;
+            padding: 56px;
             margin-top: 40px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            position: relative;
         }
 
         .profile-layout {
@@ -297,27 +416,30 @@
         }
 
         .profile-content h3 {
-            font-size: 1.75rem;
+            font-size: 1.85rem;
             margin-bottom: 16px;
             letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #ffffff, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .profile-content p {
             color: var(--text-muted);
             font-size: 1.05rem;
             line-height: 1.7;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }
 
         .commitments-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 22px;
         }
 
         .commitment-item h4 {
-            font-size: 1rem;
-            font-weight: 600;
+            font-size: 1.05rem;
+            font-weight: 700;
             margin-bottom: 6px;
             color: #ffffff;
         }
@@ -329,7 +451,7 @@
         }
 
         .contact-sidebar {
-            border-left: 1px solid var(--border-color);
+            border-left: 1px solid var(--border-glass);
             padding-left: 48px;
             display: flex;
             flex-direction: column;
@@ -337,14 +459,14 @@
         }
 
         .contact-method {
-            margin-bottom: 24px;
+            margin-bottom: 26px;
         }
 
         .contact-method span {
             display: block;
             font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
             color: var(--text-muted);
             margin-bottom: 4px;
         }
@@ -352,20 +474,24 @@
         .contact-method a {
             color: var(--accent-cyan);
             text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 500;
-            transition: color 0.2s ease;
+            font-size: 1.15rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
         }
 
         .contact-method a:hover {
             color: #ffffff;
+            text-shadow: 0 0 15px var(--accent-cyan);
         }
 
         footer {
-            border-top: 1px solid var(--border-color);
-            background-color: #070a10;
+            border-top: 1px solid var(--border-glass);
+            background-color: rgba(5, 7, 14, 0.8);
+            backdrop-filter: blur(12px);
             padding: 40px 20px;
             text-align: center;
+            position: relative;
+            z-index: 2;
         }
 
         footer p {
@@ -381,17 +507,17 @@
             .contact-sidebar {
                 border-left: none;
                 padding-left: 0;
-                border-top: 1px solid var(--border-color);
+                border-top: 1px solid var(--border-glass);
                 padding-top: 32px;
             }
         }
 
         @media (max-width: 600px) {
             header h1 {
-                font-size: 2.5rem;
+                font-size: 2.75rem;
             }
             header p {
-                font-size: 1rem;
+                font-size: 1.05rem;
             }
             .app-grid {
                 grid-template-columns: 1fr;
@@ -400,18 +526,26 @@
                 grid-template-columns: 1fr;
             }
             .studio-profile {
-                padding: 24px;
+                padding: 28px;
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- 🌌 Live Warp-Speed Galaxy Canvas -->
+    <canvas id="galaxy-canvas"></canvas>
+    <div class="nebula-overlay"></div>
+
     <header>
         <div class="header-container">
+            <div class="status-badge">
+                <span class="pulse-dot"></span>
+                NEURON LABS PRODUCTION DEPLOYMENT
+            </div>
             <h1>Neuron TS Labs</h1>
-            <p>Engineering robust, hardware-optimized, and privacy-first Android systems and puzzle experiences. All core software operate with transparent, zero-cloud data models.</p>
-            <a class="btn-primary" href="#portfolio">Explore Architecture</a>
+            <p>Engineering robust, hardware-optimized, and privacy-first Android systems and puzzle experiences. All core software operates with transparent, zero-cloud data models.</p>
+            <a class="btn-primary" href="#portfolio">Explore Architecture ↓</a>
         </div>
     </header>
 
@@ -422,212 +556,260 @@
             <div class="app-grid">
 
                 <!-- 1. Hearthwood Blocks -->
-                <div class="app-card">
-                    <div class="card-meta">
-                        <div class="app-icon" style="background: #1c1109; border-color: rgba(245, 158, 11, 0.35);">
-                            <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="100" height="100" rx="18" fill="#2d170c"/>
-                                <rect x="30" y="10" width="18" height="18" rx="4" fill="#f59e0b" stroke="#fbbf24" stroke-width="2"/>
-                                <rect x="30" y="32" width="18" height="18" rx="4" fill="#f59e0b" stroke="#fbbf24" stroke-width="2"/>
-                                <rect x="30" y="54" width="18" height="18" rx="4" fill="#d97706" stroke="#fbbf24" stroke-width="2"/>
-                                <rect x="52" y="54" width="18" height="18" rx="4" fill="#f59e0b" stroke="#fbbf24" stroke-width="2"/>
-                                <rect x="30" y="76" width="18" height="18" rx="4" fill="#b45309" stroke="#f59e0b" stroke-width="2"/>
-                                <rect x="52" y="76" width="18" height="18" rx="4" fill="#f59e0b" stroke="#fbbf24" stroke-width="2"/>
-                                <rect x="74" y="76" width="18" height="18" rx="4" fill="#d97706" stroke="#fbbf24" stroke-width="2"/>
-                                <rect x="8" y="54" width="18" height="18" rx="4" fill="#d97706" stroke="#fbbf24" stroke-width="2"/>
-                                <rect x="8" y="76" width="18" height="18" rx="4" fill="#b45309" stroke="#f59e0b" stroke-width="2"/>
-                            </svg>
+                <div class="card-3d-wrapper">
+                    <div class="app-card">
+                        <div class="card-glare"></div>
+                        <div class="card-meta">
+                            <div class="app-icon">
+                                <img src="hearthwood-blocks-icon.png" alt="Hearthwood Blocks Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="icon-fallback" style="display:none; background: #1c1109;">
+                                    <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="10" y="10" width="36" height="36" rx="6" fill="#f59e0b"/>
+                                        <rect x="54" y="10" width="36" height="36" rx="6" fill="#d97706"/>
+                                        <rect x="10" y="54" width="36" height="36" rx="6" fill="#b45309"/>
+                                        <rect x="54" y="54" width="36" height="36" rx="6" fill="#f59e0b"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <span class="tech-pill wood-pill">Wooden Puzzle Game</span>
                         </div>
-                        <span class="tech-pill wood-pill">Wooden Puzzle Game</span>
-                    </div>
-                    <h3>Hearthwood Blocks</h3>
-                    <p>Tranquil offline wooden block puzzle featuring spatial grid logic, tactile haptics, multiple game modes, and complete on-device progress privacy.</p>
-                    <ul class="feature-list">
-                        <li>100% Offline-First Classic, Tactic & Bomb Modes</li>
-                        <li>Zero Accounts, Registration or Cross-App Tracking</li>
-                        <li>Instant One-Tap On-Device Data Reset Option</li>
-                    </ul>
-                    <div class="card-actions">
-                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.hearthwoodblocks" target="_blank">Google Play</a>
-                        <a class="btn-action-primary" href="hearthwood-blocks-privacy.html">Privacy Policy</a>
+                        <h3>Hearthwood Blocks</h3>
+                        <p>Tranquil offline wooden block puzzle featuring spatial grid logic, tactile haptics, multiple game modes, and complete on-device progress privacy.</p>
+                        <ul class="feature-list">
+                            <li>100% Offline-First Classic, Tactic & Bomb Modes</li>
+                            <li>Zero Accounts, Registration or Cross-App Tracking</li>
+                            <li>Instant One-Tap On-Device Data Reset Option</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.hearthwoodblocks" target="_blank">Google Play</a>
+                            <a class="btn-action-primary" href="hearthwood-blocks-privacy.html">Privacy Policy</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- 2. Lite Video Compress & Upscale -->
-                <div class="app-card">
-                    <div class="card-meta">
-                        <div class="app-icon" style="background: rgba(74, 222, 128, 0.05); border-color: rgba(74, 222, 128, 0.25);">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="2" y="4" width="20" height="16" rx="4"></rect>
-                                <path d="m10 9 5 3-5 3V9z" fill="rgba(74, 222, 128, 0.25)"></path>
-                                <path d="M4 2v4M20 2v4M4 18v4M20 18v4"></path>
-                            </svg>
+                <div class="card-3d-wrapper">
+                    <div class="app-card">
+                        <div class="card-glare"></div>
+                        <div class="card-meta">
+                            <div class="app-icon">
+                                <img src="lite-video-compress-icon.png" alt="Lite Video Compress and Upscale Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="icon-fallback" style="display:none;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="4" width="20" height="16" rx="4"></rect>
+                                        <path d="m10 9 5 3-5 3V9z" fill="rgba(74, 222, 128, 0.25)"></path>
+                                        <path d="M4 2v4M20 2v4M4 18v4M20 18v4"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <span class="tech-pill green-pill">Hardware AI Engine</span>
                         </div>
-                        <span class="tech-pill green-pill">Hardware AI Engine</span>
-                    </div>
-                    <h3>Lite Video Compress & Upscale</h3>
-                    <p>On-device neural super-resolution upscaler and hardware video compression utility with zero cloud uploads and direct target-size quantization.</p>
-                    <ul class="feature-list">
-                        <li>100% Local CPU, GPU & NPU Neural Acceleration</li>
-                        <li>Zero Server Uploads & No Cloud Video Storage</li>
-                        <li>Isolated Scoped Storage & One-Tap Cache Wipe</li>
-                    </ul>
-                    <div class="card-actions">
-                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.litevideocompressandupscale" target="_blank">Google Play</a>
-                        <a class="btn-action-primary" href="lite-video-compress-and-upscale-privacy.html">Privacy Policy</a>
+                        <h3>Lite Video Compress & Upscale</h3>
+                        <p>On-device neural super-resolution upscaler and hardware video compression utility with zero cloud uploads and direct target-size quantization.</p>
+                        <ul class="feature-list">
+                            <li>100% Local CPU, GPU & NPU Neural Acceleration</li>
+                            <li>Zero Server Uploads & No Cloud Video Storage</li>
+                            <li>Isolated Scoped Storage & One-Tap Cache Wipe</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.litevideocompressandupscale" target="_blank">Google Play</a>
+                            <a class="btn-action-primary" href="lite-video-compress-and-upscale-privacy.html">Privacy Policy</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- 3. WeatherGlow -->
-                <div class="app-card">
-                    <div class="card-meta">
-                        <div class="app-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none">
-                                <path d="M16 3.5V1.5M20.5 5.5L22 4M22.5 10H20.5M11.5 5.5L10 4" stroke="#9d4dff" stroke-width="2" stroke-linecap="round"/>
-                                <circle cx="16" cy="10" r="3.8" stroke="#9d4dff" stroke-width="2" fill="rgba(157, 77, 255, 0.25)"/>
-                                <path d="M6.5 19H17a4 4 0 0 0 1.3-7.8 5 5 0 0 0-9.6-1.7A4.2 4.2 0 0 0 4 13.5 4 4 0 0 0 6.5 19Z" fill="rgba(0, 242, 254, 0.15)" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                <div class="card-3d-wrapper">
+                    <div class="app-card">
+                        <div class="card-glare"></div>
+                        <div class="card-meta">
+                            <div class="app-icon">
+                                <img src="weatherglow-icon.png" alt="WeatherGlow Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="icon-fallback" style="display:none;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none">
+                                        <path d="M16 3.5V1.5M20.5 5.5L22 4M22.5 10H20.5M11.5 5.5L10 4" stroke="#9d4dff" stroke-width="2" stroke-linecap="round"/>
+                                        <circle cx="16" cy="10" r="3.8" stroke="#9d4dff" stroke-width="2" fill="rgba(157, 77, 255, 0.25)"/>
+                                        <path d="M6.5 19H17a4 4 0 0 0 1.3-7.8 5 5 0 0 0-9.6-1.7A4.2 4.2 0 0 0 4 13.5 4 4 0 0 0 6.5 19Z" fill="rgba(0, 242, 254, 0.15)" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <span class="tech-pill">Live Weather & AQI</span>
                         </div>
-                        <span class="tech-pill">Live Weather & AQI</span>
-                    </div>
-                    <h3>WeatherGlow</h3>
-                    <p>Minimalist atmospheric tracker featuring transparent glass widgets, dynamic neon accents, real-time AQI, and zero continuous background location polling.</p>
-                    <ul class="feature-list">
-                        <li>Transparent Glass & Neon Clock Widgets</li>
-                        <li>OpenWeather Localized Forecast Engine</li>
-                        <li>On-Demand GPS & Zero Background Tracking</li>
-                    </ul>
-                    <div class="card-actions">
-                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.weatherglow" target="_blank">Google Play</a>
-                        <a class="btn-action-primary" href="weatherglow-privacy.html">Privacy Policy</a>
+                        <h3>WeatherGlow</h3>
+                        <p>Minimalist atmospheric tracker featuring transparent glass widgets, dynamic neon accents, real-time AQI, and zero continuous background location polling.</p>
+                        <ul class="feature-list">
+                            <li>Transparent Glass & Neon Clock Widgets</li>
+                            <li>OpenWeather Localized Forecast Engine</li>
+                            <li>On-Demand GPS & Zero Background Tracking</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.weatherglow" target="_blank">Google Play</a>
+                            <a class="btn-action-primary" href="weatherglow-privacy.html">Privacy Policy</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- 4. Multi QR Scanner & Generator -->
-                <div class="app-card">
-                    <div class="card-meta">
-                        <div class="app-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="3" width="6" height="6" rx="1.5"></rect>
-                                <rect x="15" y="3" width="6" height="6" rx="1.5"></rect>
-                                <rect x="3" y="15" width="6" height="6" rx="1.5"></rect>
-                                <path d="M15 15h2v2h-2zM19 15h2v6h-2zM15 19h2v2h-2zM10 3v4M3 10h4M10 10h4v4h-4zM14 7h3M7 14v3"></path>
-                            </svg>
+                <div class="card-3d-wrapper">
+                    <div class="app-card">
+                        <div class="card-glare"></div>
+                        <div class="card-meta">
+                            <div class="app-icon">
+                                <img src="multi-qr-scanner-icon.png" alt="Multi QR Scanner Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="icon-fallback" style="display:none;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="3" width="6" height="6" rx="1.5"></rect>
+                                        <rect x="15" y="3" width="6" height="6" rx="1.5"></rect>
+                                        <rect x="3" y="15" width="6" height="6" rx="1.5"></rect>
+                                        <path d="M15 15h2v2h-2zM19 15h2v6h-2zM15 19h2v2h-2zM10 3v4M3 10h4M10 10h4v4h-4zM14 7h3M7 14v3"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <span class="tech-pill">Scanner & Tool</span>
                         </div>
-                        <span class="tech-pill">Scanner & Tool</span>
-                    </div>
-                    <h3>Multi QR Scanner & Generator</h3>
-                    <p>High-speed offline scanning engine and custom QR/barcode generator supporting batch operations, Wi-Fi decoding, and local history export.</p>
-                    <ul class="feature-list">
-                        <li>Instant Camera & Gallery Decoding</li>
-                        <li>Custom QR Code & Multi-Format Barcode Engine</li>
-                        <li>Isolated Local Scan History & CSV Export</li>
-                    </ul>
-                    <div class="card-actions">
-                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.multiqrscanner" target="_blank">Google Play</a>
-                        <a class="btn-action-primary" href="multi-qr-scanner.html">Privacy Policy</a>
+                        <h3>Multi QR Scanner & Generator</h3>
+                        <p>High-speed offline scanning engine and custom QR/barcode generator supporting batch operations, Wi-Fi decoding, and local history export.</p>
+                        <ul class="feature-list">
+                            <li>Instant Camera & Gallery Decoding</li>
+                            <li>Custom QR Code & Multi-Format Barcode Engine</li>
+                            <li>Isolated Local Scan History & CSV Export</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.multiqrscanner" target="_blank">Google Play</a>
+                            <a class="btn-action-primary" href="multi-qr-scanner.html">Privacy Policy</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- 5. VX Player -->
-                <div class="app-card">
-                    <div class="card-meta">
-                        <div class="app-icon">🎬</div>
-                        <span class="tech-pill">Offline Media</span>
-                    </div>
-                    <h3>VX Player</h3>
-                    <p>Offline-first local media engine featuring an isolated Private Vault with hardware biometrics and zero internet permission declarations.</p>
-                    <ul class="feature-list">
-                        <li>Zero INTERNET Permission Architecture</li>
-                        <li>Hardware Biometric & Salted PIN Vault</li>
-                        <li>Room Database Media Index & Incognito Mode</li>
-                    </ul>
-                    <div class="card-actions">
-                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.vxplayer" target="_blank">Google Play</a>
-                        <a class="btn-action-primary" href="vx-player.html">Privacy Policy</a>
+                <div class="card-3d-wrapper">
+                    <div class="app-card">
+                        <div class="card-glare"></div>
+                        <div class="card-meta">
+                            <div class="app-icon">
+                                <img src="vx-player-icon.png" alt="VX Player Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="icon-fallback" style="display:none;">🎬</div>
+                            </div>
+                            <span class="tech-pill">Offline Media</span>
+                        </div>
+                        <h3>VX Player</h3>
+                        <p>Offline-first local media engine featuring an isolated Private Vault with hardware biometrics and zero internet permission declarations.</p>
+                        <ul class="feature-list">
+                            <li>Zero INTERNET Permission Architecture</li>
+                            <li>Hardware Biometric & Salted PIN Vault</li>
+                            <li>Room Database Media Index & Incognito Mode</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.vxplayer" target="_blank">Google Play</a>
+                            <a class="btn-action-primary" href="vx-player.html">Privacy Policy</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- 6. TTS Expert -->
-                <div class="app-card">
-                    <div class="card-meta">
-                        <div class="app-icon">🎤</div>
-                        <span class="tech-pill">Audio Engine</span>
-                    </div>
-                    <h3>TTS Expert</h3>
-                    <p>Production text-to-speech audio synthesis utility supporting rapid offline voice rendering, file extraction, and zero external telemetry.</p>
-                    <ul class="feature-list">
-                        <li>Offline Neural Voice Generation Pipelines</li>
-                        <li>Native High-Fidelity Audio WAV File Export</li>
-                        <li>Isolated Device Processing Subsystems</li>
-                    </ul>
-                    <div class="card-actions">
-                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.ttsexpert" target="_blank">Google Play</a>
-                        <a class="btn-action-primary" href="tts-expert.html">Privacy Policy</a>
+                <div class="card-3d-wrapper">
+                    <div class="app-card">
+                        <div class="card-glare"></div>
+                        <div class="card-meta">
+                            <div class="app-icon">
+                                <img src="tts-expert-icon.png" alt="TTS Expert Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="icon-fallback" style="display:none;">🎤</div>
+                            </div>
+                            <span class="tech-pill">Audio Engine</span>
+                        </div>
+                        <h3>TTS Expert</h3>
+                        <p>Production text-to-speech audio synthesis utility supporting rapid offline voice rendering, file extraction, and zero external telemetry.</p>
+                        <ul class="feature-list">
+                            <li>Offline Neural Voice Generation Pipelines</li>
+                            <li>Native High-Fidelity Audio WAV File Export</li>
+                            <li>Isolated Device Processing Subsystems</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.ttsexpert" target="_blank">Google Play</a>
+                            <a class="btn-action-primary" href="tts-expert.html">Privacy Policy</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- 7. Lite Photo Compressor -->
-                <div class="app-card">
-                    <div class="card-meta">
-                        <div class="app-icon">📸</div>
-                        <span class="tech-pill">Media Pipeline</span>
-                    </div>
-                    <h3>Lite Photo Compressor</h3>
-                    <p>Precise KB-targeted image quantization tool designed to instantly reduce large device images down to target requirements for web forms.</p>
-                    <ul class="feature-list">
-                        <li>Exact 20KB/50KB/100KB Size Matching</li>
-                        <li>0.01f Neon Hardware Brightness Management</li>
-                        <li>Local Scoped Batch Processing Pipeline</li>
-                    </ul>
-                    <div class="card-actions">
-                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.litecompressor" target="_blank">Google Play</a>
-                        <a class="btn-action-primary" href="lite-photo-compressor.html">Privacy Policy</a>
+                <div class="card-3d-wrapper">
+                    <div class="app-card">
+                        <div class="card-glare"></div>
+                        <div class="card-meta">
+                            <div class="app-icon">
+                                <img src="lite-photo-compressor-icon.png" alt="Lite Photo Compressor Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="icon-fallback" style="display:none;">📸</div>
+                            </div>
+                            <span class="tech-pill">Media Pipeline</span>
+                        </div>
+                        <h3>Lite Photo Compressor</h3>
+                        <p>Precise KB-targeted image quantization tool designed to instantly reduce large device images down to target requirements for web forms.</p>
+                        <ul class="feature-list">
+                            <li>Exact 20KB/50KB/100KB Size Matching</li>
+                            <li>0.01f Neon Hardware Brightness Management</li>
+                            <li>Local Scoped Batch Processing Pipeline</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.litecompressor" target="_blank">Google Play</a>
+                            <a class="btn-action-primary" href="lite-photo-compressor.html">Privacy Policy</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- 8. FallGuard -->
-                <div class="app-card">
-                    <div class="card-meta">
-                        <div class="app-icon">🛡️</div>
-                        <span class="tech-pill">Sensor Fusion</span>
-                    </div>
-                    <h3>FallGuard</h3>
-                    <p>Automated real-time safety system utilizing high-precision accelerometer tracking loops to identify accidents without human dependency.</p>
-                    <ul class="feature-list">
-                        <li>Persistent Foreground Safety Service</li>
-                        <li>5-Minute Loop Emergency SMS Automation</li>
-                        <li>Fail-Safe GPS Coordinate Broadcasts</li>
-                    </ul>
-                    <div class="card-actions">
-                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.tahir.fallguard" target="_blank">Google Play</a>
-                        <a class="btn-action-primary" href="fallguard.html">Privacy Policy</a>
+                <div class="card-3d-wrapper">
+                    <div class="app-card">
+                        <div class="card-glare"></div>
+                        <div class="card-meta">
+                            <div class="app-icon">
+                                <img src="fallguard-icon.png" alt="FallGuard Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="icon-fallback" style="display:none;">🛡️</div>
+                            </div>
+                            <span class="tech-pill">Sensor Fusion</span>
+                        </div>
+                        <h3>FallGuard</h3>
+                        <p>Automated real-time safety system utilizing high-precision accelerometer tracking loops to identify accidents without human dependency.</p>
+                        <ul class="feature-list">
+                            <li>Persistent Foreground Safety Service</li>
+                            <li>5-Minute Loop Emergency SMS Automation</li>
+                            <li>Fail-Safe GPS Coordinate Broadcasts</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.tahir.fallguard" target="_blank">Google Play</a>
+                            <a class="btn-action-primary" href="fallguard.html">Privacy Policy</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- 9. SCI-CAL -->
-                <div class="app-card">
-                    <div class="card-meta">
-                        <div class="app-icon">🧮</div>
-                        <span class="tech-pill">Material 3 UI</span>
-                    </div>
-                    <h3>SCI-CAL Calculator</h3>
-                    <p>Comprehensive multi-calculator engine and 35+ structural unit converter featuring custom adaptive stacking logic.</p>
-                    <ul class="feature-list">
-                        <li>60sp to 100sp Dynamic Font Scaling Engine</li>
-                        <li>Room DB Isolated Expression Logging</li>
-                        <li>Compact Ergonomic System Layout</li>
-                    </ul>
-                    <div class="card-actions">
-                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.tahir.scical" target="_blank">Google Play</a>
-                        <a class="btn-action-primary" href="sci-cal.html">Privacy Policy</a>
+                <div class="card-3d-wrapper">
+                    <div class="app-card">
+                        <div class="card-glare"></div>
+                        <div class="card-meta">
+                            <div class="app-icon">
+                                <img src="sci-cal-icon.png" alt="SCI-CAL Calculator Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="icon-fallback" style="display:none;">🧮</div>
+                            </div>
+                            <span class="tech-pill">Material 3 UI</span>
+                        </div>
+                        <h3>SCI-CAL Calculator</h3>
+                        <p>Comprehensive multi-calculator engine and 35+ structural unit converter featuring custom adaptive stacking logic.</p>
+                        <ul class="feature-list">
+                            <li>60sp to 100sp Dynamic Font Scaling Engine</li>
+                            <li>Room DB Isolated Expression Logging</li>
+                            <li>Compact Ergonomic System Layout</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.tahir.scical" target="_blank">Google Play</a>
+                            <a class="btn-action-primary" href="sci-cal.html">Privacy Policy</a>
+                        </div>
                     </div>
                 </div>
 
             </div>
         </section>
 
-        <!-- Studio Profile & Manifesto -->
+        <!-- 🛸 Studio Profile & Manifesto -->
         <section id="about">
             <div class="studio-profile">
                 <div class="profile-layout">
@@ -666,5 +848,125 @@
         <p>© 2026 Neuron TS Labs. All rights reserved. Built for high-efficiency mobile environments.</p>
     </footer>
 
+    <!-- 🌌 Galaxy Warp Animation & 3D Interactive Tilt Scripts -->
+    <script>
+        /* 1. ENDLESS LIGHT-SPEED GALAXY WARP CANVAS */
+        const canvas = document.getElementById('galaxy-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        const STAR_COUNT = 550;
+        const SPEED = 16; // Light-speed warp velocity
+        const stars = [];
+
+        const starColors = [
+            'rgba(255, 255, 255, ',
+            'rgba(0, 242, 254, ',
+            'rgba(157, 77, 255, ',
+            'rgba(167, 139, 250, '
+        ];
+
+        class Star {
+            constructor() {
+                this.reset(true);
+            }
+
+            reset(initial = false) {
+                this.x = (Math.random() - 0.5) * width * 2;
+                this.y = (Math.random() - 0.5) * height * 2;
+                this.z = initial ? Math.random() * width : width;
+                this.pz = this.z;
+                this.color = starColors[Math.floor(Math.random() * starColors.length)];
+            }
+
+            update() {
+                this.pz = this.z;
+                this.z -= SPEED;
+
+                if (this.z <= 0) {
+                    this.reset(false);
+                }
+            }
+
+            draw() {
+                const sx = (this.x / this.z) * (width * 0.5) + width / 2;
+                const sy = (this.y / this.z) * (height * 0.5) + height / 2;
+
+                const px = (this.x / this.pz) * (width * 0.5) + width / 2;
+                const py = (this.y / this.pz) * (height * 0.5) + height / 2;
+
+                if (sx < 0 || sx > width || sy < 0 || sy > height) {
+                    this.reset(false);
+                    return;
+                }
+
+                const alpha = Math.min(1, (1 - this.z / width) * 1.5);
+                const size = (1 - this.z / width) * 2.2;
+
+                ctx.beginPath();
+                ctx.moveTo(px, py);
+                ctx.lineTo(sx, sy);
+                ctx.strokeStyle = this.color + alpha + ')';
+                ctx.lineWidth = size;
+                ctx.stroke();
+            }
+        }
+
+        for (let i = 0; i < STAR_COUNT; i++) {
+            stars.push(new Star());
+        }
+
+        function animateGalaxy() {
+            ctx.fillStyle = 'rgba(5, 7, 14, 0.4)';
+            ctx.fillRect(0, 0, width, height);
+
+            for (let i = 0; i < stars.length; i++) {
+                stars[i].update();
+                stars[i].draw();
+            }
+
+            requestAnimationFrame(animateGalaxy);
+        }
+
+        animateGalaxy();
+
+        /* 2. REAL-TIME 3D CARD TILT & HOLOGRAPHIC LIGHT GLARE */
+        const wrappers = document.querySelectorAll('.card-3d-wrapper');
+
+        wrappers.forEach(wrapper => {
+            const card = wrapper.querySelector('.app-card');
+            const glare = wrapper.querySelector('.card-glare');
+
+            wrapper.addEventListener('mousemove', e => {
+                const rect = wrapper.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                // Max 18 degree tilt
+                const rotateX = ((y - centerY) / centerY) * -16;
+                const rotateY = ((x - centerX) / centerX) * 16;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
+
+                // Update glare position
+                glare.style.setProperty('--mouse-x', `${(x / rect.width) * 100}%`);
+                glare.style.setProperty('--mouse-y', `${(y / rect.height) * 100}%`);
+            });
+
+            wrapper.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            });
+        });
+    </script>
 </body>
 </html>
