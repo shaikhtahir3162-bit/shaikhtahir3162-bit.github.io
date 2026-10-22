@@ -168,24 +168,32 @@
 
         .app-icon {
             background: rgba(255, 255, 255, 0.03);
-            width: 64px;
-            height: 64px;
+            width: 68px;
+            height: 68px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 16px;
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             font-size: 2rem;
             overflow: hidden;
             flex-shrink: 0;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
         }
 
         .app-icon img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 15px;
             display: block;
+        }
+
+        .icon-fallback {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .tech-pill {
@@ -434,28 +442,19 @@
             
             <div class="app-grid">
 
-                <!-- App 1: Hearthwood Blocks (NEW GAME) -->
+                <!-- 1. Hearthwood Blocks -->
                 <div class="app-card">
                     <div class="card-meta">
-                        <div class="app-icon" style="border-color: rgba(245, 158, 11, 0.4); background: #1c1109;">
-                            <!-- Displays hearthwood-blocks-icon.png with embedded SVG fallback matching the 3D wooden blocks grid -->
-                            <img src="hearthwood-blocks-icon.png" alt="Hearthwood Blocks Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                            <svg style="display:none; width: 100%; height: 100%;" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="100" height="100" rx="22" fill="#2d170c"/>
-                                <rect x="8" y="8" width="84" height="84" rx="14" fill="#1b0e07"/>
-                                <!-- Grid Lines -->
-                                <path d="M29 10v80M50 10v80M71 10v80M10 29h80M10 50h80M10 71h80" stroke="#120904" stroke-width="2.5"/>
-                                <!-- Wooden Blocks -->
-                                <rect x="31" y="11" width="17" height="17" rx="3.5" fill="#f59e0b" stroke="#fbbf24" stroke-width="1.5"/>
-                                <rect x="31" y="31" width="17" height="17" rx="3.5" fill="#f59e0b" stroke="#fbbf24" stroke-width="1.5"/>
-                                <rect x="31" y="52" width="17" height="17" rx="3.5" fill="#d97706" stroke="#fbbf24" stroke-width="1.5"/>
-                                <rect x="52" y="52" width="17" height="17" rx="3.5" fill="#f59e0b" stroke="#fbbf24" stroke-width="1.5"/>
-                                <rect x="73" y="73" width="16" height="16" rx="3.5" fill="#d97706" stroke="#fbbf24" stroke-width="1.5"/>
-                                <rect x="52" y="73" width="17" height="16" rx="3.5" fill="#f59e0b" stroke="#fbbf24" stroke-width="1.5"/>
-                                <rect x="31" y="73" width="17" height="16" rx="3.5" fill="#b45309" stroke="#f59e0b" stroke-width="1.5"/>
-                                <rect x="11" y="52" width="17" height="17" rx="3.5" fill="#d97706" stroke="#fbbf24" stroke-width="1.5"/>
-                                <rect x="11" y="73" width="17" height="16" rx="3.5" fill="#b45309" stroke="#f59e0b" stroke-width="1.5"/>
-                            </svg>
+                        <div class="app-icon">
+                            <img src="hearthwood-blocks-icon.png" alt="Hearthwood Blocks Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="icon-fallback" style="display:none; background: #1c1109;">
+                                <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="10" y="10" width="36" height="36" rx="6" fill="#f59e0b"/>
+                                    <rect x="54" y="10" width="36" height="36" rx="6" fill="#d97706"/>
+                                    <rect x="10" y="54" width="36" height="36" rx="6" fill="#b45309"/>
+                                    <rect x="54" y="54" width="36" height="36" rx="6" fill="#f59e0b"/>
+                                </svg>
+                            </div>
                         </div>
                         <span class="tech-pill wood-pill">Wooden Puzzle Game</span>
                     </div>
@@ -472,15 +471,18 @@
                     </div>
                 </div>
 
-                <!-- App 2: Lite Video Compress & Upscale -->
+                <!-- 2. Lite Video Compress & Upscale -->
                 <div class="app-card">
                     <div class="card-meta">
                         <div class="app-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="2" y="4" width="20" height="16" rx="4"></rect>
-                                <path d="m10 9 5 3-5 3V9z" fill="rgba(74, 222, 128, 0.25)"></path>
-                                <path d="M4 2v4M20 2v4M4 18v4M20 18v4"></path>
-                            </svg>
+                            <img src="lite-video-compress-icon.png" alt="Lite Video Compress and Upscale Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="icon-fallback" style="display:none;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="4" width="20" height="16" rx="4"></rect>
+                                    <path d="m10 9 5 3-5 3V9z" fill="rgba(74, 222, 128, 0.25)"></path>
+                                    <path d="M4 2v4M20 2v4M4 18v4M20 18v4"></path>
+                                </svg>
+                            </div>
                         </div>
                         <span class="tech-pill green-pill">Hardware AI Engine</span>
                     </div>
@@ -497,15 +499,18 @@
                     </div>
                 </div>
 
-                <!-- App 3: WeatherGlow -->
+                <!-- 3. WeatherGlow -->
                 <div class="app-card">
                     <div class="card-meta">
                         <div class="app-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none">
-                                <path d="M16 3.5V1.5M20.5 5.5L22 4M22.5 10H20.5M11.5 5.5L10 4" stroke="#9d4dff" stroke-width="2" stroke-linecap="round"/>
-                                <circle cx="16" cy="10" r="3.8" stroke="#9d4dff" stroke-width="2" fill="rgba(157, 77, 255, 0.25)"/>
-                                <path d="M6.5 19H17a4 4 0 0 0 1.3-7.8 5 5 0 0 0-9.6-1.7A4.2 4.2 0 0 0 4 13.5 4 4 0 0 0 6.5 19Z" fill="rgba(0, 242, 254, 0.15)" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                            <img src="weatherglow-icon.png" alt="WeatherGlow Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="icon-fallback" style="display:none;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none">
+                                    <path d="M16 3.5V1.5M20.5 5.5L22 4M22.5 10H20.5M11.5 5.5L10 4" stroke="#9d4dff" stroke-width="2" stroke-linecap="round"/>
+                                    <circle cx="16" cy="10" r="3.8" stroke="#9d4dff" stroke-width="2" fill="rgba(157, 77, 255, 0.25)"/>
+                                    <path d="M6.5 19H17a4 4 0 0 0 1.3-7.8 5 5 0 0 0-9.6-1.7A4.2 4.2 0 0 0 4 13.5 4 4 0 0 0 6.5 19Z" fill="rgba(0, 242, 254, 0.15)" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
                         </div>
                         <span class="tech-pill">Live Weather & AQI</span>
                     </div>
@@ -522,23 +527,19 @@
                     </div>
                 </div>
 
-                <!-- App 4: Multi QR Scanner & Generator -->
+                <!-- 4. Multi QR Scanner & Generator -->
                 <div class="app-card">
                     <div class="card-meta">
                         <div class="app-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="3" width="6" height="6" rx="1.5"></rect>
-                                <rect x="15" y="3" width="6" height="6" rx="1.5"></rect>
-                                <rect x="3" y="15" width="6" height="6" rx="1.5"></rect>
-                                <path d="M15 15h2v2h-2z"></path>
-                                <path d="M19 15h2v6h-2z"></path>
-                                <path d="M15 19h2v2h-2z"></path>
-                                <path d="M10 3v4"></path>
-                                <path d="M3 10h4"></path>
-                                <path d="M10 10h4v4h-4z"></path>
-                                <path d="M14 7h3"></path>
-                                <path d="M7 14v3"></path>
-                            </svg>
+                            <img src="multi-qr-scanner-icon.png" alt="Multi QR Scanner Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="icon-fallback" style="display:none;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="6" height="6" rx="1.5"></rect>
+                                    <rect x="15" y="3" width="6" height="6" rx="1.5"></rect>
+                                    <rect x="3" y="15" width="6" height="6" rx="1.5"></rect>
+                                    <path d="M15 15h2v2h-2zM19 15h2v6h-2zM15 19h2v2h-2zM10 3v4M3 10h4M10 10h4v4h-4zM14 7h3M7 14v3"></path>
+                                </svg>
+                            </div>
                         </div>
                         <span class="tech-pill">Scanner & Tool</span>
                     </div>
@@ -555,10 +556,13 @@
                     </div>
                 </div>
 
-                <!-- App 5: VX Player -->
+                <!-- 5. VX Player -->
                 <div class="app-card">
                     <div class="card-meta">
-                        <div class="app-icon">🎬</div>
+                        <div class="app-icon">
+                            <img src="vx-player-icon.png" alt="VX Player Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="icon-fallback" style="display:none;">🎬</div>
+                        </div>
                         <span class="tech-pill">Offline Media</span>
                     </div>
                     <h3>VX Player</h3>
@@ -574,10 +578,13 @@
                     </div>
                 </div>
 
-                <!-- App 6: TTS Expert (PRODUCTION) -->
+                <!-- 6. TTS Expert -->
                 <div class="app-card">
                     <div class="card-meta">
-                        <div class="app-icon">🎤</div>
+                        <div class="app-icon">
+                            <img src="tts-expert-icon.png" alt="TTS Expert Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="icon-fallback" style="display:none;">🎤</div>
+                        </div>
                         <span class="tech-pill">Audio Engine</span>
                     </div>
                     <h3>TTS Expert</h3>
@@ -593,10 +600,13 @@
                     </div>
                 </div>
 
-                <!-- App 7: Lite Photo Compressor -->
+                <!-- 7. Lite Photo Compressor -->
                 <div class="app-card">
                     <div class="card-meta">
-                        <div class="app-icon">📸</div>
+                        <div class="app-icon">
+                            <img src="lite-photo-compressor-icon.png" alt="Lite Photo Compressor Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="icon-fallback" style="display:none;">📸</div>
+                        </div>
                         <span class="tech-pill">Media Pipeline</span>
                     </div>
                     <h3>Lite Photo Compressor</h3>
@@ -612,10 +622,13 @@
                     </div>
                 </div>
 
-                <!-- App 8: FallGuard -->
+                <!-- 8. FallGuard -->
                 <div class="app-card">
                     <div class="card-meta">
-                        <div class="app-icon">🛡️</div>
+                        <div class="app-icon">
+                            <img src="fallguard-icon.png" alt="FallGuard Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="icon-fallback" style="display:none;">🛡️</div>
+                        </div>
                         <span class="tech-pill">Sensor Fusion</span>
                     </div>
                     <h3>FallGuard</h3>
@@ -631,10 +644,13 @@
                     </div>
                 </div>
 
-                <!-- App 9: SCI-CAL -->
+                <!-- 9. SCI-CAL -->
                 <div class="app-card">
                     <div class="card-meta">
-                        <div class="app-icon">🧮</div>
+                        <div class="app-icon">
+                            <img src="sci-cal-icon.png" alt="SCI-CAL Calculator Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="icon-fallback" style="display:none;">🧮</div>
+                        </div>
                         <span class="tech-pill">Material 3 UI</span>
                     </div>
                     <h3>SCI-CAL Calculator</h3>
