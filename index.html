@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neuron TS Labs | Production-Grade Android Utilities & Games</title>
-    <meta name="description" content="High-performance, privacy-first Android applications and puzzle games engineering. Explore our portfolio and security documentation.">
+    <title>Neuron TS Labs | 3D Hyperspace Android Portfolio</title>
+    <meta name="description" content="High-performance, privacy-first Android applications and puzzle games engineering. Explore our 3D portfolio and security documentation.">
     <style>
         :root {
-            --bg-main: #0b0f19;
-            --bg-surface: #111827;
-            --bg-surface-elevated: #1f2937;
+            --bg-main: #03050a;
+            --bg-card: rgba(13, 18, 32, 0.58);
+            --bg-surface-elevated: rgba(25, 35, 58, 0.75);
             --accent-purple: #9d4dff;
             --accent-cyan: #00f2fe;
             --accent-green: #4ade80;
             --accent-wood: #f59e0b;
-            --text-primary: #f3f4f6;
-            --text-muted: #9ca3af;
-            --border-color: rgba(255, 255, 255, 0.06);
-            --neon-glow: rgba(157, 77, 255, 0.15);
+            --text-primary: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.12);
+            --neon-glow: rgba(0, 242, 254, 0.28);
         }
 
         * {
@@ -36,149 +36,305 @@
             font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            perspective: 1500px;
         }
 
-        /* Hero Header */
+        /* 3D Light-Speed Galaxy Background Canvas */
+        #galaxy-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+            background: radial-gradient(circle at 50% 50%, #0b1124 0%, #050711 55%, #010206 100%);
+        }
+
+        /* Top Futuristic HUD Bar */
+        .hud-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(5, 8, 18, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0, 242, 254, 0.15);
+            padding: 14px 24px;
+        }
+
+        .hud-container {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 1.15rem;
+            letter-spacing: 0.04em;
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .brand-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent-cyan);
+            box-shadow: 0 0 12px var(--accent-cyan), 0 0 24px var(--accent-purple);
+            animation: pulseDot 2s infinite ease-in-out;
+        }
+
+        @keyframes pulseDot {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.35); opacity: 0.7; }
+        }
+
+        .warp-toggle {
+            background: rgba(0, 242, 254, 0.1);
+            border: 1px solid rgba(0, 242, 254, 0.35);
+            color: var(--accent-cyan);
+            padding: 8px 16px;
+            border-radius: 99px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.15);
+        }
+
+        .warp-toggle:hover, .warp-toggle.active {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: #03050a;
+            border-color: transparent;
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.6);
+            transform: scale(1.05);
+        }
+
+        /* 3D Hero Header */
         header {
             position: relative;
-            background: radial-gradient(circle at top right, rgba(157, 77, 255, 0.12), transparent 50%),
-                        radial-gradient(circle at bottom left, rgba(0, 242, 254, 0.05), transparent 50%),
-                        var(--bg-main);
-            border-bottom: 1px solid var(--border-color);
-            padding: 100px 20px 80px 20px;
+            padding: 160px 20px 90px 20px;
             text-align: center;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 1200px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent-purple), var(--accent-cyan), transparent);
+            transform-style: preserve-3d;
         }
 
         .header-container {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
+            transform-style: preserve-3d;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: 99px;
+            background: rgba(157, 77, 255, 0.12);
+            border: 1px solid rgba(157, 77, 255, 0.35);
+            color: #d8b4fe;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+            box-shadow: 0 0 25px rgba(157, 77, 255, 0.25);
         }
 
         header h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            letter-spacing: -0.05em;
-            background: linear-gradient(135deg, #ffffff 30%, #a78bfa 100%);
+            font-size: 4.2rem;
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            background: linear-gradient(135deg, #ffffff 20%, #00f2fe 60%, #9d4dff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 10px 30px rgba(0, 242, 254, 0.25));
         }
 
         header p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 650px;
-            margin: 0 auto 32px auto;
+            font-size: 1.22rem;
+            color: #cbd5e1;
+            max-width: 680px;
+            margin: 0 auto 38px auto;
             line-height: 1.7;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
         }
 
         .btn-primary {
             display: inline-flex;
             align-items: center;
-            padding: 14px 28px;
-            background: linear-gradient(135deg, var(--accent-purple), #7c3aed);
+            gap: 10px;
+            padding: 16px 34px;
+            background: linear-gradient(135deg, var(--accent-purple), #4f46e5, var(--accent-cyan));
+            background-size: 200% 200%;
             color: #ffffff;
             text-decoration: none;
-            font-weight: 600;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px var(--neon-glow);
-            transition: all 0.2s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.03em;
+            border-radius: 14px;
+            box-shadow: 0 10px 35px rgba(157, 77, 255, 0.45), 0 0 20px rgba(0, 242, 254, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            animation: gradientShift 5s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 24px rgba(157, 77, 255, 0.3);
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 15px 45px rgba(0, 242, 254, 0.55), 0 0 30px rgba(157, 77, 255, 0.6);
         }
 
-        /* Layout Section */
+        /* Main Section Layout */
         section {
-            max-width: 1200px;
+            max-width: 1260px;
             margin: 0 auto;
-            padding: 80px 20px;
+            padding: 60px 24px 90px 24px;
         }
 
         .section-title {
-            font-size: 2.25rem;
-            font-weight: 700;
+            font-size: 2.5rem;
+            font-weight: 800;
             letter-spacing: -0.03em;
             text-align: center;
-            margin-bottom: 48px;
-            background: linear-gradient(135deg, #ffffff, #9ca3af);
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #ffffff 30%, #00f2fe 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(0, 242, 254, 0.2);
         }
 
-        /* App Grid */
+        /* 3D App Grid & Perspective Wrappers */
         .app-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 32px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            perspective: 1400px;
+        }
+
+        .card-3d-stage {
+            perspective: 1200px;
+            transform-style: preserve-3d;
+            display: flex;
         }
 
         .app-card {
-            background-color: var(--bg-surface);
+            width: 100%;
+            background: var(--bg-card);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 32px;
+            border-radius: 26px;
+            padding: 34px;
             display: flex;
             flex-direction: column;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: transform 0.12s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+            will-change: transform;
         }
 
+        /* Holographic Specular Glare Overlay */
         .app-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(800px circle at var(--x, 0px) var(--y, 0px), rgba(255,255,255,0.015), transparent 40%);
-            z-index: 1;
+            inset: 0;
+            border-radius: 26px;
+            background: radial-gradient(
+                650px circle at var(--glare-x, 50%) var(--glare-y, 50%),
+                rgba(0, 242, 254, 0.14),
+                rgba(157, 77, 255, 0.08) 35%,
+                transparent 70%
+            );
+            z-index: 0;
             pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Subtle 3D Cyber Grid Inside Card */
+        .app-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 26px;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+            background-size: 28px 28px;
+            z-index: 0;
+            pointer-events: none;
+            mask-image: radial-gradient(circle at center, black 30%, transparent 85%);
+            -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 85%);
         }
 
         .app-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(157, 77, 255, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px var(--neon-glow);
+            border-color: rgba(0, 242, 254, 0.55);
+            box-shadow: 
+                0 35px 70px rgba(0, 0, 0, 0.85),
+                0 0 35px rgba(0, 242, 254, 0.25),
+                inset 0 0 20px rgba(157, 77, 255, 0.12);
         }
 
+        .app-card:hover::before {
+            opacity: 1;
+        }
+
+        /* 3D Pop-Out Z-Layers Inside Each Card */
         .card-meta {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
+            transform: translateZ(55px);
+            transform-style: preserve-3d;
+            position: relative;
+            z-index: 2;
         }
 
         .app-icon {
-            background: rgba(255, 255, 255, 0.03);
-            width: 68px;
-            height: 68px;
+            background: rgba(15, 23, 42, 0.85);
+            width: 72px;
+            height: 72px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 18px;
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
             font-size: 2rem;
             overflow: hidden;
             flex-shrink: 0;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 18px 32px rgba(0, 0, 0, 0.7), 0 0 18px rgba(0, 242, 254, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .app-card:hover .app-icon {
+            transform: translateZ(15px) scale(1.06);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 22px 38px rgba(0, 0, 0, 0.85), 0 0 25px rgba(0, 242, 254, 0.45);
         }
 
         .app-icon img {
@@ -197,62 +353,76 @@
         }
 
         .tech-pill {
-            font-size: 0.75rem;
-            font-weight: 600;
+            font-size: 0.73rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 6px 12px;
-            background: rgba(0, 242, 254, 0.08);
+            letter-spacing: 0.06em;
+            padding: 7px 14px;
+            background: rgba(0, 242, 254, 0.12);
             color: var(--accent-cyan);
             border-radius: 99px;
-            border: 1px solid rgba(0, 242, 254, 0.15);
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
         }
 
         .tech-pill.green-pill {
             color: var(--accent-green);
-            background: rgba(74, 222, 128, 0.09);
-            border-color: rgba(74, 222, 128, 0.25);
+            background: rgba(74, 222, 128, 0.12);
+            border-color: rgba(74, 222, 128, 0.35);
         }
 
         .tech-pill.wood-pill {
             color: var(--accent-wood);
-            background: rgba(245, 158, 11, 0.10);
-            border-color: rgba(245, 158, 11, 0.30);
+            background: rgba(245, 158, 11, 0.14);
+            border-color: rgba(245, 158, 11, 0.4);
         }
 
         .app-card h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 1.55rem;
+            font-weight: 700;
             margin-bottom: 12px;
             letter-spacing: -0.02em;
+            color: #ffffff;
+            transform: translateZ(42px);
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
         }
 
         .app-card p {
             color: var(--text-muted);
             font-size: 0.95rem;
-            line-height: 1.6;
+            line-height: 1.65;
             margin-bottom: 24px;
             flex-grow: 1;
+            transform: translateZ(28px);
+            position: relative;
+            z-index: 2;
         }
 
         .feature-list {
             list-style: none;
             margin-bottom: 28px;
+            transform: translateZ(34px);
+            position: relative;
+            z-index: 2;
         }
 
         .feature-list li {
-            font-size: 0.87rem;
-            color: var(--text-muted);
-            margin-bottom: 8px;
+            font-size: 0.88rem;
+            color: #cbd5e1;
+            margin-bottom: 9px;
             display: flex;
             align-items: center;
         }
 
         .feature-list li::before {
-            content: '✓';
-            color: var(--accent-purple);
-            margin-right: 8px;
+            content: '✦';
+            color: var(--accent-cyan);
+            margin-right: 10px;
             font-weight: bold;
+            text-shadow: 0 0 8px var(--accent-cyan);
         }
 
         .card-actions {
@@ -260,55 +430,69 @@
             grid-template-columns: 1fr 1fr;
             gap: 12px;
             margin-top: auto;
+            transform: translateZ(48px);
+            position: relative;
+            z-index: 2;
         }
 
         .btn-secondary {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 10px 16px;
-            background: rgba(255, 255, 255, 0.03);
+            padding: 11px 16px;
+            background: rgba(255, 255, 255, 0.05);
             color: var(--text-primary);
             text-decoration: none;
             font-size: 0.88rem;
             font-weight: 600;
-            border-radius: 10px;
-            border: 1px solid var(--border-color);
-            transition: all 0.2s ease;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            transition: all 0.25s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.14);
+            border-color: #ffffff;
+            transform: translateY(-2px);
         }
 
         .btn-action-primary {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 10px 16px;
-            background: var(--bg-surface-elevated);
+            padding: 11px 16px;
+            background: linear-gradient(135deg, rgba(157, 77, 255, 0.25), rgba(0, 242, 254, 0.2));
             color: #ffffff;
             text-decoration: none;
             font-size: 0.88rem;
-            font-weight: 600;
-            border-radius: 10px;
-            border: 1px solid rgba(157, 77, 255, 0.2);
-            transition: all 0.2s ease;
+            font-weight: 700;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 242, 254, 0.35);
+            transition: all 0.25s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
 
         .btn-action-primary:hover {
-            border-color: var(--accent-purple);
-            box-shadow: 0 0 12px var(--neon-glow);
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+            color: #03050a;
+            border-color: transparent;
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.5);
+            transform: translateY(-2px);
         }
 
-        /* Studio Profile Section */
+        /* 3D Studio Manifesto Section */
         .studio-profile {
-            background: linear-gradient(135deg, var(--bg-surface), #111c30);
-            border: 1px solid var(--border-color);
-            border-radius: 28px;
-            padding: 48px;
-            margin-top: 40px;
+            background: rgba(15, 22, 40, 0.65);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(0, 242, 254, 0.2);
+            border-radius: 30px;
+            padding: 52px;
+            margin-top: 20px;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.75), 0 0 40px rgba(157, 77, 255, 0.12);
+            position: relative;
+            overflow: hidden;
         }
 
         .profile-layout {
@@ -318,39 +502,48 @@
         }
 
         .profile-content h3 {
-            font-size: 1.75rem;
+            font-size: 1.85rem;
             margin-bottom: 16px;
             letter-spacing: -0.02em;
+            color: #ffffff;
         }
 
         .profile-content p {
-            color: var(--text-muted);
+            color: #cbd5e1;
             font-size: 1.05rem;
             line-height: 1.7;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }
 
         .commitments-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 22px;
+        }
+
+        .commitment-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 18px;
+            border-radius: 16px;
         }
 
         .commitment-item h4 {
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 6px;
-            color: #ffffff;
+            color: var(--accent-cyan);
         }
 
         .commitment-item p {
             font-size: 0.88rem;
             color: var(--text-muted);
             line-height: 1.5;
+            margin-bottom: 0;
         }
 
         .contact-sidebar {
-            border-left: 1px solid var(--border-color);
+            border-left: 1px solid rgba(255, 255, 255, 0.12);
             padding-left: 48px;
             display: flex;
             flex-direction: column;
@@ -363,28 +556,30 @@
 
         .contact-method span {
             display: block;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
             color: var(--text-muted);
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         .contact-method a {
             color: var(--accent-cyan);
             text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 500;
-            transition: color 0.2s ease;
+            font-size: 1.15rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
         }
 
         .contact-method a:hover {
             color: #ffffff;
+            text-shadow: 0 0 12px var(--accent-cyan);
         }
 
         footer {
-            border-top: 1px solid var(--border-color);
-            background-color: #070a10;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(3, 5, 10, 0.8);
+            backdrop-filter: blur(12px);
             padding: 40px 20px;
             text-align: center;
         }
@@ -392,6 +587,12 @@
         footer p {
             font-size: 0.9rem;
             color: var(--text-muted);
+        }
+
+        /* Idle 3D Float Animation for Mobile / Untouched Cards */
+        @keyframes float3D {
+            0%, 100% { transform: rotateX(2deg) rotateY(-2deg) translateY(0px); }
+            50% { transform: rotateX(-2deg) rotateY(2deg) translateY(-6px); }
         }
 
         @media (max-width: 900px) {
@@ -408,31 +609,55 @@
         }
 
         @media (max-width: 600px) {
+            header {
+                padding: 130px 16px 60px 16px;
+            }
             header h1 {
-                font-size: 2.5rem;
+                font-size: 2.6rem;
             }
             header p {
                 font-size: 1rem;
             }
             .app-grid {
                 grid-template-columns: 1fr;
+                gap: 28px;
+            }
+            .app-card {
+                animation: float3D 6s ease-in-out infinite;
             }
             .commitments-grid {
                 grid-template-columns: 1fr;
             }
             .studio-profile {
-                padding: 24px;
+                padding: 28px 20px;
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- Endless 3D Light-Speed Galaxy Canvas -->
+    <canvas id="galaxy-canvas"></canvas>
+
+    <!-- Futuristic Top Navigation HUD -->
+    <nav class="hud-nav">
+        <div class="hud-container">
+            <a href="#" class="brand-logo">
+                <span class="brand-dot"></span>
+                NEURON TS LABS
+            </a>
+            <button id="warp-btn" class="warp-toggle" title="Toggle Hyperdrive Speed">
+                ⚡ Hyperdrive: Normal
+            </button>
+        </div>
+    </nav>
+
     <header>
         <div class="header-container">
+            <div class="hero-badge">🌌 Next-Gen On-Device Android Architecture</div>
             <h1>Neuron TS Labs</h1>
-            <p>Engineering robust, hardware-optimized, and privacy-first Android systems and puzzle experiences. All core software operate with transparent, zero-cloud data models.</p>
-            <a class="btn-primary" href="#portfolio">Explore Architecture</a>
+            <p>Engineering ultra-fast, hardware-accelerated, and privacy-first Android utilities and games. Zero cloud tracking. 100% local silicon execution.</p>
+            <a class="btn-primary" href="#portfolio">🚀 Enter 3D App Fleet</a>
         </div>
     </header>
 
@@ -443,282 +668,44 @@
             <div class="app-grid">
 
                 <!-- 1. Hearthwood Blocks -->
-                <div class="app-card">
-                    <div class="card-meta">
-                        <div class="app-icon">
-                            <img src="hearthwood-blocks-icon.png" alt="Hearthwood Blocks Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="icon-fallback" style="display:none; background: #1c1109;">
-                                <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="10" y="10" width="36" height="36" rx="6" fill="#f59e0b"/>
-                                    <rect x="54" y="10" width="36" height="36" rx="6" fill="#d97706"/>
-                                    <rect x="10" y="54" width="36" height="36" rx="6" fill="#b45309"/>
-                                    <rect x="54" y="54" width="36" height="36" rx="6" fill="#f59e0b"/>
-                                </svg>
+                <div class="card-3d-stage">
+                    <div class="app-card">
+                        <div class="card-meta">
+                            <div class="app-icon">
+                                <img src="hearthwood-blocks-icon.png" alt="Hearthwood Blocks Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="icon-fallback" style="display:none; background: #1c1109;">
+                                    <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="10" y="10" width="36" height="36" rx="6" fill="#f59e0b"/>
+                                        <rect x="54" y="10" width="36" height="36" rx="6" fill="#d97706"/>
+                                        <rect x="10" y="54" width="36" height="36" rx="6" fill="#b45309"/>
+                                        <rect x="54" y="54" width="36" height="36" rx="6" fill="#f59e0b"/>
+                                    </svg>
+                                </div>
                             </div>
+                            <span class="tech-pill wood-pill">Wooden Puzzle Game</span>
                         </div>
-                        <span class="tech-pill wood-pill">Wooden Puzzle Game</span>
-                    </div>
-                    <h3>Hearthwood Blocks</h3>
-                    <p>Tranquil offline wooden block puzzle featuring spatial grid logic, tactile haptics, multiple game modes, and complete on-device progress privacy.</p>
-                    <ul class="feature-list">
-                        <li>100% Offline-First Classic, Tactic & Bomb Modes</li>
-                        <li>Zero Accounts, Registration or Cross-App Tracking</li>
-                        <li>Instant One-Tap On-Device Data Reset Option</li>
-                    </ul>
-                    <div class="card-actions">
-                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.hearthwoodblocks" target="_blank">Google Play</a>
-                        <a class="btn-action-primary" href="hearthwood-blocks-privacy.html">Privacy Policy</a>
+                        <h3>Hearthwood Blocks</h3>
+                        <p>Tranquil offline wooden block puzzle featuring spatial grid logic, tactile haptics, multiple game modes, and complete on-device progress privacy.</p>
+                        <ul class="feature-list">
+                            <li>100% Offline-First Classic, Tactic & Bomb Modes</li>
+                            <li>Zero Accounts, Registration or Cross-App Tracking</li>
+                            <li>Instant One-Tap On-Device Data Reset Option</li>
+                        </ul>
+                        <div class="card-actions">
+                            <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.hearthwoodblocks" target="_blank">Google Play</a>
+                            <a class="btn-action-primary" href="hearthwood-blocks-privacy.html">Privacy Policy</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- 2. Lite Video Compress & Upscale -->
-                <div class="app-card">
-                    <div class="card-meta">
-                        <div class="app-icon">
-                            <img src="lite-video-compress-icon.png" alt="Lite Video Compress and Upscale Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="icon-fallback" style="display:none;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="2" y="4" width="20" height="16" rx="4"></rect>
-                                    <path d="m10 9 5 3-5 3V9z" fill="rgba(74, 222, 128, 0.25)"></path>
-                                    <path d="M4 2v4M20 2v4M4 18v4M20 18v4"></path>
-                                </svg>
-                            </div>
-                        </div>
-                        <span class="tech-pill green-pill">Hardware AI Engine</span>
-                    </div>
-                    <h3>Lite Video Compress & Upscale</h3>
-                    <p>On-device neural super-resolution upscaler and hardware video compression utility with zero cloud uploads and direct target-size quantization.</p>
-                    <ul class="feature-list">
-                        <li>100% Local CPU, GPU & NPU Neural Acceleration</li>
-                        <li>Zero Server Uploads & No Cloud Video Storage</li>
-                        <li>Isolated Scoped Storage & One-Tap Cache Wipe</li>
-                    </ul>
-                    <div class="card-actions">
-                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.litevideocompressandupscale" target="_blank">Google Play</a>
-                        <a class="btn-action-primary" href="lite-video-compress-and-upscale-privacy.html">Privacy Policy</a>
-                    </div>
-                </div>
-
-                <!-- 3. WeatherGlow -->
-                <div class="app-card">
-                    <div class="card-meta">
-                        <div class="app-icon">
-                            <img src="weatherglow-icon.png" alt="WeatherGlow Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="icon-fallback" style="display:none;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none">
-                                    <path d="M16 3.5V1.5M20.5 5.5L22 4M22.5 10H20.5M11.5 5.5L10 4" stroke="#9d4dff" stroke-width="2" stroke-linecap="round"/>
-                                    <circle cx="16" cy="10" r="3.8" stroke="#9d4dff" stroke-width="2" fill="rgba(157, 77, 255, 0.25)"/>
-                                    <path d="M6.5 19H17a4 4 0 0 0 1.3-7.8 5 5 0 0 0-9.6-1.7A4.2 4.2 0 0 0 4 13.5 4 4 0 0 0 6.5 19Z" fill="rgba(0, 242, 254, 0.15)" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <span class="tech-pill">Live Weather & AQI</span>
-                    </div>
-                    <h3>WeatherGlow</h3>
-                    <p>Minimalist atmospheric tracker featuring transparent glass widgets, dynamic neon accents, real-time AQI, and zero continuous background location polling.</p>
-                    <ul class="feature-list">
-                        <li>Transparent Glass & Neon Clock Widgets</li>
-                        <li>OpenWeather Localized Forecast Engine</li>
-                        <li>On-Demand GPS & Zero Background Tracking</li>
-                    </ul>
-                    <div class="card-actions">
-                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.weatherglow" target="_blank">Google Play</a>
-                        <a class="btn-action-primary" href="weatherglow-privacy.html">Privacy Policy</a>
-                    </div>
-                </div>
-
-                <!-- 4. Multi QR Scanner & Generator -->
-                <div class="app-card">
-                    <div class="card-meta">
-                        <div class="app-icon">
-                            <img src="multi-qr-scanner-icon.png" alt="Multi QR Scanner Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="icon-fallback" style="display:none;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="3" y="3" width="6" height="6" rx="1.5"></rect>
-                                    <rect x="15" y="3" width="6" height="6" rx="1.5"></rect>
-                                    <rect x="3" y="15" width="6" height="6" rx="1.5"></rect>
-                                    <path d="M15 15h2v2h-2zM19 15h2v6h-2zM15 19h2v2h-2zM10 3v4M3 10h4M10 10h4v4h-4zM14 7h3M7 14v3"></path>
-                                </svg>
-                            </div>
-                        </div>
-                        <span class="tech-pill">Scanner & Tool</span>
-                    </div>
-                    <h3>Multi QR Scanner & Generator</h3>
-                    <p>High-speed offline scanning engine and custom QR/barcode generator supporting batch operations, Wi-Fi decoding, and local history export.</p>
-                    <ul class="feature-list">
-                        <li>Instant Camera & Gallery Decoding</li>
-                        <li>Custom QR Code & Multi-Format Barcode Engine</li>
-                        <li>Isolated Local Scan History & CSV Export</li>
-                    </ul>
-                    <div class="card-actions">
-                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.multiqrscanner" target="_blank">Google Play</a>
-                        <a class="btn-action-primary" href="multi-qr-scanner.html">Privacy Policy</a>
-                    </div>
-                </div>
-
-                <!-- 5. VX Player -->
-                <div class="app-card">
-                    <div class="card-meta">
-                        <div class="app-icon">
-                            <img src="vx-player-icon.png" alt="VX Player Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="icon-fallback" style="display:none;">🎬</div>
-                        </div>
-                        <span class="tech-pill">Offline Media</span>
-                    </div>
-                    <h3>VX Player</h3>
-                    <p>Offline-first local media engine featuring an isolated Private Vault with hardware biometrics and zero internet permission declarations.</p>
-                    <ul class="feature-list">
-                        <li>Zero INTERNET Permission Architecture</li>
-                        <li>Hardware Biometric & Salted PIN Vault</li>
-                        <li>Room Database Media Index & Incognito Mode</li>
-                    </ul>
-                    <div class="card-actions">
-                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.vxplayer" target="_blank">Google Play</a>
-                        <a class="btn-action-primary" href="vx-player.html">Privacy Policy</a>
-                    </div>
-                </div>
-
-                <!-- 6. TTS Expert -->
-                <div class="app-card">
-                    <div class="card-meta">
-                        <div class="app-icon">
-                            <img src="tts-expert-icon.png" alt="TTS Expert Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="icon-fallback" style="display:none;">🎤</div>
-                        </div>
-                        <span class="tech-pill">Audio Engine</span>
-                    </div>
-                    <h3>TTS Expert</h3>
-                    <p>Production text-to-speech audio synthesis utility supporting rapid offline voice rendering, file extraction, and zero external telemetry.</p>
-                    <ul class="feature-list">
-                        <li>Offline Neural Voice Generation Pipelines</li>
-                        <li>Native High-Fidelity Audio WAV File Export</li>
-                        <li>Isolated Device Processing Subsystems</li>
-                    </ul>
-                    <div class="card-actions">
-                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.ttsexpert" target="_blank">Google Play</a>
-                        <a class="btn-action-primary" href="tts-expert.html">Privacy Policy</a>
-                    </div>
-                </div>
-
-                <!-- 7. Lite Photo Compressor -->
-                <div class="app-card">
-                    <div class="card-meta">
-                        <div class="app-icon">
-                            <img src="lite-photo-compressor-icon.png" alt="Lite Photo Compressor Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="icon-fallback" style="display:none;">📸</div>
-                        </div>
-                        <span class="tech-pill">Media Pipeline</span>
-                    </div>
-                    <h3>Lite Photo Compressor</h3>
-                    <p>Precise KB-targeted image quantization tool designed to instantly reduce large device images down to target requirements for web forms.</p>
-                    <ul class="feature-list">
-                        <li>Exact 20KB/50KB/100KB Size Matching</li>
-                        <li>0.01f Neon Hardware Brightness Management</li>
-                        <li>Local Scoped Batch Processing Pipeline</li>
-                    </ul>
-                    <div class="card-actions">
-                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.neurontslabs.litecompressor" target="_blank">Google Play</a>
-                        <a class="btn-action-primary" href="lite-photo-compressor.html">Privacy Policy</a>
-                    </div>
-                </div>
-
-                <!-- 8. FallGuard -->
-                <div class="app-card">
-                    <div class="card-meta">
-                        <div class="app-icon">
-                            <img src="fallguard-icon.png" alt="FallGuard Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="icon-fallback" style="display:none;">🛡️</div>
-                        </div>
-                        <span class="tech-pill">Sensor Fusion</span>
-                    </div>
-                    <h3>FallGuard</h3>
-                    <p>Automated real-time safety system utilizing high-precision accelerometer tracking loops to identify accidents without human dependency.</p>
-                    <ul class="feature-list">
-                        <li>Persistent Foreground Safety Service</li>
-                        <li>5-Minute Loop Emergency SMS Automation</li>
-                        <li>Fail-Safe GPS Coordinate Broadcasts</li>
-                    </ul>
-                    <div class="card-actions">
-                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.tahir.fallguard" target="_blank">Google Play</a>
-                        <a class="btn-action-primary" href="fallguard.html">Privacy Policy</a>
-                    </div>
-                </div>
-
-                <!-- 9. SCI-CAL -->
-                <div class="app-card">
-                    <div class="card-meta">
-                        <div class="app-icon">
-                            <img src="sci-cal-icon.png" alt="SCI-CAL Calculator Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="icon-fallback" style="display:none;">🧮</div>
-                        </div>
-                        <span class="tech-pill">Material 3 UI</span>
-                    </div>
-                    <h3>SCI-CAL Calculator</h3>
-                    <p>Comprehensive multi-calculator engine and 35+ structural unit converter featuring custom adaptive stacking logic.</p>
-                    <ul class="feature-list">
-                        <li>60sp to 100sp Dynamic Font Scaling Engine</li>
-                        <li>Room DB Isolated Expression Logging</li>
-                        <li>Compact Ergonomic System Layout</li>
-                    </ul>
-                    <div class="card-actions">
-                        <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.tahir.scical" target="_blank">Google Play</a>
-                        <a class="btn-action-primary" href="sci-cal.html">Privacy Policy</a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Studio Profile & Manifesto -->
-        <section id="about">
-            <div class="studio-profile">
-                <div class="profile-layout">
-                    <div class="profile-content">
-                        <h3>Core Engineering Manifesto</h3>
-                        <p>Neuron TS Labs targets complex Android framework challenges to build lightweight, fast utilities and games. We reject standard telemetry practices, designing architectural models where complex computing occurs strictly locally on your physical device.</p>
-                        
-                        <div class="commitments-grid">
-                            <div class="commitment-item">
-                                <h4>Offline Data Architecture</h4>
-                                <p>Application databases and game boards are parsed and preserved in isolated device memories. No external server components are used.</p>
-                            </div>
-                            <div class="commitment-item">
-                                <h4>Permission Minimization</h4>
-                                <p>Hardware APIs and sensors are invoked transparently only when strictly necessary to fulfill local operations.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-sidebar">
-                        <div class="contact-method">
-                            <span>Secure Engineering Support</span>
-                            <a href="mailto:shaikhtahir3162@gmail.com">shaikhtahir3162@gmail.com</a>
-                        </div>
-                        <div class="contact-method">
-                            <span>Source Code Repositories</span>
-                            <a href="https://github.com/shaikhtahir3162-bit" target="_blank">github.com/shaikhtahir3162-bit</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2026 Neuron TS Labs. All rights reserved. Built for high-efficiency mobile environments.</p>
-    </footer>
-
-    <script>
-        // Interactive spotlight glow effect on cards
-        document.querySelectorAll('.app-card').forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                card.style.setProperty('--x', `${x}px`);
-                card.style.setProperty('--y', `${y}px`);
-            });
-        });
-    </script>
-</body>
-</html>
+                <div class="card-3d-stage">
+                    <div class="app-card">
+                        <div class="card-meta">
+                            <div class="app-icon">
+                                <img src="lite-video-compress-icon.png" alt="Lite Video Compress and Upscale Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="icon-fallback" style="display:none;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="4" width="20" height="16" rx="4"></rect>
+                                        <path d="m10 9 5 3-5 3V9z" fill="rgba(74, 222, 128, 0.25)"></path>
+                                        <path d="M4 2v4M20
